@@ -4,7 +4,7 @@ return array(
 	'sp-smart-button' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'sp/smart-button',
+		'name' => 'sp/smart-buttons',
 		'version' => '0.1.0',
 		'title' => 'Sp Smart Button',
 		'category' => 'shapedplugin',
@@ -35,5 +35,9 @@ return array(
 				'default' => 'default'
 			)
 		)
+	),
+	'single-button' => array(
+		'name' => 'sp/single-button',
+		'editorScript' => 'file:./edit.js'
 	)
 );

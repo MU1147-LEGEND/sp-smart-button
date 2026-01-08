@@ -37,136 +37,13 @@ var SvgIcon = function SvgIcon(props) {
 
 /***/ },
 
-/***/ "./src/sp-smart-button/assets/selected.svg"
-/*!*************************************************!*\
-  !*** ./src/sp-smart-button/assets/selected.svg ***!
-  \*************************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ReactComponent: () => (/* binding */ SvgSelected),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _g, _defs;
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-
-var SvgSelected = function SvgSelected(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 12,
-    height: 12,
-    fill: "none"
-  }, props), _g || (_g = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("g", {
-    clipPath: "url(#selected_svg__a)"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#fff",
-    d: "M6.028 0H6a6.03 6.03 0 0 0-4.817 2.422A5.95 5.95 0 0 0 0 6c0 1.146.324 2.26.938 3.221a6 6 0 0 0 2.434 2.174A5.94 5.94 0 0 0 6 12h.028C9.32 11.984 12 9.292 12 6S9.32.016 6.028 0m3.55 4.727L5.815 8.492a.857.857 0 0 1-1.22 0L2.42 6.318a.865.865 0 0 1 .61-1.473c.231 0 .448.09.611.253l1.564 1.564 3.154-3.154a.86.86 0 0 1 .61-.253c.23 0 .447.09.61.253s.253.38.253.61-.09.447-.253.61"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#fff",
-    d: "M9.579 4.727 5.814 8.492a.857.857 0 0 1-1.22 0L2.42 6.318a.865.865 0 0 1 .61-1.473c.231 0 .448.09.611.253l1.564 1.564 3.154-3.154a.86.86 0 0 1 .61-.253c.23 0 .447.09.61.253s.253.38.253.61-.09.447-.253.61"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#1A74E4",
-    d: "M6.028 0H6a6.03 6.03 0 0 0-4.817 2.422A5.95 5.95 0 0 0 0 6c0 1.146.324 2.26.938 3.221a6 6 0 0 0 2.434 2.174A5.94 5.94 0 0 0 6 12h.028C9.32 11.984 12 9.292 12 6S9.32.016 6.028 0m3.55 4.727L5.815 8.492a.857.857 0 0 1-1.22 0L2.42 6.318a.865.865 0 0 1 .61-1.473c.231 0 .448.09.611.253l1.564 1.564 3.154-3.154a.86.86 0 0 1 .61-.253c.23 0 .447.09.61.253s.253.38.253.61-.09.447-.253.61"
-  }))), _defs || (_defs = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("defs", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("clipPath", {
-    id: "selected_svg__a"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#fff",
-    d: "M0 0h12v12H0z"
-  })))));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIiBmaWxsPSJub25lIj4KICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMjg2MDdfNzcyMSkiPgogICAgPHBhdGggZD0iTTYuMDI4IDAuMDAwNzgxMjU4TDYuMDE4NjcgMC4wMDA1MjA4MzlDNi4wMTIyOSAwLjAwMDI2MDQyNSA2LjAwNiAwIDUuOTk5NjIgMEM0LjExMjI2IDAgMi4zMTE4IDAuOTA1NDc2IDEuMTgzMzUgMi40MjIxNEMwLjQwOTIwNCAzLjQ2MjU2IDAgNC42OTk5NCAwIDYuMDAwMTdDMCA3LjE0NTk2IDAuMzI0MjcgOC4yNTk3NSAwLjkzNzU5OCA5LjIyMTQzQzEuNTM0NTMgMTAuMTU3NCAyLjM3NjM5IDEwLjkwOSAzLjM3MjI5IDExLjM5NUM0LjE5NTA5IDExLjc5NjUgNS4wNzkwOCAxMi4wMDAxIDUuOTk5NjUgMTIuMDAwMUM2LjAwNTc3IDEyLjAwMDEgNi4wMTE5MyAxMS45OTk4IDYuMDE4MDUgMTEuOTk5N0w2LjAyNzM4IDExLjk5OTRDOS4zMjA2NCAxMS45ODQ1IDEyIDkuMjkzMTkgMTIgNi4wMDAxNUMxMS45OTk5IDIuNzA3MDEgOS4zMjA1OSAwLjAxNTY3MDMgNi4wMjggMC4wMDA3ODEyNThaTTkuNTc4NyA0LjcyNzM4TDUuODE0MjIgOC40OTE5OEM1Ljc3MzAzIDguNTMzMyA1LjcyNzAyIDguNTcwOTMgNS42Nzc2OCA4LjYwMzU3QzUuNTM3MDEgOC42OTYyMyA1LjM3MzU1IDguNzQ1MzMgNS4yMDUwMiA4Ljc0NTMzQzQuOTc0NSA4Ljc0NTMzIDQuNzU3ODMgOC42NTUzMSA0LjU5NDcyIDguNDkxODZMMi40MjA0OCA2LjMxNzk1QzIuMDg0NDkgNS45ODE0IDIuMDg0NDkgNS40MzM5NSAyLjQyMDM1IDUuMDk3ODJDMi41ODM0MSA0LjkzNDc1IDIuODAwMjIgNC44NDQ4NiAzLjAzMDkgNC44NDQ4NkMzLjI2MTQxIDQuODQ0ODYgMy40NzgwOCA0LjkzNDU4IDMuNjQxMDEgNS4wOTc4Mkw1LjIwNTAzIDYuNjYyMzlMOC4zNTkyOCAzLjUwNzU4QzguNTIyMDkgMy4zNDQ2NSA4LjczODc1IDMuMjU0OTQgOC45NjkyNyAzLjI1NDk0QzkuMTk5NzggMy4yNTQ5NCA5LjQxNjQ1IDMuMzQ0NjUgOS41NzkxMyAzLjUwNzc2QzkuNzQxOTMgMy42NzA3IDkuODMxNjUgMy44ODcyMyA5LjgzMTUyIDQuMTE3NzRDOS44MzE1NiA0LjM0OCA5Ljc0MTc3IDQuNTY0NTggOS41Nzg3IDQuNzI3MzhaIiBmaWxsPSJ3aGl0ZSIvPgogICAgPHBhdGggZD0iTTkuNTc4NyA0LjcyNzM4TDUuODE0MjIgOC40OTE5OEM1Ljc3MzAzIDguNTMzMyA1LjcyNzAyIDguNTcwOTMgNS42Nzc2OCA4LjYwMzU3QzUuNTM3MDEgOC42OTYyMyA1LjM3MzU1IDguNzQ1MzMgNS4yMDUwMiA4Ljc0NTMzQzQuOTc0NSA4Ljc0NTMzIDQuNzU3ODMgOC42NTUzMSA0LjU5NDcyIDguNDkxODZMMi40MjA0OCA2LjMxNzk1QzIuMDg0NDkgNS45ODE0IDIuMDg0NDkgNS40MzM5NSAyLjQyMDM1IDUuMDk3ODJDMi41ODM0MSA0LjkzNDc1IDIuODAwMjIgNC44NDQ4NiAzLjAzMDkgNC44NDQ4NkMzLjI2MTQxIDQuODQ0ODYgMy40NzgwOCA0LjkzNDU4IDMuNjQxMDEgNS4wOTc4Mkw1LjIwNTAzIDYuNjYyMzlMOC4zNTkyOCAzLjUwNzU4QzguNTIyMDkgMy4zNDQ2NSA4LjczODc1IDMuMjU0OTQgOC45NjkyNyAzLjI1NDk0QzkuMTk5NzggMy4yNTQ5NCA5LjQxNjQ1IDMuMzQ0NjUgOS41NzkxMyAzLjUwNzc2QzkuNzQxOTMgMy42NzA3IDkuODMxNjUgMy44ODcyMyA5LjgzMTUyIDQuMTE3NzRDOS44MzE1NiA0LjM0OCA5Ljc0MTc3IDQuNTY0NTggOS41Nzg3IDQuNzI3MzhaIiBmaWxsPSJ3aGl0ZSIvPgogICAgPHBhdGggZD0iTTYuMDI4IDAuMDAwNzgxMjU4TDYuMDE4NjcgMC4wMDA1MjA4MzlDNi4wMTIyOSAwLjAwMDI2MDQyNSA2LjAwNiAwIDUuOTk5NjIgMEM0LjExMjI2IDAgMi4zMTE4IDAuOTA1NDc2IDEuMTgzMzUgMi40MjIxNEMwLjQwOTIwNCAzLjQ2MjU2IDAgNC42OTk5NCAwIDYuMDAwMTdDMCA3LjE0NTk2IDAuMzI0MjcgOC4yNTk3NSAwLjkzNzU5OCA5LjIyMTQzQzEuNTM0NTMgMTAuMTU3NCAyLjM3NjM5IDEwLjkwOSAzLjM3MjI5IDExLjM5NUM0LjE5NTA5IDExLjc5NjUgNS4wNzkwOCAxMi4wMDAxIDUuOTk5NjUgMTIuMDAwMUM2LjAwNTc3IDEyLjAwMDEgNi4wMTE5MyAxMS45OTk4IDYuMDE4MDUgMTEuOTk5N0w2LjAyNzM4IDExLjk5OTRDOS4zMjA2NCAxMS45ODQ1IDEyIDkuMjkzMTkgMTIgNi4wMDAxNUMxMS45OTk5IDIuNzA3MDEgOS4zMjA2NCAwLjAxNTY0OTEgNi4wMjgwNSAwLjAwMDc2MDA2NUw2LjAyOCAwLjAwMDc4MTI1OFpNOS41Nzg3IDQuNzI3MzhMNS44MTQyMiA4LjQ5MTk4QzUuNzczMDMgOC41MzMzIDUuNzI3MDIgOC41NzA5MyA1LjY3NzY4IDguNjAzNTdDNS41MzcwMSA4LjY5NjIzIDUuMzczNTUgOC43NDUzMyA1LjIwNTAyIDguNzQ1MzNDNC45NzQ1IDguNzQ1MzMgNC43NTc4MyA4LjY1NTMxIDQuNTk0NzIgOC40OTE4NkwyLjQyMDQ4IDYuMzE3OTVDMi4wODQ0OSA1Ljk4MTQgMi4wODQ0OSA1LjQzMzk1IDIuNDIwMzUgNS4wOTc4MkMyLjU4MzQxIDQuOTM0NzUgMi44MDAyMiA0Ljg0NDg2IDMuMDMwOSA0Ljg0NDg2QzMuMjYxNDEgNC44NDQ4NiAzLjQ3ODA4IDQuOTM0NTggMy42NDEwMSA1LjA5NzgyTDUuMjA1MDMgNi42NjIzOUw4LjM1OTI4IDMuNTA3NThDOC41MjIwOSAzLjM0NDY1IDguNzM4NzUgMy4yNTQ5NCA4Ljk2OTI3IDMuMjU0OTRDOS4xOTk3OCAzLjI1NDk0IDkuNDE2NDUgMy4zNDQ2NSA5LjU3OTEzIDMuNTA3NzZDOS43NDE5MyAzLjY3MDcgOS44MzE2NSAzLjg4NzIzIDkuODMxNTIgNC4xMTc3NEM5LjgzMTU2IDQuMzQ4IDkuNzQxNzIgNC41NjQ2NyA5LjU3ODY1IDQuNzI3NDdMOS41Nzg3IDQuNzI3MzhaIiBmaWxsPSIjMUE3NEU0Ii8+CiAgPC9nPgogIDxkZWZzPgogICAgPGNsaXBQYXRoIGlkPSJjbGlwMF8yODYwN183NzIxIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiBmaWxsPSJ3aGl0ZSIvPgogICAgPC9jbGlwUGF0aD4KICA8L2RlZnM+Cjwvc3ZnPg==");
-
-/***/ },
-
 /***/ "./src/sp-smart-button/block.json"
 /*!****************************************!*\
   !*** ./src/sp-smart-button/block.json ***!
   \****************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"sp/smart-button","version":"0.1.0","title":"Sp Smart Button","category":"shapedplugin","icon":"smiley","description":"A smart button block.","example":{},"supports":{"html":false},"textdomain":"sp-smart-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"text":{"type":"string","default":"Click me"},"url":{"type":"string","default":"#"},"variant":{"type":"string","default":"default"}}}');
-
-/***/ },
-
-/***/ "./src/sp-smart-button/components/Button.js"
-/*!**************************************************!*\
-  !*** ./src/sp-smart-button/components/Button.js ***!
-  \**************************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-
-const Button = ({
-  children = "Button",
-  className = "",
-  link = "#",
-  onClick,
-  variant
-}) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-    href: link,
-    onClick: onClick,
-    className: `wp-block-smart-button is-${variant} ${className}`,
-    children: children
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Button);
-
-/***/ },
-
-/***/ "./src/sp-smart-button/components/ButtonContainer.js"
-/*!***********************************************************!*\
-  !*** ./src/sp-smart-button/components/ButtonContainer.js ***!
-  \***********************************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Button */ "./src/sp-smart-button/components/Button.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
-
-
-const ButtonContainer = ({
-  variant,
-  currentVariant,
-  handleButtonClick,
-  selectedIcon
-}) => {
-  const variantLabel = currentVariant.charAt(0).toUpperCase() + currentVariant.slice(1);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: "btn-label-wrapper",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-      className: "btn-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Button__WEBPACK_IMPORTED_MODULE_0__["default"], {
-        variant: currentVariant,
-        onClick: () => {
-          handleButtonClick(currentVariant);
-        }
-      }), variant === currentVariant && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-        className: `selected-icon`,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-          src: selectedIcon,
-          alt: ""
-        })
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-      children: variantLabel
-    })]
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonContainer);
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"sp/smart-buttons","version":"0.1.0","title":"Sp Smart Button","category":"shapedplugin","icon":"smiley","description":"A smart button block.","example":{},"supports":{"html":false},"textdomain":"sp-smart-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"text":{"type":"string","default":"Click me"},"url":{"type":"string","default":"#"},"variant":{"type":"string","default":"default"}}}');
 
 /***/ },
 
@@ -182,97 +59,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _assets_selected_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/selected.svg */ "./src/sp-smart-button/assets/selected.svg");
-/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Button */ "./src/sp-smart-button/components/Button.js");
-/* harmony import */ var _components_ButtonContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/ButtonContainer */ "./src/sp-smart-button/components/ButtonContainer.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/sp-smart-button/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
 
-
-
-
-
-
-
-function Edit({
-  attributes,
-  setAttributes
-}) {
-  const {
-    variant
-  } = attributes;
-  const handleButtonClick = btnVariant => {
-    setAttributes({
-      variant: btnVariant
-    });
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+function Edit() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)(),
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("General", "sp-smart-button"),
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
-            children: "Buttons Style"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "inspector-variant-wrapper",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_ButtonContainer__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              variant: variant,
-              currentVariant: "default",
-              handleButtonClick: handleButtonClick,
-              selectedIcon: _assets_selected_svg__WEBPACK_IMPORTED_MODULE_3__["default"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_ButtonContainer__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              variant: variant,
-              currentVariant: "ghost",
-              handleButtonClick: handleButtonClick,
-              selectedIcon: _assets_selected_svg__WEBPACK_IMPORTED_MODULE_3__["default"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_ButtonContainer__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              variant: variant,
-              currentVariant: "gradient",
-              handleButtonClick: handleButtonClick,
-              selectedIcon: _assets_selected_svg__WEBPACK_IMPORTED_MODULE_3__["default"]
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Button Label", "sp-smart-button"),
-          initialOpen: false,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
-            children: "Button Label"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Icon", "sp-smart-button"),
-          initialOpen: false,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
-            children: "Icon"
-          })
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_4__["default"]
-    // className={`wp-block-smart-button is-${variant}`}
-    , {
-      variant: variant,
-      children: "Click Me"
-    })]
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
+      allowedBlocks: ["sp/single-button"],
+      template: [["sp/single-button"]],
+      templateLock: false
+    })
   });
 }
-
-/***/ },
-
-/***/ "./src/sp-smart-button/editor.scss"
-/*!*****************************************!*\
-  !*** ./src/sp-smart-button/editor.scss ***!
-  \*****************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
 
 /***/ },
 
@@ -361,26 +161,6 @@ module.exports = window["wp"]["blockEditor"];
 (module) {
 
 module.exports = window["wp"]["blocks"];
-
-/***/ },
-
-/***/ "@wordpress/components"
-/*!************************************!*\
-  !*** external ["wp","components"] ***!
-  \************************************/
-(module) {
-
-module.exports = window["wp"]["components"];
-
-/***/ },
-
-/***/ "@wordpress/i18n"
-/*!******************************!*\
-  !*** external ["wp","i18n"] ***!
-  \******************************/
-(module) {
-
-module.exports = window["wp"]["i18n"];
 
 /***/ },
 
