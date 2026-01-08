@@ -1,0 +1,61 @@
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/sp-smart-button/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+a.wp-block-smart-button {
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid transparent;
+}
+
+/* Variants */
+
+.wp-block-smart-button.is-default {
+  background: #2563eb;
+  color: white;
+}
+
+.wp-block-smart-button.is-gradient {
+  background: linear-gradient(-81deg, #ff0035 1.03%, #f902cb 45.49%, #5d13ff 97.36%);
+  color: #111;
+  border: 2px linear-gradient(81deg, #ff0035 1.03%, #f902cb 45.49%, #5d13ff 97.36%);
+}
+
+.wp-block-smart-button.is-ghost {
+  background: transparent;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+}
+
+.inspector-variant-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.inspector-variant-wrapper .btn-label-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.inspector-variant-wrapper .btn-label-wrapper .btn-container {
+  position: relative;
+  border: 2px solid rgba(128, 128, 128, 0.66);
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.inspector-variant-wrapper .btn-label-wrapper .btn-container a.wp-block-smart-button {
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+}
+
+.inspector-variant-wrapper .btn-label-wrapper .btn-container .selected-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

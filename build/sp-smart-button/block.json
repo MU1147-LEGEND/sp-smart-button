@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "sp/smart-button",
+  "version": "0.1.0",
+  "title": "Sp Smart Button",
+  "category": "shapedplugin",
+  "icon": "smiley",
+  "description": "A smart button block.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "sp-smart-button",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "default": "Click me"
+    },
+    "url": {
+      "type": "string",
+      "default": "#"
+    },
+    "variant": {
+      "type": "string",
+      "default": "default"
+    }
+  }
+}
