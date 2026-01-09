@@ -2,6 +2,18 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/sp-smart-buttons/assets/css/align-button-style.scss"
+/*!*****************************************************************!*\
+  !*** ./src/sp-smart-buttons/assets/css/align-button-style.scss ***!
+  \*****************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
 /***/ "./src/sp-smart-buttons/assets/icon.svg"
 /*!**********************************************!*\
   !*** ./src/sp-smart-buttons/assets/icon.svg ***!
@@ -43,7 +55,7 @@ var SvgIcon = function SvgIcon(props) {
   \*****************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"sp/smart-buttons","version":"0.1.1","title":"Sp Smart Button","category":"shapedplugin","icon":"smiley","description":"A smart button block.","example":{},"supports":{"html":false},"textdomain":"sp-smart-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"direction":{"type":"string","default":"horizontal"},"align":{"type":"string","default":"flex-start"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"sp/smart-buttons","version":"0.1.1","title":"Sp Smart Button","category":"shapedplugin","icon":"smiley","description":"A smart button block.","example":{},"supports":{"html":false},"textdomain":"sp-smart-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"direction":{"type":"string","default":"horizontal"},"align":{"type":"string","default":"start"},"alignItems":{"type":"string","default":"flex-start"}}}');
 
 /***/ },
 
@@ -78,6 +90,161 @@ function DirectionToggle({
 
 /***/ },
 
+/***/ "./src/sp-smart-buttons/components/VerticalAlignment/VerticalAlignmentControl.js"
+/*!***************************************************************************************!*\
+  !*** ./src/sp-smart-buttons/components/VerticalAlignment/VerticalAlignmentControl.js ***!
+  \***************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ VerticalAlignmentControl)
+/* harmony export */ });
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _assets_css_align_button_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/css/align-button-style.scss */ "./src/sp-smart-buttons/assets/css/align-button-style.scss");
+/* harmony import */ var _icons_AlignCenterIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icons/AlignCenterIcon */ "./src/sp-smart-buttons/components/VerticalAlignment/icons/AlignCenterIcon.js");
+/* harmony import */ var _icons_AlignLeftIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icons/AlignLeftIcon */ "./src/sp-smart-buttons/components/VerticalAlignment/icons/AlignLeftIcon.js");
+/* harmony import */ var _icons_AlignRightIcon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icons/AlignRightIcon */ "./src/sp-smart-buttons/components/VerticalAlignment/icons/AlignRightIcon.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+const OPTIONS = [{
+  value: "flex-start",
+  label: "Align left",
+  Icon: _icons_AlignLeftIcon__WEBPACK_IMPORTED_MODULE_3__["default"]
+}, {
+  value: "vertical-center",
+  label: "Align center",
+  Icon: _icons_AlignCenterIcon__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  value: "flex-end",
+  label: "Align right",
+  Icon: _icons_AlignRightIcon__WEBPACK_IMPORTED_MODULE_4__["default"]
+}];
+function VerticalAlignmentControl({
+  value = "flex-start",
+  onChange
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    className: "sp-align-control",
+    children: OPTIONS.map(({
+      value: option,
+      label,
+      Icon
+    }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Tooltip, {
+      text: label,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+        type: "button",
+        className: `sp-align-control__btn vertical-control-btn ${value === option ? "is-active" : ""}`,
+        onClick: () => onChange(option),
+        "aria-pressed": value === option,
+        "aria-label": label,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Icon, {
+          className: "sp-align-control__icon"
+        })
+      })
+    }, option))
+  });
+}
+
+/***/ },
+
+/***/ "./src/sp-smart-buttons/components/VerticalAlignment/icons/AlignCenterIcon.js"
+/*!************************************************************************************!*\
+  !*** ./src/sp-smart-buttons/components/VerticalAlignment/icons/AlignCenterIcon.js ***!
+  \************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const AlignCenterIcon = () => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+      d: "M16.4 4.20001H7.6V5.70001H16.5V4.20001H16.4ZM4 11.2V12.7H20V11.2H4ZM7.6 19.8H16.5V18.3H7.6V19.8Z",
+      fill: "currentColor"
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AlignCenterIcon);
+
+/***/ },
+
+/***/ "./src/sp-smart-buttons/components/VerticalAlignment/icons/AlignLeftIcon.js"
+/*!**********************************************************************************!*\
+  !*** ./src/sp-smart-buttons/components/VerticalAlignment/icons/AlignLeftIcon.js ***!
+  \**********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const AlignLeftIcon = () => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+      d: "M4 19.8H12.9V18.3H4V19.8ZM12.9 4.20001H4V5.70001H12.9V4.20001ZM4 11.2V12.7H20V11.2H4Z",
+      fill: "currentColor"
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AlignLeftIcon);
+
+/***/ },
+
+/***/ "./src/sp-smart-buttons/components/VerticalAlignment/icons/AlignRightIcon.js"
+/*!***********************************************************************************!*\
+  !*** ./src/sp-smart-buttons/components/VerticalAlignment/icons/AlignRightIcon.js ***!
+  \***********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const AlignRightIcon = () => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+      d: "M20 4.19996L11.1 4.19996L11.1 5.69996L20 5.69996L20 4.19996ZM11.1 19.8L20 19.8L20 18.3L11.1 18.3L11.1 19.8ZM20 12.8L20 11.3L4 11.3L4 12.8L20 12.8Z",
+      fill: "currentColor"
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AlignRightIcon);
+
+/***/ },
+
 /***/ "./src/sp-smart-buttons/components/horizontalAlignment/HorizontalAlignmentControl.js"
 /*!*******************************************************************************************!*\
   !*** ./src/sp-smart-buttons/components/horizontalAlignment/HorizontalAlignmentControl.js ***!
@@ -90,7 +257,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _horizontalAlignStyle_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./horizontalAlignStyle.scss */ "./src/sp-smart-buttons/components/horizontalAlignment/horizontalAlignStyle.scss");
+/* harmony import */ var _assets_css_align_button_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/css/align-button-style.scss */ "./src/sp-smart-buttons/assets/css/align-button-style.scss");
 /* harmony import */ var _icons_AlignCenter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icons/AlignCenter */ "./src/sp-smart-buttons/components/horizontalAlignment/icons/AlignCenter.js");
 /* harmony import */ var _icons_AlignRightIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icons/AlignRightIcon */ "./src/sp-smart-buttons/components/horizontalAlignment/icons/AlignRightIcon.js");
 /* harmony import */ var _icons_AlignLeft__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icons/AlignLeft */ "./src/sp-smart-buttons/components/horizontalAlignment/icons/AlignLeft.js");
@@ -109,15 +276,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const OPTIONS = [{
-  value: "flex-start",
+  value: "start",
   label: "Align left",
   Icon: _icons_AlignLeft__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
-  value: "center",
+  value: "horizontal-center",
   label: "Align center",
   Icon: _icons_AlignCenter__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
-  value: "flex-end",
+  value: "end",
   label: "Align right",
   Icon: _icons_AlignRightIcon__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
@@ -134,7 +301,7 @@ const OPTIONS = [{
   Icon: _icons_SpaceEvenIcon__WEBPACK_IMPORTED_MODULE_7__["default"]
 }];
 function HorizontalAlignmentControl({
-  value = "flex-start",
+  value = "start",
   onChange
 }) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
@@ -156,18 +323,6 @@ function HorizontalAlignmentControl({
     }, option))
   });
 }
-
-/***/ },
-
-/***/ "./src/sp-smart-buttons/components/horizontalAlignment/horizontalAlignStyle.scss"
-/*!***************************************************************************************!*\
-  !*** ./src/sp-smart-buttons/components/horizontalAlignment/horizontalAlignStyle.scss ***!
-  \***************************************************************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
 
 /***/ },
 
@@ -522,8 +677,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_DirectionToggle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/DirectionToggle */ "./src/sp-smart-buttons/components/DirectionToggle.js");
 /* harmony import */ var _components_horizontalAlignment_HorizontalAlignmentControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/horizontalAlignment/HorizontalAlignmentControl */ "./src/sp-smart-buttons/components/horizontalAlignment/HorizontalAlignmentControl.js");
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/sp-smart-buttons/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_VerticalAlignment_VerticalAlignmentControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/VerticalAlignment/VerticalAlignmentControl */ "./src/sp-smart-buttons/components/VerticalAlignment/VerticalAlignmentControl.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+
+
 
 
 
@@ -537,38 +695,58 @@ function Edit({
 }) {
   const {
     direction,
-    align
+    align,
+    alignItems
   } = attributes;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-      className: `sp-smart-buttons is-${direction} align-${align}`
+      className: `sp-smart-buttons is-${direction} align-${align} align-${alignItems}`
     }),
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("General", "sp-smart-button"),
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
           children: "Button Alignment"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_DirectionToggle__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_DirectionToggle__WEBPACK_IMPORTED_MODULE_3__["default"], {
           value: direction,
           onChange: val => setAttributes({
             direction: val
           })
-        }), direction === "horizontal" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        }), direction === "horizontal" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "horizonta-alignment-wrapper",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
             style: {
               marginTop: "15px"
             },
             children: "Horizontal Alignment"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_horizontalAlignment_HorizontalAlignmentControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_horizontalAlignment_HorizontalAlignmentControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
             value: align,
             onChange: val => setAttributes({
               align: val
             })
           })]
+        }), direction === "vertical" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          className: "vertical-alignment-wrapper",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+            style: {
+              marginTop: "15px"
+            },
+            children: "Horizontal Alignment"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_VerticalAlignment_VerticalAlignmentControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            value: alignItems,
+            onChange: val => setAttributes({
+              alignItems: val
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          className: "full-width-button-wrapper",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+            className: "full-width-button-label",
+            children: "Full Width Buttons"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {})]
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks, {
       allowedBlocks: ["sp/single-button"],
       orientation: direction
     })]

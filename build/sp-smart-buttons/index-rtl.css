@@ -1,8 +1,10 @@
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/sp-smart-buttons/components/horizontalAlignment/horizontalAlignStyle.scss ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/sp-smart-buttons/assets/css/align-button-style.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
 .sp-align-control {
-  display: inline-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   width: 100%;
   gap: 4px;
   padding: 4px;
@@ -18,14 +20,20 @@
   border-radius: 3px;
   cursor: pointer;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-evenly;
+  color: #757575;
+}
+
+.sp-align-control__btn.vertical-control-btn svg {
+  width: 32px;
+  height: 22px;
 }
 
 .sp-align-control__btn svg {
   width: 24px;
   height: 16px;
-  fill: #667085;
 }
 
 .sp-align-control__btn:hover {
@@ -34,11 +42,7 @@
 
 .sp-align-control__btn.is-active {
   background: #f05d31;
-  color: #FFF;
-}
-
-.sp-align-control__btn.is-active .icon {
-  color: #fff;
+  color: #fff !important;
 }
 /*!*********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/sp-smart-buttons/editor.scss ***!
@@ -72,6 +76,34 @@
   font-weight: 500;
 }
 
+.full-width-button-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.full-width-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.full-width-button-wrapper .components-form-toggle {
+  transform: scale(1.2);
+}
+
+.full-width-button-wrapper .components-form-toggle.is-checked .components-form-toggle__track {
+  background-color: #7f56d9;
+}
+
+.full-width-button-wrapper .components-form-toggle__track {
+  background-color: #e4e7ec;
+}
+
+.full-width-button-wrapper .components-form-toggle__thumb {
+  background-color: #ffffff;
+}
+
 .wp-block-sp-smart-buttons {
   display: flex;
   gap: 12px;
@@ -84,25 +116,28 @@
   display: inline-flex;
 }
 
-.wp-block-sp-smart-buttons.is-horizontal .block-editor-inner-blocks {
+.wp-block-sp-smart-buttons .block-editor-inner-blocks {
   width: 100%;
 }
 
-.wp-block-sp-smart-buttons.is-horizontal .block-editor-block-list__layout {
+.wp-block-sp-smart-buttons .block-editor-block-list__layout {
   display: flex;
   width: 100%;
+}
+
+.wp-block-sp-smart-buttons.is-horizontal {
   flex-direction: row;
 }
 
-.wp-block-sp-smart-buttons.is-horizontal.align-flex-start .block-editor-block-list__layout {
+.wp-block-sp-smart-buttons.is-horizontal.align-start .block-editor-block-list__layout {
   justify-content: start;
 }
 
-.wp-block-sp-smart-buttons.is-horizontal.align-center .block-editor-block-list__layout {
+.wp-block-sp-smart-buttons.is-horizontal.align-horizontal-center .block-editor-block-list__layout {
   justify-content: center;
 }
 
-.wp-block-sp-smart-buttons.is-horizontal.align-flex-end .block-editor-block-list__layout {
+.wp-block-sp-smart-buttons.is-horizontal.align-end .block-editor-block-list__layout {
   justify-content: end;
 }
 
@@ -110,14 +145,37 @@
   justify-content: space-between;
 }
 
+.wp-block-sp-smart-buttons.is-horizontal.align-space-around .block-editor-block-list__layout {
+  justify-content: space-around;
+}
+
+.wp-block-sp-smart-buttons.is-horizontal.align-space-evenly .block-editor-block-list__layout {
+  justify-content: space-evenly;
+}
+
+.wp-block-sp-smart-buttons.is-vertical .block-editor-block-list__layout {
+  flex-direction: column;
+}
+
 .wp-block-sp-smart-buttons.is-vertical {
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .wp-block-sp-smart-buttons.is-vertical .sp-single-button {
   width: 100%;
+}
+
+.wp-block-sp-smart-buttons.is-vertical.align-flex-start .block-editor-block-list__layout {
+  align-items: flex-start;
+}
+
+.wp-block-sp-smart-buttons.is-vertical.align-vertical-center .block-editor-block-list__layout {
+  align-items: center;
+}
+
+.wp-block-sp-smart-buttons.is-vertical.align-flex-end .block-editor-block-list__layout {
+  align-items: flex-end;
 }
 
 a.wp-block-smart-button {

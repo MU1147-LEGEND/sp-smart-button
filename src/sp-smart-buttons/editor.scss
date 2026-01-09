@@ -1,3 +1,6 @@
+// inspector styles main block
+// alignment toggle
+
 .sp-toggle {
 	display: flex;
 	width: 100%;
@@ -27,6 +30,38 @@
 	font-weight: 500;
 }
 
+// full width button toggler style
+
+.full-width-button-label {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.full-width-button-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+
+	.components-form-toggle {
+		transform: scale(1.2); // increase size
+	}
+	.components-form-toggle.is-checked {
+		.components-form-toggle__track {
+			background-color: #7f56d9;
+		}
+	}
+	.components-form-toggle__track {
+		background-color: #e4e7ec;
+	}
+	.components-form-toggle__thumb {
+		background-color: #ffffff;
+	}
+}
+// full width button toggler style
+
+// inspector styles main block end
+
 .wp-block-sp-smart-buttons {
 	display: flex;
 	gap: 12px;
@@ -38,28 +73,29 @@
 		display: inline-flex;
 	}
 
+	.block-editor-inner-blocks {
+		width: 100%;
+	}
+	.block-editor-block-list__layout {
+		display: flex;
+		width: 100%;
+	}
+
 	// horizontal alignment
 	&.is-horizontal {
-		.block-editor-inner-blocks {
-			width: 100%;
-		}
-		.block-editor-block-list__layout {
-			display: flex;
-			width: 100%;
-			flex-direction: row;
-		}
+		flex-direction: row;
 
-		&.align-flex-start {
+		&.align-start {
 			.block-editor-block-list__layout {
 				justify-content: start;
 			}
 		}
-		&.align-center {
+		&.align-horizontal-center {
 			.block-editor-block-list__layout {
 				justify-content: center;
 			}
 		}
-		&.align-flex-end {
+		&.align-end {
 			.block-editor-block-list__layout {
 				justify-content: end;
 			}
@@ -69,15 +105,44 @@
 				justify-content: space-between;
 			}
 		}
+		&.align-space-around {
+			.block-editor-block-list__layout {
+				justify-content: space-around;
+			}
+		}
+		&.align-space-evenly {
+			.block-editor-block-list__layout {
+				justify-content: space-evenly;
+			}
+		}
 	}
 
 	&.is-vertical {
-		display: flex;
+		.block-editor-block-list__layout {
+			flex-direction: column;
+		}
+
 		flex-direction: column;
 		align-items: flex-start;
 
 		.sp-single-button {
 			width: 100%;
+		}
+
+		&.align-flex-start {
+			.block-editor-block-list__layout {
+				align-items: flex-start;
+			}
+		}
+		&.align-vertical-center {
+			.block-editor-block-list__layout {
+				align-items: center;
+			}
+		}
+		&.align-flex-end {
+			.block-editor-block-list__layout {
+				align-items: flex-end;
+			}
 		}
 	}
 }
@@ -115,7 +180,7 @@ a.wp-block-smart-button {
 	border: 2px solid #2563eb;
 }
 
-// inspector style
+// inner block inspector style
 .inspector-variant-wrapper {
 	width: 100%;
 	display: flex;

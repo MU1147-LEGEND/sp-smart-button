@@ -1,5 +1,5 @@
 import { Tooltip } from "@wordpress/components";
-import "./horizontalAlignStyle.scss";
+import "../../assets/css/align-button-style.scss";
 import AlignCenterIcon from "./icons/AlignCenter";
 import AlignRightIcon from "./icons/AlignRightIcon";
 import AlignLeftIcon from "./icons/AlignLeft";
@@ -9,17 +9,17 @@ import SpaceEvenIcon from "./icons/SpaceEvenIcon";
 
 const OPTIONS = [
 	{
-		value: "flex-start",
+		value: "start",
 		label: "Align left",
 		Icon: AlignLeftIcon,
 	},
 	{
-		value: "center",
+		value: "horizontal-center",
 		label: "Align center",
 		Icon: AlignCenterIcon,
 	},
 	{
-		value: "flex-end",
+		value: "end",
 		label: "Align right",
 		Icon: AlignRightIcon,
 	},
@@ -41,7 +41,7 @@ const OPTIONS = [
 ];
 
 export default function HorizontalAlignmentControl({
-	value = "flex-start",
+	value = "start",
 	onChange,
 }) {
 	return (

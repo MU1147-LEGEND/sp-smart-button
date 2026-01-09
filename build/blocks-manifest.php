@@ -28,6 +28,10 @@ return array(
 			),
 			'align' => array(
 				'type' => 'string',
+				'default' => 'start'
+			),
+			'alignItems' => array(
+				'type' => 'string',
 				'default' => 'flex-start'
 			)
 		)

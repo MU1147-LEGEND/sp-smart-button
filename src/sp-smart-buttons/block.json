@@ -23,7 +23,12 @@
 		},
 		"align":{
 			"type": "string",
+			"default": "start"
+		},
+		"alignItems":{
+			"type": "string",
 			"default": "flex-start"
 		}
+
 	}
 }

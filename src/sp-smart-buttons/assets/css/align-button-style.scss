@@ -1,5 +1,7 @@
 .sp-align-control {
-	display: inline-flex;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 	width: 100%;
 	gap: 4px;
 	padding: 4px;
@@ -15,13 +17,20 @@
 	border-radius: 3px;
 	cursor: pointer;
 	display: flex;
+	width: 100%;
 	align-items: center;
 	justify-content: space-evenly;
+	color: #757575;
 
+	&.vertical-control-btn {
+		svg {
+			width: 32px;
+			height: 22px;
+		}
+	}
 	svg {
 		width: 24px;
 		height: 16px;
-		fill: #667085;
 	}
 
 	&:hover {
@@ -30,10 +39,6 @@
 
 	&.is-active {
 		background: #f05d31;
-        color: #FFF;
-
-		.icon {
-			color: #fff;
-		}
+		color: #fff !important;
 	}
 }
