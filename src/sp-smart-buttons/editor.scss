@@ -42,9 +42,13 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 12px;
+	margin-top: 15px;
 
+	.components-toggle-control{
+		margin-bottom: 0;
+	}
 	.components-form-toggle {
-		transform: scale(1.2); // increase size
+		transform: scale(1.2); 
 	}
 	.components-form-toggle.is-checked {
 		.components-form-toggle__track {

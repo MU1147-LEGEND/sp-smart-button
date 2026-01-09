@@ -50,7 +50,7 @@ export default function Edit({ attributes, setAttributes }) {
 					{/* full width button */}
 					<div className="full-width-button-wrapper">
 						<span className="full-width-button-label">Full Width Buttons</span>
-						<ToggleControl  />
+						<ToggleControl />
 					</div>
 				</PanelBody>
 			</InspectorControls>

@@ -86,6 +86,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  margin-top: 15px;
+}
+
+.full-width-button-wrapper .components-toggle-control {
+  margin-bottom: 0;
 }
 
 .full-width-button-wrapper .components-form-toggle {
