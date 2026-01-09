@@ -1,8 +1,11 @@
 import { registerBlockType } from "@wordpress/blocks";
 import Edit from "./edit.js";
 import metadata from "./block.json";
+import Save from "./save.js";
+import { ReactComponent as Icon } from "./assets/icon.svg";
 
 registerBlockType(metadata.name, {
 	edit: Edit,
-	save: () => null,
+	save: Save,
+	icon: <Icon />,
 });

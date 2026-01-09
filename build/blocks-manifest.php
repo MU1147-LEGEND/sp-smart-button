@@ -25,12 +25,16 @@ return array(
 			'direction' => array(
 				'type' => 'string',
 				'default' => 'horizontal'
+			),
+			'align' => array(
+				'type' => 'string',
+				'default' => 'flex-start'
 			)
 		)
 	),
 	'single-button' => array(
 		'name' => 'sp/single-button',
-		'editorScript' => 'file:./edit.js',
+		'editorScript' => 'file:./index.js',
 		'parent' => array(
 			'sp/smart-buttons'
 		),

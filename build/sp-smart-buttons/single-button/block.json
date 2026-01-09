@@ -1,6 +1,6 @@
 {
   "name": "sp/single-button",
-  "editorScript": "file:./edit.js",
+  "editorScript": "file:./index.js",
   "parent": [
     "sp/smart-buttons"
   ],

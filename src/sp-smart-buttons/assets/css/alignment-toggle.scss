@@ -1,0 +1,83 @@
+.sp-alignment-toggle {
+	display: inline-flex;
+	border: 1px solid #d0d5dd;
+	border-radius: 8px;
+	padding: 4px;
+	gap: 4px;
+	background: #fff;
+}
+
+.sp-alignment-toggle__btn {
+	border: 0;
+	background: transparent;
+	padding: 8px 10px;
+	border-radius: 6px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&.is-active {
+		background: #f97066; // active color (orange)
+	}
+}
+
+/* -------------------------
+   Icon base
+-------------------------- */
+.icon {
+	width: 24px;
+	height: 16px;
+	display: flex;
+	align-items: center;
+	gap: 2px;
+
+	&::before,
+	&::after,
+	span {
+		content: "";
+		display: block;
+		width: 4px;
+		background: #666;
+		border-radius: 1px;
+	}
+}
+
+/* -------------------------
+   Icons
+-------------------------- */
+.icon-flex-start {
+	justify-content: flex-start;
+}
+
+.icon-center {
+	justify-content: center;
+}
+
+.icon-flex-end {
+	justify-content: flex-end;
+}
+
+.icon-space-between {
+	justify-content: space-between;
+}
+
+/* bar heights */
+.icon::before {
+	height: 8px;
+}
+.icon span {
+	height: 14px;
+}
+.icon::after {
+	height: 10px;
+}
+
+/* active state bars */
+.sp-alignment-toggle__btn.is-active .icon {
+	&::before,
+	&::after,
+	span {
+		background: #fff;
+	}
+}

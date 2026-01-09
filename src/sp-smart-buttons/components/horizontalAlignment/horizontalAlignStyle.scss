@@ -1,0 +1,39 @@
+.sp-align-control {
+	display: inline-flex;
+	width: 100%;
+	gap: 4px;
+	padding: 4px;
+	border: 1px solid #d0d5dd;
+	border-radius: 3px;
+	background: #fff;
+}
+
+.sp-align-control__btn {
+	border: 0;
+	background: transparent;
+	padding: 6px;
+	border-radius: 3px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+
+	svg {
+		width: 24px;
+		height: 16px;
+		fill: #667085;
+	}
+
+	&:hover {
+		background: #f2f4f7;
+	}
+
+	&.is-active {
+		background: #f05d31;
+        color: #FFF;
+
+		.icon {
+			color: #fff;
+		}
+	}
+}

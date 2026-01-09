@@ -11,21 +11,78 @@
 }
 
 .sp-toggle__btn {
-    width: 50%;
-    border: 0;
-    background: transparent;
-    padding: 12px 16px;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #111;
+	width: 50%;
+	border: 0;
+	background: transparent;
+	padding: 12px 16px;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #111;
 }
 
 .sp-toggle__btn.is-active {
 	background: #f4ebff;
-	color: #6F22DD;
+	color: #6f22dd;
 	font-weight: 500;
 }
+
+.wp-block-sp-smart-buttons {
+	display: flex;
+	gap: 12px;
+	width: 100%;
+	background-color: #2563eb22;
+
+	/* child button */
+	.sp-single-button {
+		display: inline-flex;
+	}
+
+	// horizontal alignment
+	&.is-horizontal {
+		.block-editor-inner-blocks {
+			width: 100%;
+		}
+		.block-editor-block-list__layout {
+			display: flex;
+			width: 100%;
+			flex-direction: row;
+		}
+
+		&.align-flex-start {
+			.block-editor-block-list__layout {
+				justify-content: start;
+			}
+		}
+		&.align-center {
+			.block-editor-block-list__layout {
+				justify-content: center;
+			}
+		}
+		&.align-flex-end {
+			.block-editor-block-list__layout {
+				justify-content: end;
+			}
+		}
+		&.align-space-between {
+			.block-editor-block-list__layout {
+				justify-content: space-between;
+			}
+		}
+	}
+
+	&.is-vertical {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		.sp-single-button {
+			width: 100%;
+		}
+	}
+}
+
+// button design for child.
 
 a.wp-block-smart-button {
 	padding: 0.6em 1.2em;

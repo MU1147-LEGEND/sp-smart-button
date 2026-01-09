@@ -20,6 +20,10 @@
     "direction": {
       "type": "string",
       "default": "horizontal"
+    },
+    "align": {
+      "type": "string",
+      "default": "flex-start"
     }
   }
 }
