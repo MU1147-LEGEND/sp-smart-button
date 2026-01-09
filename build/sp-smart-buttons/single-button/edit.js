@@ -99,9 +99,9 @@ module.exports = window["ReactJSXRuntime"];
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
-/*!***************************************************!*\
-  !*** ./src/sp-smart-button/single-button/edit.js ***!
-  \***************************************************/
+/*!****************************************************!*\
+  !*** ./src/sp-smart-buttons/single-button/edit.js ***!
+  \****************************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Edit)
@@ -113,8 +113,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Edit() {
+  console.log("child bllock");
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)(),
+    id: "child-block",
     children: "Child Button Block"
   });
 }

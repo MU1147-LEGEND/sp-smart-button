@@ -1,3 +1,32 @@
+.sp-toggle {
+	display: flex;
+	width: 100%;
+	border: 1px solid #d0d5dd;
+	border-radius: 3px;
+	padding: 4px;
+	background: #fff;
+	gap: 4px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.sp-toggle__btn {
+    width: 50%;
+    border: 0;
+    background: transparent;
+    padding: 12px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #111;
+}
+
+.sp-toggle__btn.is-active {
+	background: #f4ebff;
+	color: #6F22DD;
+	font-weight: 500;
+}
+
 a.wp-block-smart-button {
 	padding: 0.6em 1.2em;
 	border-radius: 6px;

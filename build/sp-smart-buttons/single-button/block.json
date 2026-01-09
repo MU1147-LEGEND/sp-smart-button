@@ -1,0 +1,25 @@
+{
+  "name": "sp/single-button",
+  "editorScript": "file:./edit.js",
+  "parent": [
+    "sp/smart-buttons"
+  ],
+  "icon": "smiley",
+  "category": "shapedplugin",
+  "version": "0.1.0",
+  "title": "Single Button",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "default": "Click me"
+    },
+    "url": {
+      "type": "string",
+      "default": "#"
+    },
+    "variant": {
+      "type": "string",
+      "default": "default"
+    }
+  }
+}

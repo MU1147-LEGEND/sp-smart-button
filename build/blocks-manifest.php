@@ -1,11 +1,11 @@
 <?php
 // This file is generated. Do not modify it manually.
 return array(
-	'sp-smart-button' => array(
+	'sp-smart-buttons' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'sp/smart-buttons',
-		'version' => '0.1.0',
+		'version' => '0.1.1',
 		'title' => 'Sp Smart Button',
 		'category' => 'shapedplugin',
 		'icon' => 'smiley',
@@ -22,6 +22,23 @@ return array(
 		'style' => 'file:./style-index.css',
 		'viewScript' => 'file:./view.js',
 		'attributes' => array(
+			'direction' => array(
+				'type' => 'string',
+				'default' => 'horizontal'
+			)
+		)
+	),
+	'single-button' => array(
+		'name' => 'sp/single-button',
+		'editorScript' => 'file:./edit.js',
+		'parent' => array(
+			'sp/smart-buttons'
+		),
+		'icon' => 'smiley',
+		'category' => 'shapedplugin',
+		'version' => '0.1.0',
+		'title' => 'Single Button',
+		'attributes' => array(
 			'text' => array(
 				'type' => 'string',
 				'default' => 'Click me'
@@ -35,9 +52,5 @@ return array(
 				'default' => 'default'
 			)
 		)
-	),
-	'single-button' => array(
-		'name' => 'sp/single-button',
-		'editorScript' => 'file:./edit.js'
 	)
 );

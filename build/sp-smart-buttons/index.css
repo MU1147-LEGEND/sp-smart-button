@@ -1,0 +1,91 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/sp-smart-buttons/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+.sp-toggle {
+  display: flex;
+  width: 100%;
+  border: 1px solid #d0d5dd;
+  border-radius: 3px;
+  padding: 4px;
+  background: #fff;
+  gap: 4px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sp-toggle__btn {
+  width: 50%;
+  border: 0;
+  background: transparent;
+  padding: 12px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #111;
+}
+
+.sp-toggle__btn.is-active {
+  background: #f4ebff;
+  color: #6F22DD;
+  font-weight: 500;
+}
+
+a.wp-block-smart-button {
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid transparent;
+}
+
+/* Variants */
+
+.wp-block-smart-button.is-default {
+  background: #2563eb;
+  color: white;
+}
+
+.wp-block-smart-button.is-gradient {
+  background: linear-gradient(81deg, #ff0035 1.03%, #f902cb 45.49%, #5d13ff 97.36%);
+  color: #111;
+}
+
+.wp-block-smart-button.is-ghost {
+  background: transparent;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+}
+
+.inspector-variant-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.inspector-variant-wrapper .btn-label-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.inspector-variant-wrapper .btn-label-wrapper .btn-container {
+  position: relative;
+  border: 2px solid rgba(128, 128, 128, 0.66);
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.inspector-variant-wrapper .btn-label-wrapper .btn-container a.wp-block-smart-button {
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+}
+
+.inspector-variant-wrapper .btn-label-wrapper .btn-container .selected-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/*# sourceMappingURL=index.css.map*/

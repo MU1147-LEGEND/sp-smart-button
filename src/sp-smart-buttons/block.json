@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "sp/smart-buttons",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"title": "Sp Smart Button",
 	"category": "shapedplugin",
 	"icon": "smiley",
@@ -17,17 +17,9 @@
 	"style": "file:./style-index.css",
 	"viewScript": "file:./view.js",
 	"attributes": {
-		"text": {
+		"direction": {
 			"type": "string",
-			"default": "Click me"
-		},
-		"url": {
-			"type": "string",
-			"default": "#"
-		},
-		"variant": {
-			"type": "string",
-			"default": "default"
+			"default": "horizontal"
 		}
 	}
 }
