@@ -151,7 +151,7 @@
 	}
 }
 
-// button design for child.
+// button design for innerblock.
 
 a.wp-block-smart-button {
 	padding: 0.6em 1.2em;
@@ -159,7 +159,9 @@ a.wp-block-smart-button {
 	font-weight: 500;
 	text-decoration: none;
 	display: inline-block;
-	border: 2px solid transparent;
+	// border: 2px solid transparent;
+	transition: background 0.3s ease, color 0.3s ease;
+	box-sizing: border-box;
 }
 
 /* Variants */
@@ -175,13 +177,13 @@ a.wp-block-smart-button {
 		#f902cb 45.49%,
 		#5d13ff 97.36%
 	);
-	color: #111;
+	color: #fff;
 }
 
 .wp-block-smart-button.is-ghost {
 	background: transparent;
 	color: #2563eb;
-	border: 2px solid #2563eb;
+	outline: 2px solid #2563eb;
 }
 
 // inner block inspector style
