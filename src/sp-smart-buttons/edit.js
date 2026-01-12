@@ -10,6 +10,7 @@ import HorizontalAlignmentControl from "./components/horizontalAlignment/Horizon
 import "./editor.scss";
 import VerticalAlignmentControl from "./components/VerticalAlignment/VerticalAlignmentControl";
 import { ToggleControl } from "@wordpress/components";
+import ButtonGap from "./components/buttonGap";
 
 export default function Edit({ attributes, setAttributes }) {
 	const { direction, align, alignItems } = attributes;
@@ -52,6 +53,12 @@ export default function Edit({ attributes, setAttributes }) {
 						<span className="full-width-button-label">Full Width Buttons</span>
 						<ToggleControl />
 					</div>
+
+					{/* Button Gap */}
+					<ButtonGap
+						defaultValue={12}
+						onChange={(gap) => setAttributes({ buttonGap: gap })}
+					/>
 				</PanelBody>
 			</InspectorControls>
 
