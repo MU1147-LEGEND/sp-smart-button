@@ -102,17 +102,19 @@
 
 	.block-editor-inner-blocks {
 		width: 100%;
+		margin: var(--sp-margin-top) var(--sp-margin-right) var(--sp-margin-bottom)
+			var(--sp-margin-left);
 	}
 	.block-editor-block-list__layout {
 		display: flex;
 		width: 100%;
 	}
 
-	&.has-full-width-buttons{
-		.block-editor-block-list__layout{
-			.block-editor-block-list__block{
+	&.has-full-width-buttons {
+		.block-editor-block-list__layout {
+			.block-editor-block-list__block {
 				width: 100%;
-				.wp-block-smart-button{
+				.wp-block-smart-button {
 					width: 100%;
 				}
 			}

@@ -49,6 +49,19 @@ return array(
 			'buttonGapUnit' => array(
 				'type' => 'string',
 				'default' => 'px'
+			),
+			'magringControl' => array(
+				'type' => 'object',
+				'default' => array(
+					'top' => 10,
+					'right' => 8,
+					'bottom' => 10,
+					'left' => 8
+				)
+			),
+			'marginUnit' => array(
+				'type' => 'string',
+				'default' => 'px'
 			)
 		)
 	),

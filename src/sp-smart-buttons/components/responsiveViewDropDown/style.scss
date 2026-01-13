@@ -1,0 +1,45 @@
+.sp-smart-button-device-dropdown {
+	position: relative;
+	display: inline-flex;
+	cursor: pointer;
+}
+
+.sp-smart-button-device-value {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px;
+	border: 1px solid #dcdcde;
+	border-radius: 2px;
+	background: #fff;
+}
+
+.sp-smart-button-device-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	border: 1px solid #dcdcde;
+	border-radius: 2px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	z-index: 20;
+}
+
+.sp-smart-button-device-item {
+	&:hover {
+		background-color: #efe6fb;
+		color: #6f22dd;
+	}
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 8px;
+	width: 100%;
+	border: none;
+	cursor: pointer;
+	font-size: 12px;
+
+	&.is-active {
+		background-color: #d6c2f5;
+		color: #6f22dd;
+	}
+}

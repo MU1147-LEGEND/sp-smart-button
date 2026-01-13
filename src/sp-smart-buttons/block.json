@@ -41,6 +41,19 @@
 		"buttonGapUnit": {
 			"type": "string",
 			"default": "px"
+		},
+		"magringControl": {
+			"type": "object",
+			"default": {
+				"top": 10,
+				"right": 8,
+				"bottom": 10,
+				"left": 8
+			}
+		},
+		"marginUnit": {
+			"type": "string",
+			"default": "px"
 		}
 	}
 }

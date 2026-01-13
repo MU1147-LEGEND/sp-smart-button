@@ -1,0 +1,30 @@
+.sp-smart-button-toolbar-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 6px;
+}
+
+.sp-smart-button-toolbar-label {
+	font-size: 13px;
+	font-weight: 500;
+	color: #1e1e1e;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.sp-smart-button-toolbar-actions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.sp-smart-button-toolbar-reset {
+	&:hover {
+		background: #efe6fb !important;
+		color: #efe6fb !important;
+	}
+	color: #fff !important;
+	box-shadow: none !important;
+	padding: 0;
+}

@@ -8,6 +8,7 @@ import { __ } from "@wordpress/i18n";
 import ButtonGap from "./components/buttonGap";
 import DirectionToggle from "./components/DirectionToggle";
 import HorizontalAlignmentControl from "./components/horizontalAlignment/HorizontalAlignmentControl";
+import MarginControl from "./components/marginControl";
 import VerticalAlignmentControl from "./components/VerticalAlignment/VerticalAlignmentControl";
 import "./editor.scss";
 
@@ -19,6 +20,8 @@ export default function Edit({ attributes, setAttributes }) {
 		buttonGap,
 		isFullWidthButtons,
 		buttonGapUnit,
+		marginUnit,
+		magringControl,
 	} = attributes;
 
 	// const calculateButtonGap =
@@ -30,7 +33,13 @@ export default function Edit({ attributes, setAttributes }) {
 			{...useBlockProps({
 				className: `sp-smart-buttons is-${direction} align-${justify} align-${alignItems} ${isFullWidthButton}`,
 				style: {
+					// injecting button gap value
 					"--sp-button-gap": `${buttonGap}${buttonGapUnit}`,
+					// injecting margins value css var
+					"--sp-margin-top": `${magringControl.top}${marginUnit}`,
+					"--sp-margin-right": `${magringControl.right}${marginUnit}`,
+					"--sp-margin-bottom": `${magringControl.bottom}${marginUnit}`,
+					"--sp-margin-left": `${magringControl.left}${marginUnit}`,
 				},
 			})}
 		>
@@ -79,6 +88,17 @@ export default function Edit({ attributes, setAttributes }) {
 						buttonGapUnit={buttonGapUnit}
 						handleUnitChange={(newUnit) =>
 							setAttributes({ buttonGapUnit: newUnit })
+						}
+					/>
+					{/* margin control */}
+					<MarginControl
+						unit={marginUnit}
+						onChange={(val) => {
+							setAttributes({ magringControl: val });
+						}}
+						value={magringControl}
+						handleUnitChange={(newUnit) =>
+							setAttributes({ marginUnit: newUnit })
 						}
 					/>
 				</PanelBody>
