@@ -1,15 +1,18 @@
-import { useState } from '@wordpress/element';
-import { RangeControl, Button } from '@wordpress/components';
-import ResetIcon  from './icons/resetIcon.js';
-import './style.scss';
+import { useState } from "@wordpress/element";
+import { RangeControl, Button } from "@wordpress/components";
+import ResetIcon from "./icons/resetIcon.js";
+import "./style.scss";
+import UnitDropdown from "./UnitDropdown.js";
 
 const ButtonGap = ({
-	label = 'Button Gap',
+	label = "Button Gap",
 	min = 0,
-	max = 30,
+	max = 50,
 	step = 1,
 	defaultValue = 12,
 	onChange,
+	buttonGapUnit,
+	handleUnitChange,
 }) => {
 	const [value, setValue] = useState(defaultValue);
 
@@ -19,15 +22,14 @@ const ButtonGap = ({
 	};
 
 	const handleReset = () => {
-		handleChange(defaultValue);
+		handleChange(12);
+		handleUnitChange("px");
 	};
 
 	return (
 		<div className="sp-smart-button-gap sp-control">
 			<div className="sp-smart-button-gap-header">
-				<span className="sp-smart-button-gap-label">
-					{label}
-				</span>
+				<span className="sp-smart-button-gap-label">{label}</span>
 
 				<div className="sp-smart-button-gap-actions">
 					<Button
@@ -35,13 +37,11 @@ const ButtonGap = ({
 						label="Reset"
 						onClick={handleReset}
 						size="small"
-                        variant='tertiary'
+						variant="tertiary"
 						className="sp-smart-button-gap-reset"
 					/>
 
-					<span className="sp-smart-button-gap-unit">
-						px
-					</span>
+					<UnitDropdown value={buttonGapUnit} onChange={handleUnitChange} />
 				</div>
 			</div>
 

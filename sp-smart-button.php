@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:       Sp Smart Button
  * Description:       A smart button block.
@@ -14,28 +15,20 @@
  * @package CreateBlock
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-function create_block_sp_smart_button_block_init() {
-	
-	if ( function_exists( 'wp_register_block_types_from_metadata_collection' ) ) {
-		wp_register_block_types_from_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' );
-		return;
-	}
-
-	
-	if ( function_exists( 'wp_register_block_metadata_collection' ) ) {
-		wp_register_block_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' );
-	}
-	
-	$manifest_data = require __DIR__ . '/build/blocks-manifest.php';
-	foreach ( array_keys( $manifest_data ) as $block_type ) {
-		register_block_type( __DIR__ . "/build/{$block_type}" );
-	}
+function create_block_sp_smart_button_block_init()
+{
+	register_block_type(
+		__DIR__ . '/build/sp-smart-buttons'
+	);
+	register_block_type(
+		__DIR__ . '/build/sp-smart-buttons/single-button'
+	);
 }
-add_action( 'init', 'create_block_sp_smart_button_block_init' );
+add_action('init', 'create_block_sp_smart_button_block_init');
 
 
 // creating new custom category

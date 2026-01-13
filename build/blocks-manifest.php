@@ -14,7 +14,11 @@ return array(
 			
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'align' => array(
+				'wide',
+				'full'
+			)
 		),
 		'textdomain' => 'sp-smart-button',
 		'editorScript' => 'file:./index.js',
@@ -26,13 +30,25 @@ return array(
 				'type' => 'string',
 				'default' => 'horizontal'
 			),
-			'align' => array(
+			'justify' => array(
 				'type' => 'string',
 				'default' => 'start'
 			),
 			'alignItems' => array(
 				'type' => 'string',
 				'default' => 'flex-start'
+			),
+			'buttonGap' => array(
+				'type' => 'number',
+				'default' => 12
+			),
+			'isFullWidthButtons' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'buttonGapUnit' => array(
+				'type' => 'string',
+				'default' => 'px'
 			)
 		)
 	),

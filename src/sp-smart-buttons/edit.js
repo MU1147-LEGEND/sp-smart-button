@@ -3,22 +3,35 @@ import {
 	InspectorControls,
 	useBlockProps,
 } from "@wordpress/block-editor";
-import { PanelBody } from "@wordpress/components";
+import { PanelBody, ToggleControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
+import ButtonGap from "./components/buttonGap";
 import DirectionToggle from "./components/DirectionToggle";
 import HorizontalAlignmentControl from "./components/horizontalAlignment/HorizontalAlignmentControl";
-import "./editor.scss";
 import VerticalAlignmentControl from "./components/VerticalAlignment/VerticalAlignmentControl";
-import { ToggleControl } from "@wordpress/components";
-import ButtonGap from "./components/buttonGap";
+import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { direction, align, alignItems } = attributes;
+	const {
+		direction,
+		justify,
+		alignItems,
+		buttonGap,
+		isFullWidthButtons,
+		buttonGapUnit,
+	} = attributes;
+
+	// const calculateButtonGap =
+	// 	buttonGapUnit === "em" ? buttonGap / 16 : buttonGap; // if I want to convert units.
+	const isFullWidthButton = isFullWidthButtons ? "has-full-width-buttons" : "";
 
 	return (
 		<div
 			{...useBlockProps({
-				className: `sp-smart-buttons is-${direction} align-${align} align-${alignItems}`,
+				className: `sp-smart-buttons is-${direction} align-${justify} align-${alignItems} ${isFullWidthButton}`,
+				style: {
+					"--sp-button-gap": `${buttonGap}${buttonGapUnit}`,
+				},
 			})}
 		>
 			<InspectorControls>
@@ -32,15 +45,15 @@ export default function Edit({ attributes, setAttributes }) {
 						<div className="horizonta-alignment-wrapper">
 							<h3 style={{ marginTop: "15px" }}>Horizontal Alignment</h3>
 							<HorizontalAlignmentControl
-								value={align}
-								onChange={(val) => setAttributes({ align: val })}
+								value={justify}
+								onChange={(val) => setAttributes({ justify: val })}
 							/>
 						</div>
 					)}
 
 					{direction === "vertical" && (
 						<div className="vertical-alignment-wrapper">
-							<h3 style={{ marginTop: "15px" }}>Horizontal Alignment</h3>
+							<h3 style={{ marginTop: "15px" }}>Vertical Alignment</h3>
 							<VerticalAlignmentControl
 								value={alignItems}
 								onChange={(val) => setAttributes({ alignItems: val })}
@@ -51,13 +64,22 @@ export default function Edit({ attributes, setAttributes }) {
 					{/* full width button */}
 					<div className="full-width-button-wrapper">
 						<span className="full-width-button-label">Full Width Buttons</span>
-						<ToggleControl />
+						<ToggleControl
+							checked={isFullWidthButtons}
+							onChange={(value) => {
+								setAttributes({ isFullWidthButtons: value });
+							}}
+						/>
 					</div>
 
 					{/* Button Gap */}
 					<ButtonGap
-						defaultValue={12}
+						defaultValue={buttonGap}
 						onChange={(gap) => setAttributes({ buttonGap: gap })}
+						buttonGapUnit={buttonGapUnit}
+						handleUnitChange={(newUnit) =>
+							setAttributes({ buttonGapUnit: newUnit })
+						}
 					/>
 				</PanelBody>
 			</InspectorControls>

@@ -9,7 +9,11 @@
   "description": "A smart button block.",
   "example": {},
   "supports": {
-    "html": false
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
   },
   "textdomain": "sp-smart-button",
   "editorScript": "file:./index.js",
@@ -21,13 +25,25 @@
       "type": "string",
       "default": "horizontal"
     },
-    "align": {
+    "justify": {
       "type": "string",
       "default": "start"
     },
     "alignItems": {
       "type": "string",
       "default": "flex-start"
+    },
+    "buttonGap": {
+      "type": "number",
+      "default": 12
+    },
+    "isFullWidthButtons": {
+      "type": "boolean",
+      "default": false
+    },
+    "buttonGapUnit": {
+      "type": "string",
+      "default": "px"
     }
   }
 }

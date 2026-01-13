@@ -1,12 +1,26 @@
 /*!********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/sp-smart-buttons/style.scss ***!
   \********************************************************************************************************************************************************************************************************************************************************/
-
+a.sp-single-button {
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
+}
 /*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/sp-smart-buttons/components/buttonGap/style.scss ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************/
 .sp-smart-button-gap.sp-control {
   margin-top: 15px;
+}
+.sp-smart-button-gap.sp-control .components-range-control__wrapper .components-range-control__track {
+  background-color: #884ae3 !important;
+}
+.sp-smart-button-gap.sp-control .components-range-control__wrapper .components-range-control__thumb-wrapper span {
+  background-color: #884ae3;
 }
 .sp-smart-button-gap.sp-control .sp-smart-button-gap {
   margin-bottom: 16px;
@@ -27,19 +41,24 @@
   align-items: center;
   gap: 6px;
 }
+.sp-smart-button-gap.sp-control .sp-smart-button-gap-unit:hover {
+  background: #efe6fb;
+}
 .sp-smart-button-gap.sp-control .sp-smart-button-gap-unit {
   padding: 2px 6px;
-  border: 1px solid #dcdcde;
+  border: 1px solid #d6c2f5;
   border-radius: 2px;
   font-size: 12px;
-  background: #f6f7f7;
 }
 .sp-smart-button-gap.sp-control .sp-smart-button-gap-range {
   margin-top: 6px;
 }
+.sp-smart-button-gap.sp-control .sp-smart-button-gap-reset:hover {
+  background: #efe6fb !important;
+  color: #efe6fb !important;
+}
 .sp-smart-button-gap.sp-control .sp-smart-button-gap-reset {
-  background: transparent !important;
-  color: #FFF;
+  color: #fff !important;
   box-shadow: none !important;
   padding: 0;
 }

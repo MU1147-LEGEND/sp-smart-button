@@ -55,7 +55,7 @@ var SvgIcon = function SvgIcon(props) {
   \*****************************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"sp/smart-buttons","version":"0.1.1","title":"Sp Smart Button","category":"shapedplugin","icon":"smiley","description":"A smart button block.","example":{},"supports":{"html":false},"textdomain":"sp-smart-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"direction":{"type":"string","default":"horizontal"},"align":{"type":"string","default":"start"},"alignItems":{"type":"string","default":"flex-start"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"sp/smart-buttons","version":"0.1.1","title":"Sp Smart Button","category":"shapedplugin","icon":"smiley","description":"A smart button block.","example":{},"supports":{"html":false,"align":["wide","full"]},"textdomain":"sp-smart-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"direction":{"type":"string","default":"horizontal"},"justify":{"type":"string","default":"start"},"alignItems":{"type":"string","default":"flex-start"},"buttonGap":{"type":"number","default":12},"isFullWidthButtons":{"type":"boolean","default":false},"buttonGapUnit":{"type":"string","default":"px"}}}');
 
 /***/ },
 
@@ -245,6 +245,54 @@ const AlignRightIcon = () => {
 
 /***/ },
 
+/***/ "./src/sp-smart-buttons/components/buttonGap/UnitDropdown.js"
+/*!*******************************************************************!*\
+  !*** ./src/sp-smart-buttons/components/buttonGap/UnitDropdown.js ***!
+  \*******************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _unitdropdown_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./unitdropdown.scss */ "./src/sp-smart-buttons/components/buttonGap/unitdropdown.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const UnitDropdown = ({
+  value = "px",
+  onChange
+}) => {
+  const [open, setOpen] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "sp-smart-button-unit-dropdown",
+    onMouseEnter: () => setOpen(true),
+    onMouseLeave: () => setOpen(false),
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "sp-smart-button-unit-value",
+      children: value
+    }), open && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "sp-smart-button-unit-menu",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: "sp-smart-button-unit-item",
+        onClick: () => onChange("px"),
+        children: "px"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: "sp-smart-button-unit-item",
+        onClick: () => onChange("em"),
+        children: "em"
+      })]
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UnitDropdown);
+
+/***/ },
+
 /***/ "./src/sp-smart-buttons/components/buttonGap/icons/resetIcon.js"
 /*!**********************************************************************!*\
   !*** ./src/sp-smart-buttons/components/buttonGap/icons/resetIcon.js ***!
@@ -267,7 +315,7 @@ const ResetIcon = () => {
     fill: "none",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
       d: "M1.47543 3.53343C2.5876 1.70998 4.70777 0.619144 6.95929 0.926746C9.99167 1.34103 12.1141 4.13513 11.6998 7.16754C11.2855 10.1999 8.49141 12.3224 5.45902 11.9081C3.20751 11.6005 1.45767 9.98092 0.875319 7.92598M1.23174 1.91051L1.25557 3.78305L3.05722 3.63178",
-      stroke: "#DDD",
+      stroke: "#949494",
       strokeWidth: "1.75",
       strokeLinecap: "round",
       strokeLinejoin: "round"
@@ -294,20 +342,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _icons_resetIcon_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icons/resetIcon.js */ "./src/sp-smart-buttons/components/buttonGap/icons/resetIcon.js");
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ "./src/sp-smart-buttons/components/buttonGap/style.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _UnitDropdown_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UnitDropdown.js */ "./src/sp-smart-buttons/components/buttonGap/UnitDropdown.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
 
 
 const ButtonGap = ({
-  label = 'Button Gap',
+  label = "Button Gap",
   min = 0,
-  max = 30,
+  max = 50,
   step = 1,
   defaultValue = 12,
-  onChange
+  onChange,
+  buttonGapUnit,
+  handleUnitChange
 }) => {
   const [value, setValue] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(defaultValue);
   const handleChange = newValue => {
@@ -315,30 +367,31 @@ const ButtonGap = ({
     onChange?.(newValue);
   };
   const handleReset = () => {
-    handleChange(defaultValue);
+    handleChange(12);
+    handleUnitChange("px");
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "sp-smart-button-gap sp-control",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "sp-smart-button-gap-header",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
         className: "sp-smart-button-gap-label",
         children: label
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "sp-smart-button-gap-actions",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_icons_resetIcon_js__WEBPACK_IMPORTED_MODULE_2__["default"], {}),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_icons_resetIcon_js__WEBPACK_IMPORTED_MODULE_2__["default"], {}),
           label: "Reset",
           onClick: handleReset,
           size: "small",
           variant: "tertiary",
           className: "sp-smart-button-gap-reset"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-          className: "sp-smart-button-gap-unit",
-          children: "px"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_UnitDropdown_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          value: buttonGapUnit,
+          onChange: handleUnitChange
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RangeControl, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RangeControl, {
       value: value,
       onChange: handleChange,
       min: min,
@@ -356,6 +409,18 @@ const ButtonGap = ({
 /*!**************************************************************!*\
   !*** ./src/sp-smart-buttons/components/buttonGap/style.scss ***!
   \**************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./src/sp-smart-buttons/components/buttonGap/unitdropdown.scss"
+/*!*********************************************************************!*\
+  !*** ./src/sp-smart-buttons/components/buttonGap/unitdropdown.scss ***!
+  \*********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -793,14 +858,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_DirectionToggle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/DirectionToggle */ "./src/sp-smart-buttons/components/DirectionToggle.js");
-/* harmony import */ var _components_horizontalAlignment_HorizontalAlignmentControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/horizontalAlignment/HorizontalAlignmentControl */ "./src/sp-smart-buttons/components/horizontalAlignment/HorizontalAlignmentControl.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/sp-smart-buttons/editor.scss");
+/* harmony import */ var _components_buttonGap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/buttonGap */ "./src/sp-smart-buttons/components/buttonGap/index.js");
+/* harmony import */ var _components_DirectionToggle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/DirectionToggle */ "./src/sp-smart-buttons/components/DirectionToggle.js");
+/* harmony import */ var _components_horizontalAlignment_HorizontalAlignmentControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/horizontalAlignment/HorizontalAlignmentControl */ "./src/sp-smart-buttons/components/horizontalAlignment/HorizontalAlignmentControl.js");
 /* harmony import */ var _components_VerticalAlignment_VerticalAlignmentControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/VerticalAlignment/VerticalAlignmentControl */ "./src/sp-smart-buttons/components/VerticalAlignment/VerticalAlignmentControl.js");
-/* harmony import */ var _components_buttonGap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/buttonGap */ "./src/sp-smart-buttons/components/buttonGap/index.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./editor.scss */ "./src/sp-smart-buttons/editor.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
-
 
 
 
@@ -816,19 +880,29 @@ function Edit({
 }) {
   const {
     direction,
-    align,
-    alignItems
+    justify,
+    alignItems,
+    buttonGap,
+    isFullWidthButtons,
+    buttonGapUnit
   } = attributes;
+
+  // const calculateButtonGap =
+  // 	buttonGapUnit === "em" ? buttonGap / 16 : buttonGap; // if I want to convert units.
+  const isFullWidthButton = isFullWidthButtons ? "has-full-width-buttons" : "";
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-      className: `sp-smart-buttons is-${direction} align-${align} align-${alignItems}`
+      className: `sp-smart-buttons is-${direction} align-${justify} align-${alignItems} ${isFullWidthButton}`,
+      style: {
+        "--sp-button-gap": `${buttonGap}${buttonGapUnit}`
+      }
     }),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("General", "sp-smart-button"),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
           children: "Button Alignment"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_DirectionToggle__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_DirectionToggle__WEBPACK_IMPORTED_MODULE_4__["default"], {
           value: direction,
           onChange: val => setAttributes({
             direction: val
@@ -840,10 +914,10 @@ function Edit({
               marginTop: "15px"
             },
             children: "Horizontal Alignment"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_horizontalAlignment_HorizontalAlignmentControl__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            value: align,
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_horizontalAlignment_HorizontalAlignmentControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            value: justify,
             onChange: val => setAttributes({
-              align: val
+              justify: val
             })
           })]
         }), direction === "vertical" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
@@ -852,7 +926,7 @@ function Edit({
             style: {
               marginTop: "15px"
             },
-            children: "Horizontal Alignment"
+            children: "Vertical Alignment"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_VerticalAlignment_VerticalAlignmentControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
             value: alignItems,
             onChange: val => setAttributes({
@@ -864,11 +938,22 @@ function Edit({
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
             className: "full-width-button-label",
             children: "Full Width Buttons"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {})]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_buttonGap__WEBPACK_IMPORTED_MODULE_7__["default"], {
-          defaultValue: 12,
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+            checked: isFullWidthButtons,
+            onChange: value => {
+              setAttributes({
+                isFullWidthButtons: value
+              });
+            }
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_buttonGap__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          defaultValue: buttonGap,
           onChange: gap => setAttributes({
             buttonGap: gap
+          }),
+          buttonGapUnit: buttonGapUnit,
+          handleUnitChange: newUnit => setAttributes({
+            buttonGapUnit: newUnit
           })
         })]
       })
@@ -934,7 +1019,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Save)
+/* harmony export */   "default": () => (/* binding */ save)
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
@@ -942,8 +1027,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function Save() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {});
+function save({
+  attributes
+}) {
+  const {
+    direction,
+    align,
+    alignItems,
+    buttonGap,
+    isFullWidthButtons,
+    buttonGapUnit
+  } = attributes;
+  const isFullWidthButton = isFullWidthButtons ? "has-full-width-buttons" : "";
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
+      className: `sp-smart-buttons is-${direction} align-${align} align-${alignItems} ${isFullWidthButton}`,
+      style: {
+        "--sp-button-gap": `${buttonGap}${buttonGapUnit}`
+      }
+    }),
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, {})
+  });
 }
 
 /***/ },
@@ -1236,7 +1340,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Save)
+/* harmony export */   "default": () => (/* binding */ save)
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
@@ -1244,9 +1348,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function Save() {
+function save({
+  attributes
+}) {
+  const {
+    text,
+    url
+  } = attributes;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save()
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+      href: url,
+      className: "sp-single-button",
+      children: text
+    })
   });
 }
 

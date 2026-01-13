@@ -1,6 +1,18 @@
 // inspector styles main block
-// alignment toggle
 
+// default style for inspectors panel opened
+.components-panel__body.is-opened > .components-panel__body-title {
+	&:hover {
+		background-color: #f4ebff !important;
+		button {
+			color: #6f22dd !important;
+		}
+	}
+	background-color: #f0f0f0 !important;
+}
+// default style for inspectors panel opened
+
+// alignment toggle
 .sp-toggle {
 	display: flex;
 	width: 100%;
@@ -44,11 +56,11 @@
 	gap: 12px;
 	margin-top: 15px;
 
-	.components-toggle-control{
+	.components-toggle-control {
 		margin-bottom: 0;
 	}
 	.components-form-toggle {
-		transform: scale(1.2); 
+		transform: scale(1.2);
 	}
 	.components-form-toggle.is-checked {
 		.components-form-toggle__track {
@@ -56,10 +68,12 @@
 		}
 	}
 	.components-form-toggle__track {
-		background-color: #e4e7ec;
+		background-color: #bbbbbb;
+		padding: 1px;
 	}
 	.components-form-toggle__thumb {
 		background-color: #ffffff;
+		transform: scale(0.95);
 	}
 }
 // full width button toggler style
@@ -70,7 +84,16 @@
 	display: flex;
 	gap: 12px;
 	width: 100%;
-	background-color: #2563eb22;
+
+	// button gap styles
+
+	.block-editor-inner-blocks {
+		.block-editor-block-list__layout {
+			gap: var(--sp-button-gap);
+		}
+	}
+
+	// button gap styles
 
 	/* child button */
 	.sp-single-button {
@@ -83,6 +106,17 @@
 	.block-editor-block-list__layout {
 		display: flex;
 		width: 100%;
+	}
+
+	&.has-full-width-buttons{
+		.block-editor-block-list__layout{
+			.block-editor-block-list__block{
+				width: 100%;
+				.wp-block-smart-button{
+					width: 100%;
+				}
+			}
+		}
 	}
 
 	// horizontal alignment
@@ -160,7 +194,9 @@ a.wp-block-smart-button {
 	text-decoration: none;
 	display: inline-block;
 	// border: 2px solid transparent;
-	transition: background 0.3s ease, color 0.3s ease;
+	transition:
+		background 0.3s ease,
+		color 0.3s ease;
 	box-sizing: border-box;
 }
 
@@ -213,3 +249,5 @@ a.wp-block-smart-button {
 		}
 	}
 }
+
+// testing classes

@@ -1,3 +1,42 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/sp-smart-buttons/components/buttonGap/unitdropdown.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+.sp-smart-button-unit-dropdown {
+  position: relative;
+  font-size: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.sp-smart-button-unit-value {
+  padding: 2px 6px;
+  border: 1px solid #d6c2f5;
+  border-radius: 2px;
+}
+
+.sp-smart-button-unit-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #d6c2f5;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  z-index: 20;
+  min-width: 100%;
+}
+
+.sp-smart-button-unit-item {
+  display: block;
+  padding: 4px 6px;
+}
+
+.sp-smart-button-unit-item:hover {
+  background: #efe6fb;
+  color: #9148ff;
+}
 /*!********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/sp-smart-buttons/assets/css/align-button-style.scss ***!
   \********************************************************************************************************************************************************************************************************************************************************************************/
@@ -47,6 +86,15 @@
 /*!*********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/sp-smart-buttons/editor.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************************/
+.components-panel__body.is-opened > .components-panel__body-title:hover {
+  background-color: #f4ebff !important;
+}
+.components-panel__body.is-opened > .components-panel__body-title:hover button {
+  color: #6f22dd !important;
+}
+.components-panel__body.is-opened > .components-panel__body-title {
+  background-color: #f0f0f0 !important;
+}
 .sp-toggle {
   display: flex;
   width: 100%;
@@ -58,7 +106,6 @@
   align-items: center;
   justify-content: space-between;
 }
-
 .sp-toggle__btn {
   width: 50%;
   border: 0;
@@ -69,18 +116,15 @@
   font-size: 14px;
   color: #111;
 }
-
 .sp-toggle__btn.is-active {
   background: #f4ebff;
   color: #6f22dd;
   font-weight: 500;
 }
-
 .full-width-button-label {
   font-size: 14px;
   font-weight: 500;
 }
-
 .full-width-button-wrapper {
   display: flex;
   align-items: center;
@@ -88,101 +132,90 @@
   gap: 12px;
   margin-top: 15px;
 }
-
 .full-width-button-wrapper .components-toggle-control {
   margin-bottom: 0;
 }
-
 .full-width-button-wrapper .components-form-toggle {
   transform: scale(1.2);
 }
-
 .full-width-button-wrapper .components-form-toggle.is-checked .components-form-toggle__track {
   background-color: #7f56d9;
 }
-
 .full-width-button-wrapper .components-form-toggle__track {
-  background-color: #e4e7ec;
+  background-color: #bbbbbb;
+  padding: 1px;
 }
-
 .full-width-button-wrapper .components-form-toggle__thumb {
   background-color: #ffffff;
+  transform: scale(0.95);
 }
-
 .wp-block-sp-smart-buttons {
   display: flex;
   gap: 12px;
   width: 100%;
-  background-color: rgba(37, 99, 235, 0.1333333333);
+}
+.wp-block-sp-smart-buttons .block-editor-inner-blocks .block-editor-block-list__layout {
+  gap: var(--sp-button-gap);
+}
+.wp-block-sp-smart-buttons {
   /* child button */
 }
-
 .wp-block-sp-smart-buttons .sp-single-button {
   display: inline-flex;
 }
-
 .wp-block-sp-smart-buttons .block-editor-inner-blocks {
   width: 100%;
 }
-
 .wp-block-sp-smart-buttons .block-editor-block-list__layout {
   display: flex;
   width: 100%;
 }
-
+.wp-block-sp-smart-buttons.has-full-width-buttons .block-editor-block-list__layout .block-editor-block-list__block {
+  width: 100%;
+}
+.wp-block-sp-smart-buttons.has-full-width-buttons .block-editor-block-list__layout .block-editor-block-list__block .wp-block-smart-button {
+  width: 100%;
+}
 .wp-block-sp-smart-buttons.is-horizontal {
   flex-direction: row;
 }
-
 .wp-block-sp-smart-buttons.is-horizontal.align-start .block-editor-block-list__layout {
   justify-content: start;
 }
-
 .wp-block-sp-smart-buttons.is-horizontal.align-horizontal-center .block-editor-block-list__layout {
   justify-content: center;
 }
-
 .wp-block-sp-smart-buttons.is-horizontal.align-end .block-editor-block-list__layout {
   justify-content: end;
 }
-
 .wp-block-sp-smart-buttons.is-horizontal.align-space-between .block-editor-block-list__layout {
   justify-content: space-between;
 }
-
 .wp-block-sp-smart-buttons.is-horizontal.align-space-around .block-editor-block-list__layout {
   justify-content: space-around;
 }
-
 .wp-block-sp-smart-buttons.is-horizontal.align-space-evenly .block-editor-block-list__layout {
   justify-content: space-evenly;
 }
-
 .wp-block-sp-smart-buttons.is-vertical .block-editor-block-list__layout {
   flex-direction: column;
 }
-
 .wp-block-sp-smart-buttons.is-vertical {
   flex-direction: column;
   align-items: flex-start;
 }
-
 .wp-block-sp-smart-buttons.is-vertical .sp-single-button {
   width: 100%;
 }
-
 .wp-block-sp-smart-buttons.is-vertical.align-flex-start .block-editor-block-list__layout {
   align-items: flex-start;
 }
-
 .wp-block-sp-smart-buttons.is-vertical.align-vertical-center .block-editor-block-list__layout {
   align-items: center;
 }
-
 .wp-block-sp-smart-buttons.is-vertical.align-flex-end .block-editor-block-list__layout {
   align-items: flex-end;
 }
-
 a.wp-block-smart-button {
   padding: 0.6em 1.2em;
   border-radius: 6px;
@@ -192,50 +225,41 @@ a.wp-block-smart-button {
   transition: background 0.3s ease, color 0.3s ease;
   box-sizing: border-box;
 }
-
 /* Variants */
-
 .wp-block-smart-button.is-default {
   background: #2563eb;
   color: white;
 }
-
 .wp-block-smart-button.is-gradient {
   background: linear-gradient(81deg, #ff0035 1.03%, #f902cb 45.49%, #5d13ff 97.36%);
   color: #fff;
 }
-
 .wp-block-smart-button.is-ghost {
   background: transparent;
   color: #2563eb;
   outline: 2px solid #2563eb;
 }
-
 .inspector-variant-wrapper {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-
 .inspector-variant-wrapper .btn-label-wrapper {
   display: flex;
   flex-direction: column;
 }
-
 .inspector-variant-wrapper .btn-label-wrapper .btn-container {
   position: relative;
   border: 2px solid rgba(128, 128, 128, 0.66);
   border-radius: 3px;
   padding: 4px;
 }
-
 .inspector-variant-wrapper .btn-label-wrapper .btn-container a.wp-block-smart-button {
   width: 100%;
   text-align: center;
   font-size: 10px;
 }
-
 .inspector-variant-wrapper .btn-label-wrapper .btn-container .selected-icon {
   position: absolute;
   top: 0;
