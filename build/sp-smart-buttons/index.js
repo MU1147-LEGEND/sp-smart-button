@@ -944,9 +944,9 @@ const PhoneIcon = () => {
 
 /***/ },
 
-/***/ "./src/sp-smart-buttons/components/marginControl/index.js"
+/***/ "./src/sp-smart-buttons/components/inputBoxSides/index.js"
 /*!****************************************************************!*\
-  !*** ./src/sp-smart-buttons/components/marginControl/index.js ***!
+  !*** ./src/sp-smart-buttons/components/inputBoxSides/index.js ***!
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -960,28 +960,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/link-off.js");
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/link.js");
-/* harmony import */ var _toolbarHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../toolbarHeader */ "./src/sp-smart-buttons/components/toolbarHeader/index.js");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./style.scss */ "./src/sp-smart-buttons/components/marginControl/style.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
 
-
-
-const DEFAULT_VALUES = {
-  top: 10,
-  right: 8,
-  bottom: 10,
-  left: 8
-};
-const MarginControl = ({
-  label = "Margin",
-  value = DEFAULT_VALUES,
-  unit = "px",
-  onChange,
-  handleUnitChange
+const InputBoxes = ({
+  value,
+  onChange
 }) => {
   const [linked, setLinked] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
   const updateValue = (side, newValue) => {
@@ -999,32 +986,73 @@ const MarginControl = ({
       });
     }
   };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "sp-smart-button-spacing-inputs",
+    children: [["top", "right", "bottom", "left"].map(side => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      type: "number",
+      value: value[side],
+      onChange: e => {
+        updateValue(side, Number(e.target.value));
+        value[side];
+      },
+      className: `sp-smart-button-spacing-input is-${side}`
+    }, side)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Button, {
+      icon: linked ? _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"] : _wordpress_icons__WEBPACK_IMPORTED_MODULE_2__["default"],
+      onClick: () => setLinked(!linked),
+      size: "small",
+      className: "sp-smart-button-spacing-link"
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputBoxes);
+
+/***/ },
+
+/***/ "./src/sp-smart-buttons/components/marginControl/index.js"
+/*!****************************************************************!*\
+  !*** ./src/sp-smart-buttons/components/marginControl/index.js ***!
+  \****************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _inputBoxSides__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../inputBoxSides */ "./src/sp-smart-buttons/components/inputBoxSides/index.js");
+/* harmony import */ var _toolbarHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../toolbarHeader */ "./src/sp-smart-buttons/components/toolbarHeader/index.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/sp-smart-buttons/components/marginControl/style.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+const DEFAULT_VALUES = {
+  top: 10,
+  right: 8,
+  bottom: 10,
+  left: 8
+};
+const MarginControl = ({
+  label = "Margin",
+  value = DEFAULT_VALUES,
+  unit = "px",
+  onChange,
+  handleUnitChange
+}) => {
   const handleReset = () => {
     onChange(DEFAULT_VALUES);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "sp-smart-button-spacing",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_toolbarHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_toolbarHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {
       label: label,
       unit: unit,
       handleUnitChange: handleUnitChange,
       handleReset: handleReset
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-      className: "sp-smart-button-spacing-inputs",
-      children: [["top", "right", "bottom", "left"].map(side => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-        type: "number",
-        value: value[side],
-        onChange: e => {
-          updateValue(side, Number(e.target.value));
-          value[side];
-        },
-        className: `sp-smart-button-spacing-input is-${side}`
-      }, side)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Button, {
-        icon: linked ? _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"] : _wordpress_icons__WEBPACK_IMPORTED_MODULE_2__["default"],
-        onClick: () => setLinked(!linked),
-        size: "small",
-        className: "sp-smart-button-spacing-link"
-      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inputBoxSides__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      value: value,
+      onChange: onChange
     })]
   });
 };
