@@ -98,7 +98,7 @@ export default function Edit({ attributes, setAttributes }) {
 							{(variant === "default" &&
 								hoverEffects.map((effect) => (
 									<div key={effect.value} className="inspector-hover-styles">
-										<>
+										<span className="btn-container">
 											<Button
 												variant={variant}
 												// className={`is-hover-${effect.value}`}
@@ -107,8 +107,15 @@ export default function Edit({ attributes, setAttributes }) {
 													setAttributes({ hoverEffect: effect.value });
 												}}
 											/>
-											<span>{effect.effect}</span>
-										</>
+
+											{/* showing selected tick */}
+											{effect.value === hoverEffect && (
+												<span className={`selected-icon`}>
+													<img src={selectedIcon} alt="" />
+												</span>
+											)}
+										</span>
+										<p>{effect.effect}</p>
 									</div>
 								))) ||
 								(variant === "ghost" &&

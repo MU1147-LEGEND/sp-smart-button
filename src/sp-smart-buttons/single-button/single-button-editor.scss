@@ -1,5 +1,11 @@
 // button design for innerblock.
-
+.inspector-hover-styles{
+    .btn-container{
+        a.sp-smart-button{
+            border-radius: 2px;
+        }
+    }
+}
 a.sp-smart-button {
 	padding: 0.6em 1.2em;
 	border-radius: 6px;
@@ -35,7 +41,8 @@ a.sp-smart-button {
 	outline: 2px solid #2563eb;
 }
 
-.btn-label-wrapper {
+.btn-label-wrapper,
+.inspector-hover-styles {
 	display: flex;
 	flex-direction: column;
 	.btn-container {
@@ -67,20 +74,89 @@ a.sp-smart-button {
 }
 .inspector-hover-styles {
 	flex-direction: column;
+	position: relative;
 }
 
-.sp-smart-button .is-default .is-hover-gradient {
-}
-
+// button hover effects
+// raise hover
 .is-default.is-hover-raise {
-	box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
 	transition: all 0.4s ease-in-out;
-}
-
-.is-default.is-hover-raise {
 	&:hover {
 		transform: translateY(-4px);
-		box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 	}
 }
+// raise hover
+
+// gradient hover
+.block-editor-block-list__block {
+	z-index: 0;
+}
+
+.is-default.is-hover-gradient {
+	position: relative;
+	&::after {
+		content: "";
+		position: absolute;
+		inset: -3px;
+		background: linear-gradient(49deg, #00f, #f0f);
+		filter: blur(10px);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+		z-index: -1;
+	}
+	&:hover::after {
+		opacity: 1;
+	}
+
+    // need to fix the shine button hover effect
+
+    // &.block-editor-block-list__block{
+    //     overflow: hidden;
+    // }
+    
+}
+
+// gradient hover
+
+// shine hover
+.is-default.is-hover-shine {
+    overflow: hidden;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 50%;
+		height: 100%;
+		background: linear-gradient(
+			120deg,
+			transparent,
+			rgba(255, 255, 255, 0.4),
+			transparent
+		);
+		transition: left 0.6s ease;
+	}
+	&:hover::before {
+		left: 150%;
+	}
+}
+// shine hover
+
+// multi layer hover
+.is-default.is-hover-multi-layers {
+	transition: all 0.4s ease-in-out;
+	&:hover {
+	}
+}
+// multi layer hover
+
+// flip hover
+.is-default.is-hover-flip {
+	transition: all 0.4s ease-in-out;
+	&:hover {
+	}
+}
+// flip hover
 // hover styles end
