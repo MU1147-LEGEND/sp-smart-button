@@ -1,0 +1,86 @@
+// button design for innerblock.
+
+a.sp-smart-button {
+	padding: 0.6em 1.2em;
+	border-radius: 6px;
+	font-weight: 500;
+	text-decoration: none;
+	display: inline-block;
+	// border: 2px solid transparent;
+	transition:
+		background 0.3s ease,
+		color 0.3s ease;
+	box-sizing: border-box;
+}
+
+/* Variants */
+.sp-smart-button.is-default {
+	background: #2563eb;
+	color: white;
+}
+
+.sp-smart-button.is-gradient {
+	background: linear-gradient(
+		81deg,
+		#ff0035 1.03%,
+		#f902cb 45.49%,
+		#5d13ff 97.36%
+	);
+	color: #fff;
+}
+
+.sp-smart-button.is-ghost {
+	background: transparent;
+	color: #2563eb;
+	outline: 2px solid #2563eb;
+}
+
+.btn-label-wrapper {
+	display: flex;
+	flex-direction: column;
+	.btn-container {
+		position: relative;
+		border: 2px solid rgba(128, 128, 128, 0.66);
+		border-radius: 3px;
+		padding: 4px;
+		a.sp-smart-button {
+			width: 100%;
+			text-align: center;
+			font-size: 10px;
+		}
+		.selected-icon {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+}
+
+// hover styles
+.inspector-hover-styles-wrapper,
+.inspector-hover-styles {
+	display: flex;
+	gap: 4px;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+.inspector-hover-styles {
+	flex-direction: column;
+}
+
+.sp-smart-button .is-default .is-hover-gradient {
+}
+
+.is-default.is-hover-raise {
+	box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+	transition: all 0.4s ease-in-out;
+}
+
+.is-default.is-hover-raise {
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+	}
+}
+// hover styles end

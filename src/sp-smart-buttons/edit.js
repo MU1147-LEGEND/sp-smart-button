@@ -6,9 +6,9 @@ import {
 import { PanelBody, ToggleControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import ButtonGap from "./components/buttonGap";
-import DirectionToggle from "./components/DirectionToggle";
 import HorizontalAlignmentControl from "./components/horizontalAlignment/HorizontalAlignmentControl";
 import MarginControl from "./components/marginControl";
+import TabToggle from "./components/tabToggle";
 import VerticalAlignmentControl from "./components/VerticalAlignment/VerticalAlignmentControl";
 import "./editor.scss";
 
@@ -28,6 +28,9 @@ export default function Edit({ attributes, setAttributes }) {
 	// 	buttonGapUnit === "em" ? buttonGap / 16 : buttonGap; // if I want to convert units.
 	const isFullWidthButton = isFullWidthButtons ? "has-full-width-buttons" : "";
 
+	// tab options
+	const options = ["horizontal", "vertical"];
+
 	return (
 		<div
 			{...useBlockProps({
@@ -46,9 +49,10 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls>
 				<PanelBody title={__("General", "sp-smart-button")}>
 					<h3>Button Alignment</h3>
-					<DirectionToggle
+					<TabToggle
 						value={direction}
 						onChange={(val) => setAttributes({ direction: val })}
+						tabOptions={options}
 					/>
 					{direction === "horizontal" && (
 						<div className="horizonta-alignment-wrapper">

@@ -4,14 +4,15 @@ const Button = ({
 	link = "#",
 	onClick,
 	variant,
+	hoverEffect = "default"
 }) => {
 	return (
 		<a
 			href={link}
 			onClick={onClick}
-			className={`wp-block-smart-button is-${variant} ${className}`}
+			className={`sp-smart-button is-${variant} is-hover-${hoverEffect} ${className}`}
 		>
-			{children}
+			<span className="sp-smart-button-inner">{children}</span>
 		</a>
 	);
 };

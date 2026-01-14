@@ -18,6 +18,26 @@
 		"variant": {
 			"type": "string",
 			"default": "default"
+		},
+		"hoverEffect": {
+			"type": "string",
+			"default": "default"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"bgColor": {
+			"type": "string",
+			"default": "#0000FF"
+		},
+		"hoverTextColor": {
+			"type": "string",
+			"default": "#FFFF00"
+		},
+		"hoverBgColor": {
+			"type": "string",
+			"default": "#FF00FF"
 		}
 	}
 }
