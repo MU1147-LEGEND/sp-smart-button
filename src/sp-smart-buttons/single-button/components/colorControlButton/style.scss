@@ -1,0 +1,27 @@
+.sp-smart-button-color-control {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin:15px 0;
+}
+
+.sp-smart-button-color-label {
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.sp-smart-button-color-actions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.sp-smart-button-color-button {
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 0 0 0 1px #ccc;
+	cursor: pointer;
+	background-clip: padding-box;
+}

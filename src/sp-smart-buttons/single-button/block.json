@@ -25,11 +25,11 @@
 		},
 		"textColor": {
 			"type": "string",
-			"default": "#000000"
+			"default": "#FFFFFF"
 		},
 		"bgColor": {
 			"type": "string",
-			"default": "#0000FF"
+			"default": "#2563eb"
 		},
 		"hoverTextColor": {
 			"type": "string",
@@ -38,6 +38,19 @@
 		"hoverBgColor": {
 			"type": "string",
 			"default": "#FF00FF"
+		},
+		"generalStyleTab": {
+			"type": "string",
+			"default": "normal"
+		},
+		"borderRadiusControl": {
+			"type": "object",
+			"default": {
+				"top_left": 8,
+				"top_right": 8,
+				"bottom_left": 8,
+				"bottom_right": 8
+			}
 		}
 	}
 }

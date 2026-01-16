@@ -2,7 +2,7 @@ import { Button } from "@wordpress/components";
 import { useState } from "@wordpress/element";
 import { link, linkOff } from "@wordpress/icons";
 
-const InputBoxes = ({ value, onChange }) => {
+const InputBoxSides = ({ value, onChange }) => {
 	const [linked, setLinked] = useState(false);
 
 	const updateValue = (side, newValue) => {
@@ -45,4 +45,4 @@ const InputBoxes = ({ value, onChange }) => {
 	);
 };
 
-export default InputBoxes;
+export default InputBoxSides;

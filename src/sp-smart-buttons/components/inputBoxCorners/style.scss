@@ -1,0 +1,103 @@
+.sp-smart-button-corner-inputs {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr) auto;
+	gap: 4px;
+	align-items: center;
+	margin-top: 6px;
+}
+
+/* Base input */
+.sp-smart-button-corner-input {
+	width: 100%;
+	height: 32px;
+	padding: 0;
+	text-align: center;
+	font-size: 12px;
+	border: 1px solid #dcdcde;
+	border-radius: 2px;
+	background-color: #fff;
+	color: #1e1e1e;
+
+	&:focus {
+		outline: none;
+		border-color: #3858e9; // Gutenberg blue
+		box-shadow: 0 0 0 1px #3858e9;
+	}
+}
+
+/* Visual corner hints */
+
+.box-corner-top_left {
+	background: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 16px;
+	width: 16px;
+	border-top: 2px solid;
+	border-left: 2px solid;
+}
+.box-corner-top_right {
+	background: transparent;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 16px;
+	width: 16px;
+	border-top: 2px solid;
+	border-right: 2px solid;
+}
+.box-corner-bottom_right {
+	background: transparent;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 16px;
+	width: 16px;
+	border-right: 2px solid;
+	border-bottom: 2px solid;
+}
+.box-corner-bottom_left {
+	background: transparent;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 16px;
+	width: 16px;
+	border-bottom: 2px solid;
+	border-left: 2px solid;
+}
+
+.sp-smart-button-corner-input.is-top_right {
+	border-bottom-left-radius: 6px;
+}
+
+.sp-smart-button-corner-input.is-bottom_right {
+	border-top-left-radius: 6px;
+}
+
+.sp-smart-button-corner-input.is-botton_left {
+	border-top-right-radius: 6px;
+}
+
+/* Link / unlink button */
+.sp-smart-button-corner-link {
+	padding: 0;
+	min-width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #dcdcde;
+	border-radius: 2px;
+	background: #f6f7f7;
+
+	&:hover {
+		background: #f0f0f0;
+	}
+
+	&.is-primary {
+		background: #3858e9;
+		color: #fff;
+	}
+}

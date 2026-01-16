@@ -1,0 +1,53 @@
+import { Button } from "@wordpress/components";
+import { useState } from "@wordpress/element";
+import { link, linkOff } from "@wordpress/icons";
+import "./style.scss"
+
+const InputBoxCorners = ({ value, onChange }) => {
+	const [linked, setLinked] = useState(false);
+
+	const updateValue = (corner, newValue) => {
+		if (linked) {
+			onChange({
+				top_left: newValue,
+				top_right: newValue,
+				bottom_right: newValue,
+				bottom_left: newValue,
+			});
+		} else {
+			onChange({
+				...value,
+				[corner]: newValue,
+			});
+		}
+	};
+	return (
+		<div className="sp-smart-button-corner-inputs">
+			{["top_left", "top_right", "bottom_right", "bottom_left"].map(
+				(corner) => (
+					<span style={{ position: "relative" }} key={corner}>
+						<input
+							type="number"
+							value={value[corner]}
+							onChange={(e) => {
+								updateValue(corner, Number(e.target.value));
+								value[corner];
+							}}
+							className={`sp-smart-button-corner-input is-${corner}`}
+						/>
+						<div className={`box-corner-${corner}`}></div>
+					</span>
+				),
+			)}
+
+			<Button
+				icon={linked ? link : linkOff}
+				onClick={() => setLinked(!linked)}
+				size="small"
+				className="sp-smart-button-corner-link"
+			/>
+		</div>
+	);
+};
+
+export default InputBoxCorners;

@@ -1,4 +1,9 @@
-import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
+import {
+	ColorPalette,
+	InspectorControls,
+	PanelColorSettings,
+	useBlockProps,
+} from "@wordpress/block-editor";
 import Button from "./components/Button";
 import { Panel } from "@wordpress/components";
 import { PanelBody } from "@wordpress/components";
@@ -6,17 +11,30 @@ import ButtonContainer from "./components/ButtonContainer";
 import selectedIcon from "./assets/selected.svg";
 import { __ } from "@wordpress/i18n";
 import "./single-button-editor.scss";
+import { TextControl } from "@wordpress/components";
+import TabToggle from "../components/tabToggle";
+import { ColorPicker } from "@wordpress/components";
+import ColorControl from "./components/colorControlButton";
+import BorderRadiusControl from "./components/borderRadiusControl";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { variant, hoverEffect } = attributes;
+	const {
+		text,
+		variant,
+		hoverEffect,
+		generalStyleTab,
+		textColor,
+		bgColor,
+		borderRadiusControl,
+	} = attributes;
 
 	const handleButtonClick = (btnVariant) => {
 		setAttributes({ variant: btnVariant });
 	};
 
-	const handleEffectChange = (effect) => {
-		setAttributes({ hoverEffect: effect });
-	};
+	// tab options
+	const options = ["normal", "hover"];
+
 	const variants = ["default", "ghost", "gradient"];
 	const hoverEffects = [
 		{
@@ -73,7 +91,15 @@ export default function Edit({ attributes, setAttributes }) {
 	]; // need to change values.
 
 	return (
-		<div {...useBlockProps()}>
+		<div
+			{...useBlockProps({
+				className: `sp-parent has-hover-${hoverEffect}`,
+				style: {
+					"--primary-background": `${bgColor}`,
+					"--primary-text-color": `${textColor}`,
+				},
+			})}
+		>
 			<InspectorControls>
 				<Panel>
 					{/* button style */}
@@ -135,6 +161,30 @@ export default function Edit({ attributes, setAttributes }) {
 										</div>
 									)))}
 						</div>
+
+						{/* ----------Normal/hover tab toggler--------- */}
+						<TabToggle
+							value={generalStyleTab}
+							tabOptions={options}
+							onChange={(newOption) =>
+								setAttributes({ generalStyleTab: newOption })
+							}
+						/>
+
+						{generalStyleTab === "normal" && (
+							<>
+								<ColorControl
+									label={__("Background Color", "sp-smart-button")}
+									value={bgColor}
+									onChange={(newBgColor) =>
+										setAttributes({ bgColor: newBgColor })
+									}
+									onReset={() => setAttributes({ bgColor: "#2563eb" })}
+								/>
+
+								<BorderRadiusControl value={borderRadiusControl} />
+							</>
+						)}
 					</PanelBody>
 
 					{/* button text */}
@@ -143,6 +193,13 @@ export default function Edit({ attributes, setAttributes }) {
 						initialOpen={false}
 					>
 						<h3>Button Label</h3>
+						<TextControl
+							value={text}
+							placeholder="Button label"
+							onChange={(newText) => {
+								setAttributes({ text: newText });
+							}}
+						/>
 					</PanelBody>
 
 					{/* button icon */}
@@ -153,7 +210,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 
 			<Button variant={variant} hoverEffect={hoverEffect}>
-				Click Me
+				{text}
 			</Button>
 		</div>
 	);

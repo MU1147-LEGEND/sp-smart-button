@@ -2,8 +2,8 @@ import { useState } from "@wordpress/element";
 import UnitDropdown from "../buttonGap/UnitDropdown";
 import DeviceDropDown from "../responsiveViewDropDown";
 import { Button } from "@wordpress/components";
-import ResetIcon from "../buttonGap/icons/resetIcon";
 import "./style.scss";
+import ResetIcon from "../icons/resetIcon";
 
 const ToolbarHeader = ({ label, unit, handleUnitChange, handleReset }) => {
 	const [device, setDevice] = useState("desktop");
@@ -24,7 +24,7 @@ const ToolbarHeader = ({ label, unit, handleUnitChange, handleReset }) => {
 					onClick={handleReset}
 					size="small"
 					variant="tertiary"
-					className="sp-smart-button-toolbar-reset"
+					className="sp-reset-button-background-fix"
 				/>
 
 				<UnitDropdown value={unit} onChange={handleUnitChange} />

@@ -1,10 +1,10 @@
 // button design for innerblock.
-.inspector-hover-styles{
-    .btn-container{
-        a.sp-smart-button{
-            border-radius: 2px;
-        }
-    }
+.inspector-hover-styles {
+	.btn-container {
+		a.sp-smart-button {
+			border-radius: 2px;
+		}
+	}
 }
 a.sp-smart-button {
 	padding: 0.6em 1.2em;
@@ -19,26 +19,53 @@ a.sp-smart-button {
 	box-sizing: border-box;
 }
 
-/* Variants */
-.sp-smart-button.is-default {
-	background: #2563eb;
-	color: white;
+/* Variants (inspectior) */
+span.btn-container,
+.inspector-hover-styles-wrapper {
+	.sp-smart-button.is-default {
+		background: #2563eb;
+		color: white;
+	}
+
+	.sp-smart-button.is-gradient {
+		background: linear-gradient(
+			81deg,
+			#ff0035 1.03%,
+			#f902cb 45.49%,
+			#5d13ff 97.36%
+		);
+		color: #fff;
+	}
+
+	.sp-smart-button.is-ghost {
+		background: transparent;
+		color: #2563eb;
+		outline: 2px solid #2563eb;
+	}
 }
 
-.sp-smart-button.is-gradient {
-	background: linear-gradient(
-		81deg,
-		#ff0035 1.03%,
-		#f902cb 45.49%,
-		#5d13ff 97.36%
-	);
-	color: #fff;
-}
+// buttons style (Editor canvas)
+.sp-parent {
+	.sp-smart-button.is-default {
+		background: var(--primary-background);
+		color: var(--primary-text-color);
+	}
 
-.sp-smart-button.is-ghost {
-	background: transparent;
-	color: #2563eb;
-	outline: 2px solid #2563eb;
+	.sp-smart-button.is-gradient {
+		background: linear-gradient(
+			81deg,
+			#ff0035 1.03%,
+			#f902cb 45.49%,
+			#5d13ff 97.36%
+		);
+		color: #fff;
+	}
+
+	.sp-smart-button.is-ghost {
+		background: transparent;
+		color: #2563eb;
+		outline: 2px solid #2563eb;
+	}
 }
 
 .btn-label-wrapper,
@@ -81,7 +108,9 @@ a.sp-smart-button {
 // raise hover
 .is-default.is-hover-raise {
 	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
-	transition: all 0.4s ease-in-out;
+	transition:
+		transform 0.4s ease-in-out,
+		box-shadow 0.4s ease-in-out;
 	&:hover {
 		transform: translateY(-4px);
 		box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
@@ -109,27 +138,24 @@ a.sp-smart-button {
 	&:hover::after {
 		opacity: 1;
 	}
-
-    // need to fix the shine button hover effect
-
-    // &.block-editor-block-list__block{
-    //     overflow: hidden;
-    // }
-    
 }
 
 // gradient hover
 
 // shine hover
+.sp-parent.has-hover-shine {
+	overflow: hidden;
+}
+
 .is-default.is-hover-shine {
-    overflow: hidden;
+	overflow: hidden;
 	&::before {
 		content: "";
 		position: absolute;
 		top: 0;
 		left: -100%;
 		width: 50%;
-		height: 100%;
+		height: 95%;
 		background: linear-gradient(
 			120deg,
 			transparent,
@@ -145,18 +171,94 @@ a.sp-smart-button {
 // shine hover
 
 // multi layer hover
+
+$color-button-green: #1a75e4c2;
 .is-default.is-hover-multi-layers {
-	transition: all 0.4s ease-in-out;
-	&:hover {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+	transition: box-shadow 0.4s ease-in-out;
+}
+
+.is-default.is-hover-multi-layers:before {
+	position: absolute;
+	content: "";
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+}
+
+.is-default.is-hover-multi-layers:hover {
+	box-shadow:
+		7px 7px darken($color-button-green, 20%),
+		-7px -7px lighten($color-button-green, 20%);
+	cursor: pointer;
+	&::before {
+		border: 0px;
 	}
 }
-// multi layer hover
+// multi layer hover end
 
 // flip hover
 .is-default.is-hover-flip {
-	transition: all 0.4s ease-in-out;
+	opacity: 1;
+	outline: 0;
+	color: #fff;
+	background-color: transparent !important;
+	position: relative;
+
 	&:hover {
+		&:after {
+			opacity: 1;
+			transform: translateY(0) rotateX(0);
+		}
+		&:before {
+			opacity: 0;
+			transform: translateY(50%) rotateX(90deg);
+		}
+	}
+
+	&:after {
+		content: attr(data-text);
+		top: 0;
+		left: 0;
+		opacity: 0;
+		background-color: #1a75e4c2;
+		border-radius: inherit;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, height 0.4s ease-in-out;
+		position: absolute;
+		text-align: center;
+		transform: translateY(-50%) rotateX(90deg);
+	}
+	
+	&:before {
+		content: attr(data-text);
+		top: 0;
+		left: 0;
+		opacity: 1;
+		background-color: #1c4c86;
+		border-radius: inherit;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, height 0.4s ease-in-out;
+		position: absolute;
+		text-align: center;
+		transform: translateY(0) rotateX(0);
 	}
 }
+.is-hover-flip .sp-smart-button-inner {
+	opacity: 0;
+	visibility: hidden;
+}
+
 // flip hover
 // hover styles end

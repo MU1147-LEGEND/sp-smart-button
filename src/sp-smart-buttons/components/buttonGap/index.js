@@ -1,10 +1,7 @@
-import { Button, RangeControl } from "@wordpress/components";
+import { RangeControl } from "@wordpress/components";
 import { useState } from "@wordpress/element";
-import DeviceDropDown from "../responsiveViewDropDown/index.js";
-import ResetIcon from "./icons/resetIcon.js";
-import "./style.scss";
-import UnitDropdown from "./UnitDropdown.js";
 import ToolbarHeader from "../toolbarHeader/index.js";
+import "./style.scss";
 
 const ButtonGap = ({
 	label = "Button Gap",
@@ -17,7 +14,6 @@ const ButtonGap = ({
 	handleUnitChange,
 }) => {
 	const [value, setValue] = useState(defaultValue);
-	const [device, setDevice] = useState("desktop");
 
 	const handleChange = (newValue) => {
 		setValue(newValue);
@@ -31,7 +27,6 @@ const ButtonGap = ({
 
 	return (
 		<div className="sp-smart-button-gap sp-control">
-	
 			<ToolbarHeader
 				label={label}
 				unit={buttonGapUnit}
