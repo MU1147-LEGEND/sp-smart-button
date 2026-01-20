@@ -1,0 +1,37 @@
+.sp-smart-button-spacing-inputs {
+	.input-indicator-wrapper {
+		display: flex;
+		justify-content: center;
+		gap: 0;
+		position: relative;
+	}
+	span.sp-input-side-indicator-top {
+		position: absolute;
+		width: 30px;
+		height: 2px;
+		background-color: #000;
+	}
+	span.sp-input-side-indicator-right {
+		position: absolute;
+		width: 2px;
+		height: 24px;
+		right: 0;
+		background-color: #000;
+		top: 15%;
+	}
+	span.sp-input-side-indicator-left {
+		position: absolute;
+		width: 2px;
+		height: 24px;
+		left: 0;
+		background-color: #000;
+		top: 15%;
+	}
+	.sp-input-side-indicator-bottom {
+		position: absolute;
+		width: 30px;
+		height: 2px;
+		bottom: 0;
+		background-color: #000;
+	}
+}

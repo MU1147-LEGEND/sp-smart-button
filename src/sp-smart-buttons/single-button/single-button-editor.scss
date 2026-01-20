@@ -8,15 +8,24 @@
 }
 a.sp-smart-button {
 	padding: 0.6em 1.2em;
-	border-radius: 6px;
+	border-radius: var(--sp-radius-top_left) var(--sp-radius-top_right)
+		var(--sp-radius-bottom_right) var(--sp-radius-bottom_left);
 	font-weight: 500;
 	text-decoration: none;
 	display: inline-block;
 	// border: 2px solid transparent;
 	transition:
 		background 0.3s ease,
-		color 0.3s ease;
+		color 0.3s ease,
+		border-radius 0.3s ease;
 	box-sizing: border-box;
+	cursor: pointer;
+
+	&:hover {
+		border-radius: var(--sp-radius-top_left-hover)
+			var(--sp-radius-top_right-hover) var(--sp-radius-bottom_right-hover)
+			var(--sp-radius-bottom_left-hover);
+	}
 }
 
 /* Variants (inspectior) */
@@ -46,9 +55,31 @@ span.btn-container,
 
 // buttons style (Editor canvas)
 .sp-parent {
+	.sp-smart-button {
+		padding: var(--sp-padding-top) var(--sp-padding-right)
+			var(--sp-padding-bottom) var(--sp-padding-left);
+		border: var(--sp-border-w) solid black;
+		&:hover {
+			border: var(--sp-border-w-hover) solid black;
+		}
+	}
+
 	.sp-smart-button.is-default {
 		background: var(--primary-background);
 		color: var(--primary-text-color);
+
+		&:hover {
+			background-color: var(--sp-hover-bg-color);
+		}
+	}
+
+	.sp-smart-button.is-ghost {
+		background: transparent;
+		&:hover {
+			background-color: var(--sp-hover-bg-color);
+		}
+		color: #2563eb;
+		outline: 2px solid #2563eb;
 	}
 
 	.sp-smart-button.is-gradient {
@@ -59,12 +90,6 @@ span.btn-container,
 			#5d13ff 97.36%
 		);
 		color: #fff;
-	}
-
-	.sp-smart-button.is-ghost {
-		background: transparent;
-		color: #2563eb;
-		outline: 2px solid #2563eb;
 	}
 }
 
@@ -231,12 +256,15 @@ $color-button-green: #1a75e4c2;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, height 0.4s ease-in-out;
+		transition:
+			transform 0.4s ease-in-out,
+			opacity 0.4s ease-in-out,
+			height 0.4s ease-in-out;
 		position: absolute;
 		text-align: center;
 		transform: translateY(-50%) rotateX(90deg);
 	}
-	
+
 	&:before {
 		content: attr(data-text);
 		top: 0;
@@ -249,7 +277,10 @@ $color-button-green: #1a75e4c2;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, height 0.4s ease-in-out;
+		transition:
+			transform 0.4s ease-in-out,
+			opacity 0.4s ease-in-out,
+			height 0.4s ease-in-out;
 		position: absolute;
 		text-align: center;
 		transform: translateY(0) rotateX(0);

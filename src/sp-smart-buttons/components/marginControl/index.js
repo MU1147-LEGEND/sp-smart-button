@@ -18,6 +18,7 @@ const MarginControl = ({
 }) => {
 	const handleReset = () => {
 		onChange(DEFAULT_VALUES);
+		handleUnitChange("px");
 	};
 	return (
 		<div className="sp-smart-button-spacing">

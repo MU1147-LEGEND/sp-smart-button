@@ -1,24 +1,26 @@
-import InputBoxCorners from "../../../components/inputBoxCorners";
+import InputBoxSides from "../../../components/inputBoxSides";
 import ToolbarHeader from "../../../components/toolbarHeader";
+import "./style.scss";
 
 const DEFAULT_VALUES = {
-	top_left: 8,
-	top_right: 8,
-	bottom_right: 8,
-	bottom_left: 8,
+	top: 9,
+	right: 19,
+	bottom: 9,
+	left: 19,
 };
 
-const BorderRadiusControl = ({
-	label = "Border Radius",
+const PaddingControl = ({
+	label = "Padding",
 	value = DEFAULT_VALUES,
 	unit = "px",
 	onChange,
 	handleUnitChange,
 }) => {
 	const handleReset = () => {
-		onChange();
+		onChange(DEFAULT_VALUES);
 		handleUnitChange("px");
 	};
+
 	return (
 		<div className="sp-smart-button-spacing">
 			<ToolbarHeader
@@ -28,9 +30,9 @@ const BorderRadiusControl = ({
 				handleReset={handleReset}
 			/>
 
-			<InputBoxCorners value={value} onChange={onChange} />
+			<InputBoxSides value={value} onChange={onChange} />
 		</div>
 	);
 };
 
-export default BorderRadiusControl;
+export default PaddingControl;

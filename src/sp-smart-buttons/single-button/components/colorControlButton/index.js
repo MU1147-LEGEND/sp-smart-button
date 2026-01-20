@@ -21,6 +21,7 @@ const ColorControl = ({
 			<div className="sp-smart-button-color-actions">
 				<Button
 					icon={<ResetIcon />}
+					label="Reset"
 					onClick={onReset}
 					size="small"
 					className="sp-reset-button-background-fix"

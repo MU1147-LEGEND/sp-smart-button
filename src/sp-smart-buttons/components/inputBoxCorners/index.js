@@ -1,10 +1,12 @@
 import { Button } from "@wordpress/components";
 import { useState } from "@wordpress/element";
 import { link, linkOff } from "@wordpress/icons";
-import "./style.scss"
+import "./style.scss";
 
 const InputBoxCorners = ({ value, onChange }) => {
 	const [linked, setLinked] = useState(false);
+	const maxRadius = 35;
+	const minRadius = 0;
 
 	const updateValue = (corner, newValue) => {
 		if (linked) {
@@ -28,10 +30,17 @@ const InputBoxCorners = ({ value, onChange }) => {
 					<span style={{ position: "relative" }} key={corner}>
 						<input
 							type="number"
+							max={maxRadius}
+							min={minRadius}
 							value={value[corner]}
 							onChange={(e) => {
-								updateValue(corner, Number(e.target.value));
-								value[corner];
+								if (
+									e.target.value <= maxRadius &&
+									e.target.value >= minRadius
+								) {
+									updateValue(corner, Number(e.target.value));
+									value[corner];
+								}
 							}}
 							className={`sp-smart-button-corner-input is-${corner}`}
 						/>
@@ -44,7 +53,9 @@ const InputBoxCorners = ({ value, onChange }) => {
 				icon={linked ? link : linkOff}
 				onClick={() => setLinked(!linked)}
 				size="small"
-				className="sp-smart-button-corner-link"
+				className={`sp-smart-button-corner-link ${
+					linked ? "sp-linked" : "sp-not-linked"
+				}`}
 			/>
 		</div>
 	);

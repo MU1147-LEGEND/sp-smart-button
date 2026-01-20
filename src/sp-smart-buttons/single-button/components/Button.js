@@ -8,7 +8,7 @@ const Button = ({
 }) => {
 	return (
 		<a
-			href={link}
+			// href={link}
 			onClick={onClick}
 			className={`sp-smart-button is-${variant} is-hover-${hoverEffect} ${className}`}
 			data-text={children}

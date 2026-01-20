@@ -11,7 +11,7 @@
 			"type": "string",
 			"default": "Click me"
 		},
-		"url": {
+		"btnUrl": {
 			"type": "string",
 			"default": "#"
 		},
@@ -31,17 +31,17 @@
 			"type": "string",
 			"default": "#2563eb"
 		},
-		"hoverTextColor": {
-			"type": "string",
-			"default": "#FFFF00"
-		},
-		"hoverBgColor": {
-			"type": "string",
-			"default": "#FF00FF"
-		},
 		"generalStyleTab": {
 			"type": "string",
 			"default": "normal"
+		},
+		"borderWidth": {
+			"type": "number",
+			"default": 0
+		},
+		"borderWidthUnit": {
+			"type": "string",
+			"default": "px"
 		},
 		"borderRadiusControl": {
 			"type": "object",
@@ -50,6 +50,70 @@
 				"top_right": 8,
 				"bottom_left": 8,
 				"bottom_right": 8
+			}
+		},
+		"paddingControl": {
+			"type": "object",
+			"default": {
+				"top": 9,
+				"right": 19,
+				"bottom": 9,
+				"left": 19
+			}
+		},
+		"paddingUnit": {
+			"type": "string",
+			"default": "px"
+		},
+
+		"hoverStyles": {
+			"type": "object",
+			"default": {
+				"bgColor": "#0751AE",
+				"txtColor": "#FFFF00",
+				"borderWidth": 0,
+				"borderWidthUnit": "px",
+				"borderRadiusControl": {
+					"top_left": 8,
+					"top_right": 8,
+					"bottom_left": 8,
+					"bottom_right": 8
+				},
+				"borderRadiusUnit": "px"
+			},
+			"properties": {
+				"bgColor": {
+					"type": "string"
+				},
+				"txtColor": {
+					"type": "string"
+				},
+				"borderWidth": {
+					"type": "number"
+				},
+				"borderWidthUnit": {
+					"type": "string"
+				},
+				"borderRadiusControl": {
+					"type": "object",
+					"properties": {
+						"top_left": {
+							"type": "number"
+						},
+						"top_right": {
+							"type": "number"
+						},
+						"bottom_left": {
+							"type": "number"
+						},
+						"bottom_right": {
+							"type": "number"
+						}
+					}
+				},
+				"borderRadiusUnit": {
+					"type": "string"
+				}
 			}
 		}
 	}

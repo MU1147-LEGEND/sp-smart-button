@@ -1,7 +1,7 @@
 .sp-smart-button-corner-inputs {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr) auto;
-	gap: 4px;
+	// gap: 4px;
 	align-items: center;
 	margin-top: 6px;
 }
@@ -13,8 +13,8 @@
 	padding: 0;
 	text-align: center;
 	font-size: 12px;
-	border: 1px solid #dcdcde;
-	border-radius: 2px;
+	border: 1px solid #dcdcde !important; 
+	border-radius: 2px !important;
 	background-color: #fff;
 	color: #1e1e1e;
 
@@ -83,14 +83,14 @@
 /* Link / unlink button */
 .sp-smart-button-corner-link {
 	padding: 0;
-	min-width: 32px;
-	height: 32px;
+	min-width: 32px !important;
+	height: 32px !important;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	border: 1px solid #dcdcde;
 	border-radius: 2px;
-	background: #f6f7f7;
+	background: #fff;
 
 	&:hover {
 		background: #f0f0f0;

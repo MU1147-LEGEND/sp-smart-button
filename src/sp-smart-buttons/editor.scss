@@ -231,4 +231,20 @@
 	}
 }
 
+//inspector input box link style
+.sp-not-linked {
+	background-color: #fff;
+}
+.sp-linked {
+	background-color: #884ae3 !important;
+	svg {
+		color: #fff;
+	}
+}
+
+// fixing rangecontrol style
+.components-range-control__root {
+	align-items: unset !important;
+}
+
 // testing classes
