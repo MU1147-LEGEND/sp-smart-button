@@ -457,12 +457,12 @@ export default function Edit({ attributes, setAttributes }) {
 							// text color setting
 							<ColorControl
 								label={__("Color", "sp-smart-button")}
-								value={hoverStyles.textColor}
+								value={hoverStyles.txtColor}
 								onChange={(newTxtColor) =>
 									setAttributes({
 										hoverStyles: {
 											...hoverStyles,
-											textColor: newTxtColor,
+											txtColor: newTxtColor,
 										},
 									})
 								}

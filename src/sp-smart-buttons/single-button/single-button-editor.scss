@@ -131,7 +131,14 @@ span.btn-container,
 
 // button hover effects
 // raise hover
+.is-default.is-hover-default {
+	color: var(--primary-text-color);
+	&:hover {
+		color: var(--sp-hover-text-color);
+	}
+}
 .is-default.is-hover-raise {
+	color: var(--primary-text-color);
 	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
 	transition:
 		transform 0.4s ease-in-out,
@@ -139,6 +146,7 @@ span.btn-container,
 	&:hover {
 		transform: translateY(-4px);
 		box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+		color: var(--sp-hover-text-color);
 	}
 }
 // raise hover
@@ -147,12 +155,15 @@ span.btn-container,
 .is-default.is-hover-gradient {
 	border: none;
 	outline: none;
-	color: #fff;
+	color: var(--primary-text-color);
 	background: var(--primary-background) !important;
 	cursor: pointer;
 	position: relative;
 	z-index: 0;
 	border-radius: 10px;
+	&:hover {
+		color: var(--sp-hover-text-color);
+	}
 }
 
 // preventing inspector styles
@@ -387,6 +398,40 @@ $color-button-green: #1a75e4c2;
 			background-color: #2563eb;
 		}
 	}
+
+	.is-ghost.is-hover-slide-skew {
+		color: #2563eb !important;
+		background-color: transparent !important;
+		&:hover {
+			color: #ffffff !important;
+		}
+	}
+	.is-ghost.is-hover-slide-skew::before {
+		top: 1px;
+		left: -330%;
+		width: 406%;
+		height: 480%;
+	}
+	.is-ghost.is-hover-slide-skew:hover::before {
+		left: -60%;
+	}
+
+	.is-ghost.is-hover-slide-top {
+		color: #2563eb !important;
+		background-color: transparent !important;
+		&:hover {
+			color: #ffffff !important;
+		}
+	}
+	.is-ghost.is-hover-neo-follow {
+		color: #2563eb !important;
+		background-color: transparent !important;
+		border-radius: inherit;
+		&:hover {
+			color: #2563eb !important;
+			box-shadow: 8px 8px 0 0 #2563eb;
+		}
+	}
 }
 // inspector style end
 
@@ -430,5 +475,133 @@ $color-button-green: #1a75e4c2;
 		color: var(--sp-hover-ghost-text-color) !important;
 	}
 }
+
+// slide skew hover style
+
+.is-ghost.is-hover-slide-skew {
+	position: relative;
+	overflow: hidden;
+	background: var(--ghost-background) !important;
+	color: var(--ghost-text-color) !important;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	z-index: 0;
+}
+
+/* skewed sliding layer */
+.is-ghost.is-hover-slide-skew::before {
+	content: "";
+	position: absolute;
+	top: -46px;
+	left: -209%;
+	width: 200%;
+	height: 363%;
+	background: var(--sp-hover-ghost-bg-color, #0d6efd);
+	transform: rotate(45deg);
+	transition: left 0.45s ease-in-out;
+	z-index: -1;
+}
+
+/* hover */
+.is-ghost.is-hover-slide-skew:hover::before {
+	left: -10%;
+}
+
+.is-ghost.is-hover-slide-skew:hover {
+	color: var(--sp-hover-ghost-text-color) !important;
+}
+
+// slide top hover style
+.is-ghost.is-hover-slide-top {
+	position: relative;
+	overflow: hidden;
+	background: var(--ghost-background) !important;
+	color: var(--ghost-text-color) !important;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	z-index: 0;
+}
+
+.is-ghost.is-hover-slide-top::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0%;
+	background: var(--sp-hover-ghost-bg-color, #0d6efd);
+	transition: height 0.3s ease-in-out;
+	z-index: -1;
+}
+
+/* hover */
+.is-ghost.is-hover-slide-top:hover::before {
+	height: 100%;
+}
+
+.is-ghost.is-hover-slide-top:hover {
+	color: var(--sp-hover-ghost-text-color) !important;
+}
+
+// neo follow button style
+.is-ghost.is-hover-neo-follow {
+	position: relative;
+	background: var(--ghost-background) !important;
+	color: var(--ghost-text-color) !important;
+	cursor: pointer;
+	transition: box-shadow 0.3s ease;
+	z-index: 1;
+}
+
+/* hover */
+.is-ghost.is-hover-neo-follow:hover {
+	box-shadow: 8px 8px 0px 0px var(--sp-hover-ghost-bg-color);
+	color: var(--sp-hover-ghost-text-color) !important;
+}
+
+// draw outline button style
+.is-ghost.is-hover-draw-outline {
+	position: relative;
+	color: var(--ghost-text-color, #1e6bff);
+	background: transparent;
+	padding: 12px 32px;
+	cursor: pointer;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		border: 2px solid currentColor;
+		width: 0;
+		height: 0;
+		opacity: 0;
+		transition: all 0.35s ease;
+	}
+
+	&::before {
+		top: 0;
+		left: 0;
+	}
+
+	&::after {
+		bottom: 0;
+		right: 0;
+	}
+
+	&:hover {
+		&::before {
+			width: 100%;
+			height: 100%;
+			opacity: 1;
+		}
+
+		&::after {
+			width: 100%;
+			height: 100%;
+			opacity: 1;
+		}
+	}
+}
+
 
 // hover styles end
