@@ -75,11 +75,11 @@ span.btn-container,
 
 	.sp-smart-button.is-ghost {
 		background: transparent;
-		&:hover {
-			background-color: var(--sp-hover-bg-color);
-		}
-		color: #2563eb;
-		outline: 2px solid #2563eb;
+		// &:hover {
+		// 	background-color: var(--sp-hover-bg-color); // no need hover bg when selected ghost type.
+		// }
+		color: var(--primary-text-color);
+		border: 2px solid #2563eb;
 	}
 
 	.sp-smart-button.is-gradient {
@@ -144,24 +144,97 @@ span.btn-container,
 // raise hover
 
 // gradient hover
-.block-editor-block-list__block {
+.is-default.is-hover-gradient {
+	border: none;
+	outline: none;
+	color: #fff;
+	background: var(--primary-background) !important;
+	cursor: pointer;
+	position: relative;
 	z-index: 0;
+	border-radius: 10px;
 }
 
-.is-default.is-hover-gradient {
-	position: relative;
-	&::after {
-		content: "";
-		position: absolute;
-		inset: -3px;
-		background: linear-gradient(49deg, #00f, #f0f);
-		filter: blur(10px);
-		opacity: 0;
-		transition: opacity 0.3s ease;
-		z-index: -1;
+// preventing inspector styles
+.btn-container {
+	.is-default.is-hover-gradient {
+		color: #fff;
+		background: #2563eb !important;
 	}
-	&:hover::after {
-		opacity: 1;
+	.is-default.is-hover-gradient::after {
+		background: #2563eb !important;
+	}
+}
+
+.is-default.is-hover-gradient:before {
+	content: "";
+	background: linear-gradient(
+		45deg,
+		#ff0000,
+		#ff7300,
+		#fffb00,
+		#48ff00,
+		#00ffd5,
+		#002bff,
+		#7a00ff,
+		#ff00c8,
+		#ff0000
+	);
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	background-size: 400%;
+	z-index: -1;
+	filter: blur(5px);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	animation: glowing 20s linear infinite;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+	border-radius: 10px;
+}
+
+.is-default.is-hover-gradient:active {
+	color: var(--primary-text-color);
+}
+
+.is-default.is-hover-gradient:active:after {
+	background: transparent !important;
+}
+
+.is-default.is-hover-gradient:hover:before {
+	opacity: 1;
+}
+
+.is-default.is-hover-gradient:after {
+	z-index: -1;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: var(--primary-background) !important;
+	left: 0;
+	top: 0;
+	border-radius: 10px;
+}
+.btn-container {
+	.is-default.is-hover-gradient::after {
+		border-radius: 0;
+	}
+	.is-default.is-hover-gradient::before {
+		border-radius: 0;
+	}
+}
+
+@keyframes glowing {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
 	}
 }
 
@@ -290,6 +363,72 @@ $color-button-green: #1a75e4c2;
 	opacity: 0;
 	visibility: hidden;
 }
-
 // flip hover
+
+// ----------- GHOST BUTTON HOVER STYLES ----------------
+// inspector style
+.btn-container {
+	.is-ghost.is-hover-default {
+		color: #2563eb !important;
+		background-color: transparent !important;
+		&:hover {
+			color: #2563eb !important;
+			background-color: transparent !important;
+		}
+	}
+
+	.is-ghost.is-hover-slide-right {
+		color: #2563eb !important;
+		background-color: transparent !important;
+		&:hover {
+			color: #ffffff !important;
+		}
+		&::before {
+			background-color: #2563eb;
+		}
+	}
+}
+// inspector style end
+
+.is-ghost.is-hover-default {
+	color: var(--ghost-text-color) !important;
+	background-color: var(--ghost-background) !important;
+	&:hover {
+		color: var(--sp-hover-ghost-text-color) !important;
+		background: var(--sp-hover-ghost-bg-color) !important;
+	}
+}
+
+/* Base ghost button */
+.is-ghost.is-hover-slide-right {
+	position: relative;
+	overflow: hidden;
+	background: var(--ghost-background) !important;
+	color: var(--ghost-text-color) !important;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	z-index: 1;
+	/* Sliding background layer */
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 100%;
+		background: var(--sp-hover-ghost-bg-color);
+		transition:
+			left 0.3s ease-in-out,
+			width 0.3s ease-in-out;
+		z-index: -1;
+	}
+
+	&:hover::before {
+		width: 100%;
+	}
+	&:hover {
+		color: var(--sp-hover-ghost-text-color) !important;
+	}
+}
+
 // hover styles end

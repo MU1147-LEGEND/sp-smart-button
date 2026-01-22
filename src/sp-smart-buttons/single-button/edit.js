@@ -2,6 +2,7 @@ import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import { Panel, PanelBody, TextControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import TabToggle from "../components/tabToggle";
+import ToolbarHeader from "../components/toolbarHeader";
 import selectedIcon from "./assets/selected.svg";
 import BorderRadiusControl from "./components/borderRadiusControl";
 import Button from "./components/Button";
@@ -9,8 +10,8 @@ import ButtonContainer from "./components/ButtonContainer";
 import ColorControl from "./components/colorControlButton";
 import PaddingControl from "./components/paddingControl";
 import RangeControlMarks from "./components/rangeControlMarks";
+import TypographyPopover from "./components/TypographyPopover";
 import "./single-button-editor.scss";
-import ToolbarHeader from "../components/toolbarHeader";
 
 export default function Edit({ attributes, setAttributes }) {
 	const {
@@ -27,6 +28,10 @@ export default function Edit({ attributes, setAttributes }) {
 		borderRadiusControl,
 		paddingControl,
 		paddingUnit,
+		buttonLabelTabs,
+		typography,
+		ghostBgColor,
+		ghostTextColor,
 	} = attributes;
 
 	const handleButtonClick = (btnVariant) => {
@@ -35,6 +40,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	// tab options
 	const options = ["normal", "hover"];
+	const btnLblTabOptions = ["normal", "hover"];
 
 	const variants = ["default", "ghost", "gradient"];
 	const hoverEffects = [
@@ -70,28 +76,27 @@ export default function Edit({ attributes, setAttributes }) {
 			value: "default",
 		},
 		{
-			effect: "Raise",
-			value: "raise",
+			effect: "Slide Right",
+			value: "slide-right",
 		},
 		{
-			effect: "Grad Shadow",
-			value: "gradient",
+			effect: "Slide Skew",
+			value: "slide-skew",
 		},
 		{
-			effect: "Shine",
-			value: "shine",
+			effect: "Slide Top",
+			value: "slide-top",
 		},
 		{
-			effect: "Multi Layers",
-			value: "multi-layers",
+			effect: "Neo Follow",
+			value: "neo-follow",
 		},
 		{
-			effect: "Flip",
-			value: "flip",
+			effect: "Draw Outline",
+			value: "draw-outline",
 		},
-	]; // need to change values.
+	];
 
-	console.log(hoverStyles);
 	return (
 		<div
 			{...useBlockProps({
@@ -99,6 +104,8 @@ export default function Edit({ attributes, setAttributes }) {
 				style: {
 					"--primary-background": `${bgColor}`,
 					"--primary-text-color": `${textColor}`,
+					"--ghost-text-color": `${ghostTextColor}`,
+					"--ghost-background": `${ghostBgColor}`,
 					"--sp-border-w": `${borderWidth}${borderWidthUnit}`,
 					// border radius inject dynamically
 					"--sp-radius-top_left": `${borderRadiusControl.top_left}px`,
@@ -114,6 +121,9 @@ export default function Edit({ attributes, setAttributes }) {
 					// hover styles
 					// button hover background color
 					"--sp-hover-bg-color": `${hoverStyles.bgColor}`,
+					"--sp-hover-ghost-bg-color": `${hoverStyles.ghostBgColor}`,
+					"--sp-hover-ghost-text-color": `${hoverStyles.ghostTextColor}`,
+					"--sp-hover-text-color": `${hoverStyles.txtColor}`,
 					"--sp-border-w-hover": `${hoverStyles.borderWidth}${hoverStyles.borderWidthUnit}`,
 					// border radius
 					"--sp-radius-top_left-hover": `${hoverStyles.borderRadiusControl.top_left}${hoverStyles.borderRadiusUnit}`,
@@ -147,7 +157,13 @@ export default function Edit({ attributes, setAttributes }) {
 							{(variant === "default" &&
 								hoverEffects.map((effect) => (
 									<div key={effect.value} className="inspector-hover-styles">
-										<span className="btn-container">
+										<span
+											className="btn-container"
+											style={{
+												"--primary-background": `${bgColor}`,
+												"--primary-text-color": `${textColor}`,
+											}}
+										>
 											<Button
 												variant={variant}
 												// className={`is-hover-${effect.value}`}
@@ -170,7 +186,17 @@ export default function Edit({ attributes, setAttributes }) {
 								(variant === "ghost" &&
 									ghostHoverEffects.map((effect) => (
 										<div key={effect.value} className="inspector-hover-styles">
-											<>
+											<span
+												className="btn-container"
+												// injecting variables on inspector section
+												style={{
+													"--primary-text-color": `${textColor}`,
+													"--primary-background": `${bgColor}`,
+													"--ghost-background": `${ghostBgColor}`,
+													"--sp-hover-bg-color": `${hoverStyles.bgColor}`,
+													"--sp-hover-text-color": `${hoverStyles.txtColor}`,
+												}}
+											>
 												<Button
 													variant={variant}
 													// className={`is-hover-${effect.value}`}
@@ -179,8 +205,14 @@ export default function Edit({ attributes, setAttributes }) {
 														setAttributes({ hoverEffect: effect.value });
 													}}
 												/>
-												<span>{effect.effect}</span>
-											</>
+												{/* showing selected tick */}
+												{effect.value === hoverEffect && (
+													<span className={`selected-icon`}>
+														<img src={selectedIcon} alt="" />
+													</span>
+												)}
+											</span>
+											<p>{effect.effect}</p>
 										</div>
 									)))}
 						</div>
@@ -204,6 +236,19 @@ export default function Edit({ attributes, setAttributes }) {
 											setAttributes({ bgColor: newBgColor })
 										}
 										onReset={() => setAttributes({ bgColor: "#2563eb" })}
+									/>
+								)}
+								{variant === "ghost" && (
+									<ColorControl
+										label={__("Background Color", "sp-smart-button")}
+										value={ghostBgColor}
+										onChange={(newBgColor) =>
+											setAttributes({ ghostBgColor: newBgColor })
+										}
+										onReset={() => {
+											setAttributes({ ghostBgColor: "#fff" });
+											console.log("reset done ");
+										}}
 									/>
 								)}
 
@@ -259,20 +304,47 @@ export default function Edit({ attributes, setAttributes }) {
 
 						{generalStyleTab === "hover" && (
 							<>
-								<ColorControl
-									label={__("Background Color", "sp-smart-button")}
-									value={hoverStyles.bgColor}
-									onChange={(newHoverBgColor) =>
-										setAttributes({
-											hoverStyles: { ...hoverStyles, bgColor: newHoverBgColor },
-										})
-									}
-									onReset={() =>
-										setAttributes({
-											hoverStyles: { ...hoverStyles, bgColor: "#0751AE" },
-										})
-									}
-								/>
+								{variant === "default" && (
+									<ColorControl
+										label={__("Background Color", "sp-smart-button")}
+										value={hoverStyles.bgColor}
+										onChange={(newHoverBgColor) =>
+											setAttributes({
+												hoverStyles: {
+													...hoverStyles,
+													bgColor: newHoverBgColor,
+												},
+											})
+										}
+										onReset={() =>
+											setAttributes({
+												hoverStyles: { ...hoverStyles, bgColor: "#0751AE" },
+											})
+										}
+									/>
+								)}
+								{variant === "ghost" && (
+									<ColorControl
+										label={__("Background Color", "sp-smart-button")}
+										value={hoverStyles.ghostBgColor}
+										onChange={(newHoverBgColor) =>
+											setAttributes({
+												hoverStyles: {
+													...hoverStyles,
+													ghostBgColor: newHoverBgColor,
+												},
+											})
+										}
+										onReset={() =>
+											setAttributes({
+												hoverStyles: {
+													...hoverStyles,
+													ghostBgColor: "#FFF",
+												},
+											})
+										}
+									/>
+								)}
 
 								{/* border width part */}
 								<ToolbarHeader
@@ -334,7 +406,7 @@ export default function Edit({ attributes, setAttributes }) {
 						)}
 					</PanelBody>
 
-					{/* button text */}
+					{/* button Label */}
 					<PanelBody
 						title={__("Button Label", "sp-smart-button")}
 						initialOpen={false}
@@ -348,15 +420,86 @@ export default function Edit({ attributes, setAttributes }) {
 							}}
 						/>
 
-						{/* colot setting */}
-						<ColorControl
-							label={__("Color", "sp-smart-button")}
-							value={textColor}
-							onChange={(newTxtColor) =>
-								setAttributes({ textColor: newTxtColor })
+						{/* typography controls */}
+						<TypographyPopover
+							typography={typography}
+							onChange={(newTypography) =>
+								setAttributes({
+									typography: {
+										...typography,
+										...newTypography,
+									},
+								})
 							}
-							onReset={() => setAttributes({ textColor: "#FFF" })}
 						/>
+
+						{/* normal/hover tabs */}
+						<TabToggle
+							value={buttonLabelTabs}
+							tabOptions={btnLblTabOptions}
+							onChange={(newOption) =>
+								setAttributes({ buttonLabelTabs: newOption })
+							}
+						/>
+
+						{buttonLabelTabs === "normal" && variant === "default" && (
+							// text color setting
+							<ColorControl
+								label={__("Color", "sp-smart-button")}
+								value={textColor}
+								onChange={(newTxtColor) =>
+									setAttributes({ textColor: newTxtColor })
+								}
+								onReset={() => setAttributes({ textColor: "#FFF" })}
+							/>
+						)}
+						{buttonLabelTabs === "hover" && variant === "default" && (
+							// text color setting
+							<ColorControl
+								label={__("Color", "sp-smart-button")}
+								value={hoverStyles.textColor}
+								onChange={(newTxtColor) =>
+									setAttributes({
+										hoverStyles: {
+											...hoverStyles,
+											textColor: newTxtColor,
+										},
+									})
+								}
+								onReset={() => setAttributes({ textColor: "#FFF" })}
+							/>
+						)}
+
+						{/* ghost text color style */}
+						{buttonLabelTabs === "normal" && variant === "ghost" && (
+							// text color setting
+							<ColorControl
+								label={__("Color", "sp-smart-button")}
+								value={ghostTextColor}
+								onChange={(newTxtColor) =>
+									setAttributes({ ghostTextColor: newTxtColor })
+								}
+								onReset={() => setAttributes({ ghostTextColor: "#FFF" })}
+							/>
+						)}
+						{/* hover ghost variant color setting */}
+						{buttonLabelTabs === "hover" && variant === "ghost" && (
+							// text color setting
+							<ColorControl
+								label={__("Color", "sp-smart-button")}
+								value={hoverStyles.ghostTextColor}
+								onChange={(newTxtColor) =>
+									setAttributes({
+										hoverStyles: {
+											...hoverStyles,
+											ghostTextColor: newTxtColor,
+										},
+									})
+								}
+								onReset={() => setAttributes({ ghostTextColor: "#FFF" })}
+							/>
+						)}
+
 					</PanelBody>
 
 					{/* button icon */}
