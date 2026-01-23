@@ -127,12 +127,30 @@
 	}
 
 	&.has-full-width-buttons {
-		.block-editor-block-list__layout {
-			.block-editor-block-list__block {
-				width: 100%;
-				.sp-smart-button {
-					width: 100%;
+		&.is-horizontal {
+			.block-editor-block-list__layout {
+				display: flex;
+				gap: var(--sp-button-gap);
+				& > .block-editor-block-list__block.wp-block {
+					width: calc(
+						(100% - (var(--sp-btn-count) - 1) * var(--sp-button-gap)) /
+							var(--sp-btn-count)
+					);
 				}
+			}
+		}
+
+		&.is-vertical {
+			.block-editor-block-list__block.wp-block {
+				width: 100%;
+			}
+		}
+
+		.block-editor-block-list__block.sp-parent {
+			width: 100%;
+
+			.sp-smart-button {
+				width: 100%;
 			}
 		}
 	}

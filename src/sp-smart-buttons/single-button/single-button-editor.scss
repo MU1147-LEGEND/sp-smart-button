@@ -87,14 +87,36 @@ span.btn-container,
 	}
 
 	.sp-smart-button.is-gradient {
-		background: linear-gradient(
-			81deg,
-			#ff0035 1.03%,
-			#f902cb 45.49%,
-			#5d13ff 97.36%
-		);
-		color: #fff;
+		position: relative;
+		background: var(--sp-gradient-bg, var(--primary-background));
+		color: var(--sp-gradient-text-color);
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: var(
+				--sp-hover-gradient,
+				linear-gradient(81deg, #5d13ff 1.03%, #aa088d 45.49%, #ff0035 97.36%)
+			);
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out;
+			z-index: 0;
+		}
+
+		> * {
+			position: relative;
+			z-index: 1;
+		}
+
+		&:hover::before {
+			opacity: 1;
+		}
 	}
+}
+.gradient-wrapper {
+	margin: 15px 0;
 }
 
 .btn-label-wrapper,

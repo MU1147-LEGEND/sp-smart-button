@@ -11,8 +11,9 @@ import MarginControl from "./components/marginControl";
 import TabToggle from "./components/tabToggle";
 import VerticalAlignmentControl from "./components/VerticalAlignment/VerticalAlignmentControl";
 import "./editor.scss";
+import { useSelect } from "@wordpress/data";
 
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
 		direction,
 		justify,
@@ -23,6 +24,14 @@ export default function Edit({ attributes, setAttributes }) {
 		marginUnit,
 		magringControl,
 	} = attributes;
+
+	const buttonCount = useSelect(
+		(select) => {
+			const block = select("core/block-editor").getBlock(clientId);
+			return block?.innerBlocks?.length;
+		},
+		[clientId],
+	);
 
 	// const calculateButtonGap =
 	// 	buttonGapUnit === "em" ? buttonGap / 16 : buttonGap; // if I want to convert units.
@@ -43,6 +52,8 @@ export default function Edit({ attributes, setAttributes }) {
 					"--sp-margin-right": `${magringControl.right}${marginUnit}`,
 					"--sp-margin-bottom": `${magringControl.bottom}${marginUnit}`,
 					"--sp-margin-left": `${magringControl.left}${marginUnit}`,
+					// button count
+					"--sp-btn-count": buttonCount,
 				},
 			})}
 		>

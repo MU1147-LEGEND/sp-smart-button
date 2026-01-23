@@ -13,8 +13,10 @@ import RangeControlMarks from "./components/rangeControlMarks";
 import TypographyPopover from "./components/TypographyPopover";
 import "./single-button-editor.scss";
 import { ToggleControl } from "@wordpress/components";
+import { GradientPicker } from "@wordpress/components";
+import { useSelect } from "@wordpress/data";
 
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
 		text,
 		btnUrl,
@@ -35,7 +37,11 @@ export default function Edit({ attributes, setAttributes }) {
 		ghostTextColor,
 		borderColor,
 		openNewTab,
+		gradColor,
+		gradTextColor,
 	} = attributes;
+
+
 
 	const handleButtonClick = (btnVariant) => {
 		setAttributes({ variant: btnVariant });
@@ -118,6 +124,8 @@ export default function Edit({ attributes, setAttributes }) {
 					"--primary-text-color": `${textColor}`,
 					"--ghost-text-color": `${ghostTextColor}`,
 					"--ghost-background": `${ghostBgColor}`,
+					"--sp-gradient-bg": gradColor,
+					"--sp-gradient-text-color": gradTextColor,
 					"--sp-border-w": `${effectiveBorderWidth}${borderWidthUnit}`,
 					"--sp-border-color": `${borderColor}`,
 					// border radius inject dynamically
@@ -136,6 +144,7 @@ export default function Edit({ attributes, setAttributes }) {
 					"--sp-hover-bg-color": `${hoverStyles.bgColor}`,
 					"--sp-hover-ghost-bg-color": `${hoverStyles.ghostBgColor}`,
 					"--sp-hover-ghost-text-color": `${hoverStyles.ghostTextColor}`,
+					"--sp-hover-gradient": hoverStyles.gradColor,
 					"--sp-hover-text-color": `${hoverStyles.txtColor}`,
 					"--sp-border-w-hover": `${effectiveBorderWidthHover}${hoverStyles.borderWidthUnit}`,
 					"--sp-border-color-hover": `${hoverStyles.borderColor}`,
@@ -265,6 +274,18 @@ export default function Edit({ attributes, setAttributes }) {
 									/>
 								)}
 
+								{variant === "gradient" && (
+									<div className="gradient-wrapper">
+										<h3>Gradient Background</h3>
+										<GradientPicker
+											value={gradColor}
+											onChange={(newGrad) =>
+												setAttributes({ gradColor: newGrad })
+											}
+										/>
+									</div>
+								)}
+
 								{/* border color */}
 								<ColorControl
 									label={__("Border Color", "sp-smart-button")}
@@ -380,6 +401,23 @@ export default function Edit({ attributes, setAttributes }) {
 											})
 										}
 									/>
+								)}
+
+								{variant === "gradient" && (
+									<div className="gradient-wrapper">
+										<h3>Gradient Background Hover</h3>
+										<GradientPicker
+											value={hoverStyles.gradColor}
+											onChange={(newGrad) =>
+												setAttributes({
+													hoverStyles: {
+														...hoverStyles,
+														gradColor: newGrad,
+													},
+												})
+											}
+										/>
+									</div>
 								)}
 
 								<ColorControl

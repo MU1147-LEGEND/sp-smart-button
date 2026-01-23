@@ -35,9 +35,17 @@
 			"type": "string",
 			"default": "#2563eb"
 		},
+		"gradTextColor": {
+			"type": "string",
+			"default": "#FFFFFF"
+		},
 		"bgColor": {
 			"type": "string",
 			"default": "#2563eb"
+		},
+		"gradColor": {
+			"type": "string",
+			"default": "linear-gradient(81deg,#ff0035 1.03%,#f902cb 45.49%,#5d13ff 97.36%)"
 		},
 		"ghostBgColor": {
 			"type": "string",
@@ -91,6 +99,7 @@
 			"default": {
 				"bgColor": "#0751AE",
 				"ghostBgColor": "#2563eb",
+				"gradColor": "linear-gradient(81deg, #5d13ff 1.03%, #aa088d 45.49%, #ff0035 97.36%)",
 				"ghostTextColor": "#FFF",
 				"txtColor": "#000000",
 				"borderColor": "#000",
@@ -109,6 +118,9 @@
 					"type": "string"
 				},
 				"ghostBgColor": {
+					"type": "string"
+				},
+				"gradColor": {
 					"type": "string"
 				},
 				"ghostTextColor": {

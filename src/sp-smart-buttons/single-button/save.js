@@ -22,6 +22,8 @@ export default function save({ attributes }) {
 		ghostTextColor,
 		borderColor,
 		openNewTab,
+		gradColor,
+		gradTextColor,
 	} = attributes;
 
 	// calculate border width and give width if w is zero when selecting ghost variant
@@ -42,6 +44,8 @@ export default function save({ attributes }) {
 					"--primary-text-color": `${textColor}`,
 					"--ghost-text-color": `${ghostTextColor}`,
 					"--ghost-background": `${ghostBgColor}`,
+					"--sp-gradient-bg": gradColor,
+					"--sp-gradient-text-color": gradTextColor,
 					"--sp-border-w": `${effectiveBorderWidth}${borderWidthUnit}`,
 					"--sp-border-color": `${borderColor}`,
 					// border radius inject dynamically
@@ -60,6 +64,7 @@ export default function save({ attributes }) {
 					"--sp-hover-bg-color": `${hoverStyles.bgColor}`,
 					"--sp-hover-ghost-bg-color": `${hoverStyles.ghostBgColor}`,
 					"--sp-hover-ghost-text-color": `${hoverStyles.ghostTextColor}`,
+					"--sp-hover-gradient": hoverStyles.gradColor,
 					"--sp-hover-text-color": `${hoverStyles.txtColor}`,
 					"--sp-border-w-hover": `${effectiveBorderWidthHover}${hoverStyles.borderWidthUnit}`,
 					"--sp-border-color-hover": `${hoverStyles.borderColor}`,

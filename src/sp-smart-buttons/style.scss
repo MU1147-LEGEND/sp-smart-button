@@ -5,9 +5,9 @@ a.sp-smart-button {
 	text-decoration: none;
 	text-wrap: nowrap;
 	text-align: center;
-	    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	// border: 2px solid transparent;
 	transition:
 		background 0.3s ease,
@@ -39,12 +39,10 @@ a.sp-smart-button {
 	}
 
 	&.has-full-width-buttons {
-		.block-editor-block-list__layout {
-			.block-editor-block-list__block {
+		.wp-block-sp-single-button.sp-parent {
+			width: 100%;
+			.sp-smart-button {
 				width: 100%;
-				.sp-smart-button {
-					width: 100%;
-				}
 			}
 		}
 	}
@@ -55,34 +53,22 @@ a.sp-smart-button {
 		flex-wrap: wrap;
 
 		&.align-start {
-			.block-editor-block-list__layout {
-				justify-content: start;
-			}
+			justify-content: start;
 		}
 		&.align-horizontal-center {
-			.block-editor-block-list__layout {
-				justify-content: center;
-			}
+			justify-content: center;
 		}
 		&.align-end {
-			.block-editor-block-list__layout {
-				justify-content: end;
-			}
+			justify-content: end;
 		}
 		&.align-space-between {
-			.block-editor-block-list__layout {
-				justify-content: space-between;
-			}
+			justify-content: space-between;
 		}
 		&.align-space-around {
-			.block-editor-block-list__layout {
-				justify-content: space-around;
-			}
+			justify-content: space-around;
 		}
 		&.align-space-evenly {
-			.block-editor-block-list__layout {
-				justify-content: space-evenly;
-			}
+			justify-content: space-evenly;
 		}
 	}
 
@@ -99,19 +85,13 @@ a.sp-smart-button {
 		}
 
 		&.align-flex-start {
-			.block-editor-block-list__layout {
-				align-items: flex-start;
-			}
+			align-items: flex-start;
 		}
 		&.align-vertical-center {
-			.block-editor-block-list__layout {
-				align-items: center;
-			}
+			align-items: center;
 		}
 		&.align-flex-end {
-			.block-editor-block-list__layout {
-				align-items: flex-end;
-			}
+			align-items: flex-end;
 		}
 	}
 }
@@ -171,13 +151,32 @@ a.sp-smart-button {
 	}
 
 	.sp-smart-button.is-gradient {
-		background: linear-gradient(
-			81deg,
-			#ff0035 1.03%,
-			#f902cb 45.49%,
-			#5d13ff 97.36%
-		);
-		color: #fff;
+		position: relative;
+		background: var(--sp-gradient-bg, var(--primary-background));
+		color: var(--sp-gradient-text-color);
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: var(
+				--sp-hover-gradient,
+				linear-gradient(81deg, #5d13ff 1.03%, #aa088d 45.49%, #ff0035 97.36%)
+			);
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out;
+			z-index: 0;
+		}
+
+		> * {
+			position: relative;
+			z-index: 1;
+		}
+
+		&:hover::before {
+			opacity: 1;
+		}
 	}
 }
 
