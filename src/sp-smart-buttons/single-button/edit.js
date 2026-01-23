@@ -41,8 +41,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		gradTextColor,
 	} = attributes;
 
-
-
 	const handleButtonClick = (btnVariant) => {
 		setAttributes({ variant: btnVariant });
 	};
@@ -145,6 +143,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					"--sp-hover-ghost-bg-color": `${hoverStyles.ghostBgColor}`,
 					"--sp-hover-ghost-text-color": `${hoverStyles.ghostTextColor}`,
 					"--sp-hover-gradient": hoverStyles.gradColor,
+					"--sp-hover-gradient-text-color": hoverStyles.gradTextColor,
 					"--sp-hover-text-color": `${hoverStyles.txtColor}`,
 					"--sp-border-w-hover": `${effectiveBorderWidthHover}${hoverStyles.borderWidthUnit}`,
 					"--sp-border-color-hover": `${hoverStyles.borderColor}`,
@@ -591,7 +590,50 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 										},
 									})
 								}
-								onReset={() => setAttributes({ ghostTextColor: "#FFF" })}
+								onReset={() =>
+									setAttributes({
+										hoverStyles: {
+											...hoverStyles,
+											ghostTextColor: "#FFF",
+										},
+									})
+								}
+							/>
+						)}
+
+						{/* gradient button text style */}
+						{buttonLabelTabs === "normal" && variant === "gradient" && (
+							// text color setting
+							<ColorControl
+								label={__("Color", "sp-smart-button")}
+								value={gradTextColor}
+								onChange={(newTxtColor) =>
+									setAttributes({ gradTextColor: newTxtColor })
+								}
+								onReset={() => setAttributes({ gradTextColor: "#FFF" })}
+							/>
+						)}
+						{buttonLabelTabs === "hover" && variant === "gradient" && (
+							// text color setting
+							<ColorControl
+								label={__("Color", "sp-smart-button")}
+								value={hoverStyles.gradTextColor}
+								onChange={(newTxtColor) =>
+									setAttributes({
+										hoverStyles: {
+											...hoverStyles,
+											gradTextColor: newTxtColor,
+										},
+									})
+								}
+								onReset={() =>
+									setAttributes({
+										hoverStyles: {
+											...hoverStyles,
+											gradTextColor: "#000",
+										},
+									})
+								}
 							/>
 						)}
 					</PanelBody>

@@ -65,6 +65,7 @@ export default function save({ attributes }) {
 					"--sp-hover-ghost-bg-color": `${hoverStyles.ghostBgColor}`,
 					"--sp-hover-ghost-text-color": `${hoverStyles.ghostTextColor}`,
 					"--sp-hover-gradient": hoverStyles.gradColor,
+					"--sp-hover-gradient-text-color": hoverStyles.gradTextColor,
 					"--sp-hover-text-color": `${hoverStyles.txtColor}`,
 					"--sp-border-w-hover": `${effectiveBorderWidthHover}${hoverStyles.borderWidthUnit}`,
 					"--sp-border-color-hover": `${hoverStyles.borderColor}`,

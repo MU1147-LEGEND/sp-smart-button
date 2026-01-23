@@ -23,15 +23,21 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		buttonGapUnit,
 		marginUnit,
 		magringControl,
+		buttonCount,
 	} = attributes;
 
-	const buttonCount = useSelect(
+	const innerBlockCount = useSelect(
 		(select) => {
 			const block = select("core/block-editor").getBlock(clientId);
-			return block?.innerBlocks?.length;
+			return block?.innerBlocks?.length || 1;
 		},
 		[clientId],
 	);
+
+	// sync once
+	if (innerBlockCount !== buttonCount) {
+		setAttributes({ buttonCount: innerBlockCount });
+	}
 
 	// const calculateButtonGap =
 	// 	buttonGapUnit === "em" ? buttonGap / 16 : buttonGap; // if I want to convert units.

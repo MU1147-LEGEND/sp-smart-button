@@ -18,7 +18,6 @@ a.sp-smart-button {
 
 .wp-block-sp-smart-buttons {
 	display: flex;
-	gap: 12px;
 	width: 100%;
 	gap: var(--sp-button-gap);
 
@@ -39,8 +38,26 @@ a.sp-smart-button {
 	}
 
 	&.has-full-width-buttons {
-		.wp-block-sp-single-button.sp-parent {
+		&.is-horizontal {
+			.wp-block-sp-single-button.sp-parent {
+				width: calc(
+					(100% - (var(--sp-btn-count) - 1) * var(--sp-button-gap)) /
+						var(--sp-btn-count)
+				);
+				a.sp-smart-button {
+					width: 100%;
+				}
+			}
+		}
+
+		&.is-vertical {
 			width: 100%;
+			.sp-parent {
+				width: 100%;
+			}
+		}
+
+		.sp-parent {
 			.sp-smart-button {
 				width: 100%;
 			}
@@ -155,6 +172,10 @@ a.sp-smart-button {
 		background: var(--sp-gradient-bg, var(--primary-background));
 		color: var(--sp-gradient-text-color);
 		overflow: hidden;
+
+		&:hover {
+			color: var(--sp-hover-gradient-text-color);
+		}
 
 		&::before {
 			content: "";

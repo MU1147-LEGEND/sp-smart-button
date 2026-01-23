@@ -54,6 +54,10 @@
 		"marginUnit": {
 			"type": "string",
 			"default": "px"
+		},
+		"buttonCount": {
+			"type": "number",
+			"default": 1
 		}
 	}
 }

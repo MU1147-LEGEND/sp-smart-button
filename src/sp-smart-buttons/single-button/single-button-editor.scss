@@ -92,6 +92,9 @@ span.btn-container,
 		color: var(--sp-gradient-text-color);
 		overflow: hidden;
 
+		&:hover {
+			color: var(--sp-hover-gradient-text-color);
+		}
 		&::before {
 			content: "";
 			position: absolute;

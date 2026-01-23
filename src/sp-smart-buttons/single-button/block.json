@@ -101,6 +101,7 @@
 				"ghostBgColor": "#2563eb",
 				"gradColor": "linear-gradient(81deg, #5d13ff 1.03%, #aa088d 45.49%, #ff0035 97.36%)",
 				"ghostTextColor": "#FFF",
+				"gradTextColor": "#000",
 				"txtColor": "#000000",
 				"borderColor": "#000",
 				"borderWidth": 0,
@@ -124,6 +125,9 @@
 					"type": "string"
 				},
 				"ghostTextColor": {
+					"type": "string"
+				},
+				"gradTextColor": {
 					"type": "string"
 				},
 				"txtColor": {

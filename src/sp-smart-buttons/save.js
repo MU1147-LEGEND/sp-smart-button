@@ -1,6 +1,7 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
+import { useSelect } from "@wordpress/data";
 
-export default function save({ attributes }) {
+export default function save({ attributes, clientId }) {
 	const {
 		direction,
 		justify,
@@ -10,6 +11,7 @@ export default function save({ attributes }) {
 		buttonGapUnit,
 		marginUnit,
 		magringControl,
+		buttonCount,
 	} = attributes;
 
 	// const calculateButtonGap =
@@ -31,6 +33,8 @@ export default function save({ attributes }) {
 					"--sp-margin-right": `${magringControl.right}${marginUnit}`,
 					"--sp-margin-bottom": `${magringControl.bottom}${marginUnit}`,
 					"--sp-margin-left": `${magringControl.left}${marginUnit}`,
+					// button count
+					"--sp-btn-count": buttonCount,
 				},
 			})}
 		>
