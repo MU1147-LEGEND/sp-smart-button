@@ -12,6 +12,7 @@ import PaddingControl from "./components/paddingControl";
 import RangeControlMarks from "./components/rangeControlMarks";
 import TypographyPopover from "./components/TypographyPopover";
 import "./single-button-editor.scss";
+import { ToggleControl } from "@wordpress/components";
 
 export default function Edit({ attributes, setAttributes }) {
 	const {
@@ -32,6 +33,8 @@ export default function Edit({ attributes, setAttributes }) {
 		typography,
 		ghostBgColor,
 		ghostTextColor,
+		borderColor,
+		openNewTab,
 	} = attributes;
 
 	const handleButtonClick = (btnVariant) => {
@@ -97,6 +100,15 @@ export default function Edit({ attributes, setAttributes }) {
 		},
 	];
 
+	// calculate border width and give width if w is zero when selecting ghost variant
+	const effectiveBorderWidth =
+		variant === "ghost" && borderWidth === 0 ? 1 : borderWidth;
+
+	const effectiveBorderWidthHover =
+		variant === "ghost" && hoverStyles.borderWidth === 0
+			? 1
+			: hoverStyles.borderWidth;
+
 	return (
 		<div
 			{...useBlockProps({
@@ -106,7 +118,8 @@ export default function Edit({ attributes, setAttributes }) {
 					"--primary-text-color": `${textColor}`,
 					"--ghost-text-color": `${ghostTextColor}`,
 					"--ghost-background": `${ghostBgColor}`,
-					"--sp-border-w": `${borderWidth}${borderWidthUnit}`,
+					"--sp-border-w": `${effectiveBorderWidth}${borderWidthUnit}`,
+					"--sp-border-color": `${borderColor}`,
 					// border radius inject dynamically
 					"--sp-radius-top_left": `${borderRadiusControl.top_left}px`,
 					"--sp-radius-top_right": `${borderRadiusControl.top_right}px`,
@@ -124,7 +137,8 @@ export default function Edit({ attributes, setAttributes }) {
 					"--sp-hover-ghost-bg-color": `${hoverStyles.ghostBgColor}`,
 					"--sp-hover-ghost-text-color": `${hoverStyles.ghostTextColor}`,
 					"--sp-hover-text-color": `${hoverStyles.txtColor}`,
-					"--sp-border-w-hover": `${hoverStyles.borderWidth}${hoverStyles.borderWidthUnit}`,
+					"--sp-border-w-hover": `${effectiveBorderWidthHover}${hoverStyles.borderWidthUnit}`,
+					"--sp-border-color-hover": `${hoverStyles.borderColor}`,
 					// border radius
 					"--sp-radius-top_left-hover": `${hoverStyles.borderRadiusControl.top_left}${hoverStyles.borderRadiusUnit}`,
 					"--sp-radius-top_right-hover": `${hoverStyles.borderRadiusControl.top_right}${hoverStyles.borderRadiusUnit}`,
@@ -247,10 +261,19 @@ export default function Edit({ attributes, setAttributes }) {
 										}
 										onReset={() => {
 											setAttributes({ ghostBgColor: "#fff" });
-											console.log("reset done ");
 										}}
 									/>
 								)}
+
+								{/* border color */}
+								<ColorControl
+									label={__("Border Color", "sp-smart-button")}
+									value={borderColor}
+									onChange={(newColor) =>
+										setAttributes({ borderColor: newColor })
+									}
+									onReset={() => setAttributes({ borderColor: "#000" })}
+								/>
 
 								<ToolbarHeader
 									label={__("Border Width", "sp-smart-button")}
@@ -287,6 +310,19 @@ export default function Edit({ attributes, setAttributes }) {
 									onChange={(newUrl) => setAttributes({ btnUrl: newUrl })}
 									placeholder="https://example.com"
 								/>
+
+								<div className="open-new-tab-button-wrapper">
+									<span className="open-new-tab-button-label">
+										Open in New Tab
+									</span>
+									<ToggleControl
+										checked={openNewTab}
+										onChange={(value) => {
+											setAttributes({ openNewTab: value });
+											console.log(value);
+										}}
+									/>
+								</div>
 
 								{/* padding control single button */}
 								<PaddingControl
@@ -345,6 +381,27 @@ export default function Edit({ attributes, setAttributes }) {
 										}
 									/>
 								)}
+
+								<ColorControl
+									label={__("Border Color", "sp-smart-button")}
+									value={hoverStyles.borderColor}
+									onChange={(newBorderColor) =>
+										setAttributes({
+											hoverStyles: {
+												...hoverStyles,
+												borderColor: newBorderColor,
+											},
+										})
+									}
+									onReset={() =>
+										setAttributes({
+											hoverStyles: {
+												...hoverStyles,
+												borderColor: "#000",
+											},
+										})
+									}
+								/>
 
 								{/* border width part */}
 								<ToolbarHeader
@@ -499,7 +556,6 @@ export default function Edit({ attributes, setAttributes }) {
 								onReset={() => setAttributes({ ghostTextColor: "#FFF" })}
 							/>
 						)}
-
 					</PanelBody>
 
 					{/* button icon */}
@@ -509,7 +565,12 @@ export default function Edit({ attributes, setAttributes }) {
 				</Panel>
 			</InspectorControls>
 
-			<Button variant={variant} hoverEffect={hoverEffect} link={btnUrl}>
+			<Button
+				variant={variant}
+				hoverEffect={hoverEffect}
+				link={btnUrl}
+				openNewTab={openNewTab}
+			>
 				{text}
 			</Button>
 		</div>

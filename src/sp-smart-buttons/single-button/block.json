@@ -13,7 +13,11 @@
 		},
 		"btnUrl": {
 			"type": "string",
-			"default": "#"
+			"default": "https://wpsmartpost.com/"
+		},
+		"openNewTab": {
+			"type": "boolean",
+			"default": false
 		},
 		"variant": {
 			"type": "string",
@@ -46,6 +50,10 @@
 		"buttonLabelTabs": {
 			"type": "string",
 			"default": "normal"
+		},
+		"borderColor": {
+			"type": "string",
+			"default": "#000"
 		},
 		"borderWidth": {
 			"type": "number",
@@ -85,6 +93,7 @@
 				"ghostBgColor": "#2563eb",
 				"ghostTextColor": "#FFF",
 				"txtColor": "#000000",
+				"borderColor": "#000",
 				"borderWidth": 0,
 				"borderWidthUnit": "px",
 				"borderRadiusControl": {
@@ -106,6 +115,9 @@
 					"type": "string"
 				},
 				"txtColor": {
+					"type": "string"
+				},
+				"borderColor": {
 					"type": "string"
 				},
 				"borderWidth": {

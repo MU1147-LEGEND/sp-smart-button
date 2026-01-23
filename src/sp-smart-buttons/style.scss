@@ -1,12 +1,627 @@
-a.sp-single-button {
+a.sp-smart-button {
 	padding: 0.6em 1.2em;
 	border-radius: 6px;
 	font-weight: 500;
 	text-decoration: none;
-	display: inline-block;
+	text-wrap: nowrap;
+	text-align: center;
+	    display: flex;
+    align-items: center;
+    justify-content: center;
 	// border: 2px solid transparent;
 	transition:
 		background 0.3s ease,
 		color 0.3s ease;
 	box-sizing: border-box;
 }
+// smart button block
+
+.wp-block-sp-smart-buttons {
+	display: flex;
+	gap: 12px;
+	width: 100%;
+	gap: var(--sp-button-gap);
+
+	/* child button */
+	.sp-smart-button {
+		display: inline-flex;
+	}
+
+	.block-editor-inner-blocks {
+		width: 100%;
+		margin: var(--sp-margin-top) var(--sp-margin-right) var(--sp-margin-bottom)
+			var(--sp-margin-left);
+	}
+	.block-editor-block-list__layout {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+	&.has-full-width-buttons {
+		.block-editor-block-list__layout {
+			.block-editor-block-list__block {
+				width: 100%;
+				.sp-smart-button {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	// horizontal alignment
+	&.is-horizontal {
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		&.align-start {
+			.block-editor-block-list__layout {
+				justify-content: start;
+			}
+		}
+		&.align-horizontal-center {
+			.block-editor-block-list__layout {
+				justify-content: center;
+			}
+		}
+		&.align-end {
+			.block-editor-block-list__layout {
+				justify-content: end;
+			}
+		}
+		&.align-space-between {
+			.block-editor-block-list__layout {
+				justify-content: space-between;
+			}
+		}
+		&.align-space-around {
+			.block-editor-block-list__layout {
+				justify-content: space-around;
+			}
+		}
+		&.align-space-evenly {
+			.block-editor-block-list__layout {
+				justify-content: space-evenly;
+			}
+		}
+	}
+
+	&.is-vertical {
+		.block-editor-block-list__layout {
+			flex-direction: column;
+		}
+
+		flex-direction: column;
+		align-items: flex-start;
+
+		.sp-single-button {
+			width: 100%;
+		}
+
+		&.align-flex-start {
+			.block-editor-block-list__layout {
+				align-items: flex-start;
+			}
+		}
+		&.align-vertical-center {
+			.block-editor-block-list__layout {
+				align-items: center;
+			}
+		}
+		&.align-flex-end {
+			.block-editor-block-list__layout {
+				align-items: flex-end;
+			}
+		}
+	}
+}
+
+// button design for innerblock.
+
+a.sp-smart-button {
+	padding: 0.6em 1.2em;
+	border-radius: var(--sp-radius-top_left) var(--sp-radius-top_right)
+		var(--sp-radius-bottom_right) var(--sp-radius-bottom_left);
+	font-weight: 500;
+	text-decoration: none;
+	display: inline-block;
+	// border: 2px solid transparent;
+	transition:
+		background 0.3s ease,
+		color 0.3s ease,
+		border-radius 0.3s ease;
+	box-sizing: border-box;
+	cursor: pointer;
+
+	&:hover {
+		border-radius: var(--sp-radius-top_left-hover)
+			var(--sp-radius-top_right-hover) var(--sp-radius-bottom_right-hover)
+			var(--sp-radius-bottom_left-hover);
+	}
+}
+
+// buttons style (Editor canvas)
+.sp-parent {
+	.sp-smart-button {
+		padding: var(--sp-padding-top) var(--sp-padding-right)
+			var(--sp-padding-bottom) var(--sp-padding-left);
+		border: var(--sp-border-w) solid var(--sp-border-color);
+		&:hover {
+			border: var(--sp-border-w-hover) solid var(--sp-border-color-hover);
+		}
+	}
+
+	.sp-smart-button.is-default {
+		background: var(--primary-background);
+		color: var(--primary-text-color);
+
+		&:hover {
+			background-color: var(--sp-hover-bg-color);
+		}
+	}
+
+	.sp-smart-button.is-ghost {
+		background: transparent;
+		&:hover {
+			// background-color: var(--sp-hover-bg-color); // no need hover bg when selected ghost type.
+			border: var(--sp-border-w-hover) solid var(--sp-border-color-hover);
+		}
+		color: var(--primary-text-color);
+		border: var(--sp-border-w) solid var(--sp-border-color);
+	}
+
+	.sp-smart-button.is-gradient {
+		background: linear-gradient(
+			81deg,
+			#ff0035 1.03%,
+			#f902cb 45.49%,
+			#5d13ff 97.36%
+		);
+		color: #fff;
+	}
+}
+
+.btn-label-wrapper {
+	display: flex;
+	flex-direction: column;
+	.btn-container {
+		position: relative;
+		border: 2px solid rgba(128, 128, 128, 0.66);
+		border-radius: 3px;
+		padding: 4px;
+		a.sp-smart-button {
+			width: 100%;
+			text-align: center;
+			font-size: 10px;
+		}
+		.selected-icon {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+}
+
+// button hover effects
+// raise hover
+.is-default.is-hover-default {
+	color: var(--primary-text-color);
+	&:hover {
+		color: var(--sp-hover-text-color);
+	}
+}
+.is-default.is-hover-raise {
+	color: var(--primary-text-color);
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+	transition:
+		transform 0.4s ease-in-out,
+		box-shadow 0.4s ease-in-out;
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+		color: var(--sp-hover-text-color);
+	}
+}
+// raise hover
+
+// gradient hover
+.is-default.is-hover-gradient {
+	border: none;
+	outline: none;
+	color: var(--primary-text-color);
+	background: var(--primary-background) !important;
+	cursor: pointer;
+	position: relative;
+	z-index: 0;
+	border-radius: 10px;
+	&:hover {
+		color: var(--sp-hover-text-color);
+	}
+}
+
+.is-default.is-hover-gradient:before {
+	content: "";
+	background: linear-gradient(
+		45deg,
+		#ff0000,
+		#ff7300,
+		#fffb00,
+		#48ff00,
+		#00ffd5,
+		#002bff,
+		#7a00ff,
+		#ff00c8,
+		#ff0000
+	);
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	background-size: 400%;
+	z-index: -1;
+	filter: blur(5px);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	animation: glowing 20s linear infinite;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+	border-radius: 10px;
+}
+
+.is-default.is-hover-gradient:active {
+	color: var(--primary-text-color);
+}
+
+.is-default.is-hover-gradient:active:after {
+	background: transparent !important;
+}
+
+.is-default.is-hover-gradient:hover:before {
+	opacity: 1;
+}
+
+.is-default.is-hover-gradient:after {
+	z-index: -1;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: var(--primary-background) !important;
+	left: 0;
+	top: 0;
+	border-radius: 10px;
+}
+.btn-container {
+	.is-default.is-hover-gradient::after {
+		border-radius: 0;
+	}
+	.is-default.is-hover-gradient::before {
+		border-radius: 0;
+	}
+}
+
+@keyframes glowing {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+// gradient hover
+
+// shine hover
+.sp-parent.has-hover-shine {
+	overflow: hidden;
+}
+
+.is-default.is-hover-shine {
+	overflow: hidden;
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 50%;
+		height: 95%;
+		background: linear-gradient(
+			120deg,
+			transparent,
+			rgba(255, 255, 255, 0.4),
+			transparent
+		);
+		transition: left 0.6s ease;
+	}
+	&:hover::before {
+		left: 150%;
+	}
+}
+// shine hover
+
+// multi layer hover
+
+.is-default.is-hover-multi-layers {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+	transition: box-shadow 0.4s ease-in-out;
+}
+
+.is-default.is-hover-multi-layers:before {
+	position: absolute;
+	content: "";
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+}
+
+.is-default.is-hover-multi-layers:hover {
+	box-shadow:
+		7px 7px color-mix(in srgb, var(--primary-background) 50%, black),
+		-7px -7px color-mix(in srgb, var(--sp-hover-bg-color) 20%, white);
+	cursor: pointer;
+	&::before {
+		border: 0px;
+	}
+}
+// multi layer hover end
+
+// flip hover
+.is-default.is-hover-flip {
+	opacity: 1;
+	outline: 0;
+	color: #fff;
+	background-color: transparent !important;
+	position: relative;
+
+	&:hover {
+		&:after {
+			opacity: 1;
+			transform: translateY(0) rotateX(0);
+		}
+		&:before {
+			opacity: 0;
+			transform: translateY(50%) rotateX(90deg);
+		}
+	}
+
+	&:after {
+		content: attr(data-text);
+		top: 0;
+		left: 0;
+		opacity: 0;
+		background-color: var(--sp-hover-bg-color);
+		border-radius: inherit;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition:
+			transform 0.4s ease-in-out,
+			opacity 0.4s ease-in-out,
+			height 0.4s ease-in-out;
+		position: absolute;
+		text-align: center;
+		transform: translateY(-50%) rotateX(90deg);
+	}
+
+	&:before {
+		content: attr(data-text);
+		top: 0;
+		left: 0;
+		opacity: 1;
+		background-color: var(--primary-background);
+		border-radius: inherit;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition:
+			transform 0.4s ease-in-out,
+			opacity 0.4s ease-in-out,
+			height 0.4s ease-in-out;
+		position: absolute;
+		text-align: center;
+		transform: translateY(0) rotateX(0);
+	}
+}
+.is-hover-flip .sp-smart-button-inner {
+	opacity: 0;
+	visibility: hidden;
+}
+// flip hover
+
+// ----------- GHOST BUTTON HOVER STYLES ----------------
+
+.is-ghost.is-hover-default {
+	color: var(--ghost-text-color) !important;
+	background-color: var(--ghost-background) !important;
+	&:hover {
+		color: var(--sp-hover-ghost-text-color) !important;
+		background: var(--sp-hover-ghost-bg-color) !important;
+	}
+}
+
+/* Base ghost button */
+.is-ghost.is-hover-slide-right {
+	position: relative;
+	overflow: hidden;
+	background: var(--ghost-background) !important;
+	color: var(--ghost-text-color) !important;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	z-index: 1;
+	/* Sliding background layer */
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 100%;
+		background: var(--sp-hover-ghost-bg-color);
+		transition:
+			left 0.3s ease-in-out,
+			width 0.3s ease-in-out;
+		z-index: -1;
+	}
+
+	&:hover::before {
+		width: 100%;
+	}
+	&:hover {
+		color: var(--sp-hover-ghost-text-color) !important;
+	}
+}
+
+// slide skew hover style
+
+.is-ghost.is-hover-slide-skew {
+	position: relative;
+	overflow: hidden;
+	background: var(--ghost-background) !important;
+	color: var(--ghost-text-color) !important;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	z-index: 0;
+}
+
+/* skewed sliding layer */
+.is-ghost.is-hover-slide-skew::before {
+	content: "";
+	position: absolute;
+	top: -46px;
+	left: -209%;
+	width: 200%;
+	height: 363%;
+	background: var(--sp-hover-ghost-bg-color, #0d6efd);
+	transform: rotate(45deg);
+	transition: left 0.45s ease-in-out;
+	z-index: -1;
+}
+
+/* hover */
+.is-ghost.is-hover-slide-skew:hover::before {
+	left: -10%;
+}
+
+.is-ghost.is-hover-slide-skew:hover {
+	color: var(--sp-hover-ghost-text-color) !important;
+}
+
+// slide top hover style
+.is-ghost.is-hover-slide-top {
+	position: relative;
+	overflow: hidden;
+	background: var(--ghost-background) !important;
+	color: var(--ghost-text-color) !important;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	z-index: 0;
+}
+
+.is-ghost.is-hover-slide-top::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0%;
+	background: var(--sp-hover-ghost-bg-color, #0d6efd);
+	transition: height 0.3s ease-in-out;
+	z-index: -1;
+}
+
+/* hover */
+.is-ghost.is-hover-slide-top:hover::before {
+	height: 100%;
+}
+
+.is-ghost.is-hover-slide-top:hover {
+	color: var(--sp-hover-ghost-text-color) !important;
+}
+
+// neo follow button style
+.is-ghost.is-hover-neo-follow {
+	position: relative;
+	background: var(--ghost-background) !important;
+	color: var(--ghost-text-color) !important;
+	cursor: pointer;
+	transition: box-shadow 0.3s ease;
+	z-index: 1;
+}
+
+/* hover */
+.is-ghost.is-hover-neo-follow:hover {
+	box-shadow: 8px 8px 0px 0px var(--sp-hover-ghost-bg-color);
+	color: var(--sp-hover-ghost-text-color) !important;
+}
+
+// draw outline button style
+
+.is-ghost.is-hover-draw-outline {
+	position: relative;
+	background: transparent;
+	color: var(--ghost-text-color, #818cf8) !important;
+	cursor: pointer;
+	border: 0 !important;
+	border-radius: var(--sp-radius-top_left) var(--sp-radius-top_right)
+		var(--sp-radius-bottom_right) var(--sp-radius-bottom_left);
+
+	/* 4 borders as gradients */
+	background-image:
+		linear-gradient(var(--sp-border-color), var(--sp-border-color)),
+		// Top
+		linear-gradient(var(--sp-border-color), var(--sp-border-color)),
+		// Right
+		linear-gradient(var(--sp-border-color), var(--sp-border-color)),
+		// Bottom
+		linear-gradient(
+				var(--sp-border-color),
+				var(--sp-border-color)
+			) !important; //Left
+
+	background-repeat: no-repeat !important;
+
+	/* start with nothing drawn */
+	background-size:
+		0% var(--sp-border-w),
+		/* top */ var(--sp-border-w) 0%,
+		/* right */ 0% var(--sp-border-w),
+		/* bottom */ var(--sp-border-w) 0% !important; /* left */
+
+	/* positions */
+	background-position:
+		left top,
+		right top,
+		right bottom,
+		left bottom !important;
+
+	transition:
+		background-size 0.1s linear,
+		background-position 0s linear;
+}
+
+/* hover → draw clockwise */
+.is-ghost.is-hover-draw-outline:hover {
+	background-size:
+		100% var(--sp-border-w-hover),
+		/* TOP grows left → right */ var(--sp-border-w-hover) 100%,
+		/* RIGHT grows top → bottom */ 100% var(--sp-border-w-hover),
+		/* BOTTOM grows right → left */ var(--sp-border-w-hover) 100% !important; /* LEFT grows bottom → top */
+
+	transition:
+		background-size 0.1s linear,
+		background-size 0.1s linear 0.1s,
+		background-size 0.1s linear 0.2s,
+		background-size 0.1s linear 0.3s;
+}
+
+// hover styles end

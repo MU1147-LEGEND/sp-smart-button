@@ -38,7 +38,6 @@ const ColorControl = ({
 						<ColorPicker
 							color={value}
 							onChangeComplete={(newColor) => onChange(newColor.hex)}
-							disableAlpha
 						/>
 					</Popover>
 				)}
