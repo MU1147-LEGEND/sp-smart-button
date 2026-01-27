@@ -1,0 +1,38 @@
+.sp-box-shadow-control {
+	margin-top: 12px;
+}
+
+.sp-box-shadow-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.sp-box-shadow-label {
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.sp-box-shadow-preview {
+	margin-top: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.sp-box-shadow-preview-box {
+	width: 100%;
+	height: 50px;
+	border-radius: 6px;
+	background: #fff;
+	border: 1px solid #dcdcde;
+}
+
+.sp-box-shadow-code {
+	font-size: 11px;
+	background: #f6f7f7;
+	padding: 6px 8px;
+	border-radius: 4px;
+	overflow-x: auto;
+}

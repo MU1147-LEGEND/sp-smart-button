@@ -12,6 +12,7 @@ import TabToggle from "./components/tabToggle";
 import VerticalAlignmentControl from "./components/VerticalAlignment/VerticalAlignmentControl";
 import "./editor.scss";
 import { useSelect } from "@wordpress/data";
+import SpToggleControl from "./components/toggleControl";
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
@@ -92,15 +93,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					)}
 
 					{/* full width button */}
-					<div className="full-width-button-wrapper">
-						<span className="full-width-button-label">Full Width Buttons</span>
-						<ToggleControl
-							checked={isFullWidthButtons}
-							onChange={(value) => {
-								setAttributes({ isFullWidthButtons: value });
-							}}
-						/>
-					</div>
+
+					<SpToggleControl
+						label={__("Full Width Buttons", "sp-smart-button")}
+						isToggle={isFullWidthButtons}
+						onChange={(value) => {
+							setAttributes({ isFullWidthButtons: value });
+						}}
+					/>
 
 					{/* Button Gap */}
 					<ButtonGap

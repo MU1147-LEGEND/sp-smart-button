@@ -62,8 +62,11 @@ span.btn-container,
 		padding: var(--sp-padding-top) var(--sp-padding-right)
 			var(--sp-padding-bottom) var(--sp-padding-left);
 		border: var(--sp-border-w) solid var(--sp-border-color);
+		box-shadow: var(--sp-box-shadow);
+		transition: box-shadow 0.3s ease-in;
 		&:hover {
 			border: var(--sp-border-w-hover) solid var(--sp-border-color-hover);
+			box-shadow: var(--sp-box-shadow-hover);
 		}
 	}
 
@@ -168,13 +171,13 @@ span.btn-container,
 }
 .is-default.is-hover-raise {
 	color: var(--primary-text-color);
-	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: var(--sp-box-shadow, 0 2px 0 rgba(0, 0, 0, 0.15));
 	transition:
 		transform 0.4s ease-in-out,
 		box-shadow 0.4s ease-in-out;
 	&:hover {
 		transform: translateY(-4px);
-		box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+		box-shadow: var(--sp-box-shadow-hover, 0 8px 12px rgba(0, 0, 0, 0.2));
 		color: var(--sp-hover-text-color);
 	}
 }
@@ -282,7 +285,7 @@ span.btn-container,
 
 // shine hover
 .sp-parent.has-hover-shine {
-	overflow: hidden;
+	// overflow: hidden;
 }
 
 .is-default.is-hover-shine {
@@ -342,7 +345,7 @@ span.btn-container,
 .is-default.is-hover-flip {
 	opacity: 1;
 	outline: 0;
-	color: var(--primary-text-color);
+	color: var(--primary-text-color, #002bff);
 	background-color: transparent !important;
 	position: relative;
 
@@ -362,7 +365,7 @@ span.btn-container,
 		top: 0;
 		left: 0;
 		opacity: 0;
-		background-color: var(--sp-hover-bg-color);
+		background-color: var(--sp-hover-bg-color, #818cf8);
 		border-radius: inherit;
 		width: 100%;
 		height: 100%;

@@ -93,7 +93,20 @@
 			"type": "string",
 			"default": "px"
 		},
-
+		"isBoxShadowEnabled": {
+			"type": "boolean",
+			"default": false
+		},
+		"boxShadow": {
+			"type": "object",
+			"default": {
+				"x": 0,
+				"y": 8,
+				"blur": 20,
+				"spread": 0,
+				"color": "rgba(0,0,0,0.25)"
+			}
+		},
 		"hoverStyles": {
 			"type": "object",
 			"default": {
@@ -112,7 +125,15 @@
 					"bottom_left": 8,
 					"bottom_right": 8
 				},
-				"borderRadiusUnit": "px"
+				"borderRadiusUnit": "px",
+				"isBoxShadowEnabled": false,
+				"boxShadow": {
+					"x": 8,
+					"y": 8,
+					"blur": 15,
+					"spread": 2,
+					"color": "rgba(0,0,0,0.45)"
+				}
 			},
 			"properties": {
 				"bgColor": {
@@ -161,6 +182,16 @@
 				},
 				"borderRadiusUnit": {
 					"type": "string"
+				},
+				"isBoxShadowEnabled": {
+					"type": "boolean"
+				},
+				"boxShadow": {
+					"x": { "type": "number" },
+					"y": { "type": "number" },
+					"blur": { "type": "number" },
+					"spread": { "type": "number" },
+					"color": { "type": "string" }
 				}
 			}
 		},

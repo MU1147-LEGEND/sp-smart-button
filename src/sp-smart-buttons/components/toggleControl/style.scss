@@ -1,0 +1,32 @@
+.toggle-control-button-label {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.toggle-control-button-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin: 15px 0;
+
+	.components-toggle-control {
+		margin-bottom: 0;
+	}
+	.components-form-toggle {
+		transform: scale(1.2);
+	}
+	.components-form-toggle.is-checked {
+		.components-form-toggle__track {
+			background-color: #7f56d9;
+		}
+	}
+	.components-form-toggle__track {
+		background-color: #bbbbbb;
+		padding: 1px;
+	}
+	.components-form-toggle__thumb {
+		background-color: #ffffff;
+		transform: scale(0.95);
+	}
+}

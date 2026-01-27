@@ -5,7 +5,13 @@ import { Button } from "@wordpress/components";
 import "./style.scss";
 import ResetIcon from "../icons/resetIcon";
 
-const ToolbarHeader = ({ label, unit, handleUnitChange, handleReset }) => {
+const ToolbarHeader = ({
+	label,
+	unit,
+	handleUnitChange,
+	handleReset,
+	hasUnit = true,
+}) => {
 	const [device, setDevice] = useState("desktop");
 	return (
 		<div className="sp-smart-button-toolbar-header">
@@ -26,8 +32,7 @@ const ToolbarHeader = ({ label, unit, handleUnitChange, handleReset }) => {
 					variant="tertiary"
 					className="sp-reset-button-background-fix"
 				/>
-
-				<UnitDropdown value={unit} onChange={handleUnitChange} />
+				{hasUnit && <UnitDropdown value={unit} onChange={handleUnitChange} />}
 			</div>
 		</div>
 	);

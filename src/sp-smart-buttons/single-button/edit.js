@@ -1,7 +1,13 @@
 import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
-import { Panel, PanelBody, TextControl } from "@wordpress/components";
+import {
+	GradientPicker,
+	Panel,
+	PanelBody,
+	TextControl,
+} from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import TabToggle from "../components/tabToggle";
+import SpToggleControl from "../components/toggleControl";
 import ToolbarHeader from "../components/toolbarHeader";
 import selectedIcon from "./assets/selected.svg";
 import BorderRadiusControl from "./components/borderRadiusControl";
@@ -12,9 +18,7 @@ import PaddingControl from "./components/paddingControl";
 import RangeControlMarks from "./components/rangeControlMarks";
 import TypographyPopover from "./components/TypographyPopover";
 import "./single-button-editor.scss";
-import { ToggleControl } from "@wordpress/components";
-import { GradientPicker } from "@wordpress/components";
-import { useSelect } from "@wordpress/data";
+import BoxShadowControl from "../components/boxShadowControl";
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
@@ -39,6 +43,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		openNewTab,
 		gradColor,
 		gradTextColor,
+		isBoxShadowEnabled,
+		boxShadow,
 	} = attributes;
 
 	const handleButtonClick = (btnVariant) => {
@@ -113,6 +119,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			? 1
 			: hoverStyles.borderWidth;
 
+	// generate shadow css value
+	const shadowString = isBoxShadowEnabled
+		? `${boxShadow.x}px ${boxShadow.y}px ${boxShadow.blur}px ${boxShadow.spread}px ${boxShadow.color}`
+		: "";
+	const shadowStringHover = hoverStyles.isBoxShadowEnabled
+		? `${hoverStyles?.boxShadow?.x}px ${hoverStyles?.boxShadow?.y}px ${hoverStyles?.boxShadow?.blur}px ${hoverStyles?.boxShadow?.spread}px ${hoverStyles?.boxShadow?.color}`
+		: "";
+
 	return (
 		<div
 			{...useBlockProps({
@@ -136,6 +150,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					"--sp-padding-right": `${paddingControl.right}${paddingUnit}`,
 					"--sp-padding-bottom": `${paddingControl.bottom}${paddingUnit}`,
 					"--sp-padding-left": `${paddingControl.left}${paddingUnit}`,
+					// box shadow style
+					"--sp-box-shadow": `${shadowString}`,
+					"--sp-box-shadow-hover": `${shadowStringHover}`,
 
 					// hover styles
 					// button hover background color
@@ -285,37 +302,72 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									</div>
 								)}
 
-								{/* border color */}
-								<ColorControl
-									label={__("Border Color", "sp-smart-button")}
-									value={borderColor}
-									onChange={(newColor) =>
-										setAttributes({ borderColor: newColor })
-									}
-									onReset={() => setAttributes({ borderColor: "#000" })}
-								/>
+								{/* box shadow control */}
+								{hoverEffect !== "gradient" &&
+									hoverEffect !== "multi-layers" && (
+										<>
+											<SpToggleControl
+												label={__("Box Shadow", "sp-smart-button")}
+												isToggle={isBoxShadowEnabled}
+												onChange={(value) => {
+													setAttributes({ isBoxShadowEnabled: value });
+												}}
+											/>
 
-								<ToolbarHeader
-									label={__("Border Width", "sp-smart-button")}
-									unit={borderWidthUnit}
-									handleReset={() => {
-										setAttributes({ borderWidthUnit: "px", borderWidth: 0 });
-									}}
-									handleUnitChange={(newUnit) => {
-										setAttributes({ borderWidthUnit: newUnit });
-									}}
-								/>
-								<RangeControlMarks
-									value={borderWidth}
-									step={1}
-									max={10}
-									marks={true}
-									onChange={(value) =>
-										setAttributes({
-											borderWidth: value,
-										})
-									}
-								/>
+											{isBoxShadowEnabled && (
+												<>
+													<BoxShadowControl
+														label="Box Shadow"
+														value={boxShadow}
+														onChange={(newShadow) =>
+															setAttributes({ boxShadow: newShadow })
+														}
+													/>
+												</>
+											)}
+										</>
+									)}
+
+								{/* box shadow end */}
+
+								{/* border color */}
+								{hoverEffect !== "multi-layers" && (
+									<>
+										<ColorControl
+											label={__("Border Color", "sp-smart-button")}
+											value={borderColor}
+											onChange={(newColor) =>
+												setAttributes({ borderColor: newColor })
+											}
+											onReset={() => setAttributes({ borderColor: "#000" })}
+										/>
+
+										<ToolbarHeader
+											label={__("Border Width", "sp-smart-button")}
+											unit={borderWidthUnit}
+											handleReset={() => {
+												setAttributes({
+													borderWidthUnit: "px",
+													borderWidth: 0,
+												});
+											}}
+											handleUnitChange={(newUnit) => {
+												setAttributes({ borderWidthUnit: newUnit });
+											}}
+										/>
+										<RangeControlMarks
+											value={borderWidth}
+											step={1}
+											max={10}
+											marks={true}
+											onChange={(value) =>
+												setAttributes({
+													borderWidth: value,
+												})
+											}
+										/>
+									</>
+								)}
 
 								<BorderRadiusControl
 									value={borderRadiusControl}
@@ -331,18 +383,13 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									placeholder="https://example.com"
 								/>
 
-								<div className="open-new-tab-button-wrapper">
-									<span className="open-new-tab-button-label">
-										Open in New Tab
-									</span>
-									<ToggleControl
-										checked={openNewTab}
-										onChange={(value) => {
-											setAttributes({ openNewTab: value });
-											console.log(value);
-										}}
-									/>
-								</div>
+								<SpToggleControl
+									label={__("Open in New Tab", "sp-smart-button")}
+									isToggle={openNewTab}
+									onChange={(value) => {
+										setAttributes({ openNewTab: value });
+									}}
+								/>
 
 								{/* padding control single button */}
 								<PaddingControl
@@ -418,6 +465,44 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 										/>
 									</div>
 								)}
+
+								{/* box shadow control */}
+								{hoverEffect !== "gradient" &&
+									hoverEffect !== "multi-layers" && (
+										<>
+											<SpToggleControl
+												label={__("Box Shadow Hover", "sp-smart-button")}
+												isToggle={hoverStyles.isBoxShadowEnabled}
+												onChange={(value) => {
+													setAttributes({
+														hoverStyles: {
+															...hoverStyles,
+															isBoxShadowEnabled: value,
+														},
+													});
+												}}
+											/>
+
+											{hoverStyles.isBoxShadowEnabled && (
+												<>
+													<BoxShadowControl
+														label="Box Shadow Hover"
+														value={hoverStyles.boxShadow}
+														onChange={(newShadow) =>
+															setAttributes({
+																hoverStyles: {
+																	...hoverStyles,
+																	boxShadow: newShadow,
+																},
+															})
+														}
+													/>
+												</>
+											)}
+										</>
+									)}
+
+								{/* box shadow end */}
 
 								<ColorControl
 									label={__("Border Color", "sp-smart-button")}
