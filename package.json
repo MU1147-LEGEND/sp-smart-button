@@ -19,7 +19,8 @@
 		"@wordpress/blocks": "latest",
 		"@wordpress/components": "^31.0.0",
 		"@wordpress/element": "^6.37.0",
-		"@wordpress/i18n": "latest"
+		"@wordpress/i18n": "latest",
+		"react-icons": "^5.5.0"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^31.2.0"

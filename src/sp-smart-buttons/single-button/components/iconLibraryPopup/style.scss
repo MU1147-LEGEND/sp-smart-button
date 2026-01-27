@@ -1,0 +1,46 @@
+.sp-icon-select {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin: 15px 0;
+}
+
+.sp-icon-select-label {
+	font-size: 13px;
+	font-weight: 500;
+	color: #1e1e1e;
+}
+
+.sp-icon-select-trigger {
+	width: 14rem;
+	height: 127px;
+	padding: 0 !important;
+	border-radius: 8px !important;
+	border: 1px solid #dcdcde !important;
+	background: #fff !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	box-shadow: none !important;
+	svg {
+		width: 10rem !important;
+		height: 6.25rem !important;
+	}
+}
+
+.sp-icon-select-trigger:hover {
+	border-color: #7f56d9 !important;
+}
+
+.sp-icon-select-empty {
+	font-size: 30px;
+	line-height: 1;
+	font-weight: 600;
+	color: #7a7a7a;
+}
+
+.sp-icon-select-popover {
+	width: 380px;
+	padding: 10px;
+}

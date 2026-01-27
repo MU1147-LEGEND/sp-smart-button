@@ -40,10 +40,12 @@ a.sp-smart-button {
 	&.has-full-width-buttons {
 		&.is-horizontal {
 			.wp-block-sp-single-button.sp-parent {
-				width: calc(
-					(100% - (var(--sp-btn-count) - 1) * var(--sp-button-gap)) /
-						var(--sp-btn-count)
-				);
+				flex: 1 1
+					calc(
+						(100% - (var(--sp-btn-count) - 1) * var(--sp-button-gap)) /
+							var(--sp-btn-count)
+					);
+				min-width: 120px;
 				a.sp-smart-button {
 					width: 100%;
 				}

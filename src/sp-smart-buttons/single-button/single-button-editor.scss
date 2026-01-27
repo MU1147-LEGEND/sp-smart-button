@@ -317,8 +317,8 @@ span.btn-container,
 
 .is-default.is-hover-multi-layers {
 	position: relative;
-	display: inline-block;
 	text-align: center;
+	display: flex !important;
 	transition: box-shadow 0.3s ease-in !important;
 }
 
@@ -525,21 +525,32 @@ span.btn-container,
 
 /* skewed sliding layer */
 .is-ghost.is-hover-slide-skew::before {
+	// content: "";
+	// position: absolute;
+	// top: -46px;
+	// left: -209%;
+	// width: 200%;
+	// height: 363%;
+	// background: var(--sp-hover-ghost-bg-color, #0d6efd);
+	// transform: rotate(45deg);
+	// transition: left 0.45s ease-in-out;
+	// z-index: -1;
 	content: "";
-	position: absolute;
-	top: -46px;
-	left: -209%;
-	width: 200%;
-	height: 363%;
-	background: var(--sp-hover-ghost-bg-color, #0d6efd);
-	transform: rotate(45deg);
-	transition: left 0.45s ease-in-out;
-	z-index: -1;
+    position: absolute;
+    top: -150%;
+    left: -325%;
+    width: 400%;
+    height: 800%;
+    background: var(--sp-hover-ghost-bg-color, #0d6efd);
+    transform: rotate(45deg);
+    transition: left 0.3s ease-in-out;
+    z-index: -1;
 }
 
 /* hover */
 .is-ghost.is-hover-slide-skew:hover::before {
-	left: -10%;
+	// left: -10%;
+	    left: -150%;
 }
 
 .is-ghost.is-hover-slide-skew:hover {
@@ -584,7 +595,7 @@ span.btn-container,
 	background: var(--ghost-background) !important;
 	color: var(--ghost-text-color) !important;
 	cursor: pointer;
-	transition: box-shadow 0.3s ease;
+	transition: box-shadow 0.3s ease !important;
 	z-index: 1;
 }
 
@@ -602,8 +613,7 @@ span.btn-container,
 	color: var(--ghost-text-color, #818cf8) !important;
 	cursor: pointer;
 	border: 0 !important;
-	border-radius: var(--sp-radius-top_left) var(--sp-radius-top_right)
-		var(--sp-radius-bottom_right) var(--sp-radius-bottom_left);
+	border-radius: 0 !important;
 
 	/* 4 borders as gradients */
 	background-image:
@@ -643,9 +653,9 @@ span.btn-container,
 .is-ghost.is-hover-draw-outline:hover {
 	background-size:
 		100% var(--sp-border-w-hover),
-		/* TOP grows left → right */ var(--sp-border-w-hover) 100%,
-		/* RIGHT grows top → bottom */ 100% var(--sp-border-w-hover),
-		/* BOTTOM grows right → left */ var(--sp-border-w-hover) 100% !important; /* LEFT grows bottom → top */
+		var(--sp-border-w-hover) 100%,
+		100% var(--sp-border-w-hover),
+		var(--sp-border-w-hover) 100% !important;
 
 	transition:
 		background-size 0.1s linear,
@@ -691,3 +701,9 @@ span.btn-container,
 	}
 }
 // Open new tab button toggler style
+
+// button icon enabled styles
+.sp-has-icon{
+	display: flex;
+	gap: 12px;
+}

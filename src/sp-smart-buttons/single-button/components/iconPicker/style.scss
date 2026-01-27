@@ -1,0 +1,66 @@
+.sp-icon-picker {
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.sp-icon-picker-top {
+	padding: 10px;
+	border-bottom: 1px solid #e0e0e0;
+
+	.components-base-control {
+		margin-bottom: 0;
+	}
+}
+
+.sp-icon-picker-title {
+	display: block;
+	font-size: 12px;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+
+.sp-icon-picker-grid {
+	max-height: 260px;
+	overflow: auto;
+	padding: 10px;
+
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 10px;
+}
+
+.sp-icon-picker-item {
+	min-width: auto !important;
+	width: 100%;
+	height: 40px;
+	padding: 0 !important;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border: 1px solid #dcdcde !important;
+	border-radius: 6px !important;
+	background: #fff !important;
+	box-shadow: none !important;
+	transition: all 0.2s ease-in-out;
+}
+
+.sp-icon-picker-item:hover {
+	border-color: #7f56d9 !important;
+}
+
+.sp-icon-picker-item.is-active {
+	border-color: #1e6bff !important;
+	box-shadow: 0 0 0 2px rgba(30, 107, 255, 0.2) !important;
+}
+
+.sp-icon-picker-empty {
+	grid-column: 1 / -1;
+	text-align: center;
+	padding: 18px 10px;
+	color: #757575;
+	font-size: 13px;
+}

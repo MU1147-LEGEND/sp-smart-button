@@ -98,10 +98,13 @@
 				display: flex;
 				gap: var(--sp-button-gap);
 				& > .block-editor-block-list__block.wp-block {
-					width: calc(
+					flex: 1 1
+					calc(
 						(100% - (var(--sp-btn-count) - 1) * var(--sp-button-gap)) /
 							var(--sp-btn-count)
 					);
+				// min-width: 220px;
+				min-width: max-content;
 				}
 			}
 		}

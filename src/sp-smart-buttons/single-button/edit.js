@@ -3,6 +3,7 @@ import {
 	GradientPicker,
 	Panel,
 	PanelBody,
+	Popover,
 	TextControl,
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
@@ -19,6 +20,8 @@ import RangeControlMarks from "./components/rangeControlMarks";
 import TypographyPopover from "./components/TypographyPopover";
 import "./single-button-editor.scss";
 import BoxShadowControl from "../components/boxShadowControl";
+import IconPicker from "./components/iconPicker";
+import IconLibraryPopup from "./components/iconLibraryPopup";
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
@@ -45,6 +48,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		gradTextColor,
 		isBoxShadowEnabled,
 		boxShadow,
+		isIconEnabled,
+		iconSrcTab,
+		iconName,
 	} = attributes;
 
 	const handleButtonClick = (btnVariant) => {
@@ -54,6 +60,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	// tab options
 	const options = ["normal", "hover"];
 	const btnLblTabOptions = ["normal", "hover"];
+	const iconSrcOptions = ["library", "custom"];
 
 	const variants = ["default", "ghost", "gradient"];
 	const hoverEffects = [
@@ -175,7 +182,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			<InspectorControls>
 				<Panel>
 					{/* button style */}
-					<PanelBody title={__("General", "sp-smart-button")}>
+					<PanelBody
+						title={__("General", "sp-smart-button")}
+						initialOpen={true}
+					>
 						<>
 							<h3>Buttons Style</h3>
 							<div className="inspector-variant-wrapper">
@@ -368,13 +378,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 										/>
 									</>
 								)}
-
-								<BorderRadiusControl
-									value={borderRadiusControl}
-									onChange={(value) =>
-										setAttributes({ borderRadiusControl: value })
-									}
-								/>
+								{hoverEffect !== "draw-outline" && (
+									<BorderRadiusControl
+										value={borderRadiusControl}
+										onChange={(value) =>
+											setAttributes({ borderRadiusControl: value })
+										}
+									/>
+								)}
 
 								<h3 style={{ marginTop: "15px" }}>Button Link</h3>
 								<TextControl
@@ -560,27 +571,28 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 								/>
 
 								{/* border radius part */}
-
-								<BorderRadiusControl
-									value={hoverStyles.borderRadiusControl}
-									unit={hoverStyles.borderRadiusUnit}
-									handleUnitChange={(newUnit) => {
-										setAttributes({
-											hoverStyles: {
-												...hoverStyles,
-												borderRadiusUnit: newUnit,
-											},
-										});
-									}}
-									onChange={(value) =>
-										setAttributes({
-											hoverStyles: {
-												...hoverStyles,
-												borderRadiusControl: value,
-											},
-										})
-									}
-								/>
+								{hoverEffect !== "draw-outline" && (
+									<BorderRadiusControl
+										value={hoverStyles.borderRadiusControl}
+										unit={hoverStyles.borderRadiusUnit}
+										handleUnitChange={(newUnit) => {
+											setAttributes({
+												hoverStyles: {
+													...hoverStyles,
+													borderRadiusUnit: newUnit,
+												},
+											});
+										}}
+										onChange={(value) =>
+											setAttributes({
+												hoverStyles: {
+													...hoverStyles,
+													borderRadiusControl: value,
+												},
+											})
+										}
+									/>
+								)}
 							</>
 						)}
 					</PanelBody>
@@ -724,17 +736,46 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					</PanelBody>
 
 					{/* button icon */}
-					<PanelBody title={__("Icon", "sp-smart-button")} initialOpen={false}>
-						<h3>Icon</h3>
+					<PanelBody title={__("Icon", "sp-smart-button")} initialOpen={true}>
+						<SpToggleControl
+							label={__("Icon", "sp-smart-button")}
+							isToggle={isIconEnabled}
+							onChange={(value) => setAttributes({ isIconEnabled: value })}
+						/>
+
+						{isIconEnabled && (
+							<>
+								<TabToggle
+									value={iconSrcTab}
+									tabOptions={iconSrcOptions}
+									onChange={(newTab) => setAttributes({ iconSrcTab: newTab })}
+								/>
+
+								{iconSrcTab === "library" && (
+									<IconLibraryPopup
+										value={iconName}
+										onChange={(newIconName) =>
+											setAttributes({
+												iconName: String(newIconName || ""),
+											})
+										}
+									/>
+								)}
+								{iconSrcTab === "custom" && <h1> Coming Soon...</h1>}
+							</>
+						)}
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
 
+			{/* child button render */}
 			<Button
 				variant={variant}
 				hoverEffect={hoverEffect}
 				link={btnUrl}
 				openNewTab={openNewTab}
+				isIconEnabled={isIconEnabled}
+				iconName={iconName}
 			>
 				{text}
 			</Button>
