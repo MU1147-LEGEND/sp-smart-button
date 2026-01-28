@@ -24,6 +24,17 @@ export default function save({ attributes }) {
 		openNewTab,
 		gradColor,
 		gradTextColor,
+		isBoxShadowEnabled,
+		boxShadow,
+		isIconEnabled,
+		iconSrcTab,
+		iconName,
+		iconSize,
+		iconStyleTabs,
+		iconColor,
+		iconGap,
+		iconPosition,
+		customIcon,
 	} = attributes;
 
 	// calculate border width and give width if w is zero when selecting ghost variant
@@ -35,6 +46,13 @@ export default function save({ attributes }) {
 			? 1
 			: hoverStyles.borderWidth;
 
+	// generate shadow css value
+	const shadowString = isBoxShadowEnabled
+		? `${boxShadow.x}px ${boxShadow.y}px ${boxShadow.blur}px ${boxShadow.spread}px ${boxShadow.color}`
+		: "";
+	const shadowStringHover = hoverStyles.isBoxShadowEnabled
+		? `${hoverStyles?.boxShadow?.x}px ${hoverStyles?.boxShadow?.y}px ${hoverStyles?.boxShadow?.blur}px ${hoverStyles?.boxShadow?.spread}px ${hoverStyles?.boxShadow?.color}`
+		: "";
 	return (
 		<div
 			{...useBlockProps.save({
@@ -42,6 +60,7 @@ export default function save({ attributes }) {
 				style: {
 					"--primary-background": `${bgColor}`,
 					"--primary-text-color": `${textColor}`,
+					"--primary-font-size": `${typography.fontSize}px`,
 					"--ghost-text-color": `${ghostTextColor}`,
 					"--ghost-background": `${ghostBgColor}`,
 					"--sp-gradient-bg": gradColor,
@@ -58,6 +77,11 @@ export default function save({ attributes }) {
 					"--sp-padding-right": `${paddingControl.right}${paddingUnit}`,
 					"--sp-padding-bottom": `${paddingControl.bottom}${paddingUnit}`,
 					"--sp-padding-left": `${paddingControl.left}${paddingUnit}`,
+					// box shadow style
+					"--sp-box-shadow": `${shadowString}`,
+					"--sp-box-shadow-hover": `${shadowStringHover}`,
+					// icon gap style
+					"--sp-icon-gap": `${iconGap}px`,
 
 					// hover styles
 					// button hover background color
@@ -78,11 +102,19 @@ export default function save({ attributes }) {
 			})}
 		>
 			<Button
+				isFrontend={true}
 				variant={variant}
 				hoverEffect={hoverEffect}
 				link={btnUrl}
 				openNewTab={openNewTab}
-				isFrontend={true}
+				isIconEnabled={isIconEnabled}
+				iconName={iconName}
+				customIcon={customIcon}
+				iconSize={iconSize}
+				iconColor={iconColor}
+				iconColorHover={hoverStyles.iconColor}
+				iconPosition={iconPosition}
+				iconSrcTab={iconSrcTab}
 			>
 				{text}
 			</Button>

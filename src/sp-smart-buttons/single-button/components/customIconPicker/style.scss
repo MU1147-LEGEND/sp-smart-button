@@ -1,0 +1,54 @@
+.sp-custom-icon-picker {
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #fff;
+	padding: 10px;
+}
+
+.sp-custom-icon-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.sp-custom-icon-label {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.sp-custom-icon-body {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.sp-custom-icon-box {
+	width: 42px;
+	height: 42px;
+	border-radius: 8px;
+	border: 1px solid #dcdcde;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.sp-custom-icon-preview {
+	width: 22px;
+	height: 22px;
+	object-fit: contain;
+	display: block;
+}
+
+.sp-custom-icon-empty {
+	font-size: 22px;
+	font-weight: 700;
+	color: #7a7a7a;
+	line-height: 1;
+}
+
+.sp-custom-icon-btn {
+	height: 38px;
+}

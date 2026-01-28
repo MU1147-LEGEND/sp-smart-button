@@ -11,6 +11,7 @@ a.sp-smart-button {
 	border-radius: var(--sp-radius-top_left) var(--sp-radius-top_right)
 		var(--sp-radius-bottom_right) var(--sp-radius-bottom_left);
 	font-weight: 500;
+	font-size: var(--primary-font-size, 14px);
 	text-decoration: none;
 	text-align: center;
 	display: flex;
@@ -322,20 +323,17 @@ span.btn-container,
 	transition: box-shadow 0.3s ease-in !important;
 }
 
-.is-default.is-hover-multi-layers:before {
-	position: absolute;
-	content: "";
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
-	transition: box-shadow 0.3s ease-in !important;
-}
-
 .is-default.is-hover-multi-layers:hover {
 	box-shadow:
-		7px 7px color-mix(in srgb, var(--primary-background) 50%, black),
-		-7px -7px color-mix(in srgb, var(--sp-hover-bg-color) 20%, white);
+		7px 7px color-mix(in srgb, var(--primary-background, #0d6efd) 40%, black),
+		-7px -7px color-mix(in srgb, var(--sp-hover-bg-color, #ff00c8) 30%, white);
+
+	// box-shadow:
+	// 	rgba(100, 29, 215, 0.5) 4px 4px,
+	// 	rgba(100, 29, 215, 0.4) 8px 8px,
+	// 	rgba(100, 29, 215, 0.3) 12px 12px,
+	// 	rgba(100, 29, 215, 0.2) 16px 16px,
+	// 	rgba(100, 29, 215, 0.1) 20px 20px; // for multi layer with RGB values.
 
 	cursor: pointer;
 	&::before {
@@ -351,6 +349,10 @@ span.btn-container,
 	color: var(--primary-text-color, #002bff);
 	background-color: transparent !important;
 	position: relative;
+
+	svg {
+		z-index: 99;
+	}
 
 	&:hover {
 		&:after {
@@ -368,7 +370,7 @@ span.btn-container,
 		top: 0;
 		left: 0;
 		opacity: 0;
-		background-color: var(--sp-hover-bg-color, #818cf8);
+		background-color: var(--sp-hover-bg-color, #aa088d);
 		border-radius: inherit;
 		width: 100%;
 		height: 100%;
@@ -389,7 +391,7 @@ span.btn-container,
 		top: 0;
 		left: 0;
 		opacity: 1;
-		background-color: var(--primary-background);
+		background-color: var(--primary-background, #2563eb);
 		border-radius: inherit;
 		width: 100%;
 		height: 100%;
@@ -525,32 +527,22 @@ span.btn-container,
 
 /* skewed sliding layer */
 .is-ghost.is-hover-slide-skew::before {
-	// content: "";
-	// position: absolute;
-	// top: -46px;
-	// left: -209%;
-	// width: 200%;
-	// height: 363%;
-	// background: var(--sp-hover-ghost-bg-color, #0d6efd);
-	// transform: rotate(45deg);
-	// transition: left 0.45s ease-in-out;
-	// z-index: -1;
 	content: "";
-    position: absolute;
-    top: -150%;
-    left: -325%;
-    width: 400%;
-    height: 800%;
-    background: var(--sp-hover-ghost-bg-color, #0d6efd);
-    transform: rotate(45deg);
-    transition: left 0.3s ease-in-out;
-    z-index: -1;
+	position: absolute;
+	top: -150%;
+	left: -325%;
+	width: 400%;
+	height: 800%;
+	background: var(--sp-hover-ghost-bg-color, #0d6efd);
+	transform: rotate(45deg);
+	transition: left 0.3s ease-in-out;
+	z-index: -1;
 }
 
 /* hover */
 .is-ghost.is-hover-slide-skew:hover::before {
 	// left: -10%;
-	    left: -150%;
+	left: -150%;
 }
 
 .is-ghost.is-hover-slide-skew:hover {
@@ -703,7 +695,33 @@ span.btn-container,
 // Open new tab button toggler style
 
 // button icon enabled styles
-.sp-has-icon{
+.sp-smart-button.sp-has-icon {
 	display: flex;
-	gap: 12px;
+	gap: var(--sp-icon-gap);
+
+	&.icon-left {
+		flex-direction: row-reverse;
+	}
+	&.icon-top {
+		flex-direction: column-reverse;
+	}
+	&.icon-bottom {
+		flex-direction: column;
+	}
+
+	.sp-smart-button-icon {
+		display: inline-flex;
+		align-items: center;
+		color: var(--sp-icon-color, currentColor);
+		transition: color 0.25s ease-in-out;
+		svg {
+			display: block;
+		}
+	}
+
+	&:hover {
+		.sp-smart-button-icon {
+			color: var(--sp-icon-color-hover, var(--sp-icon-color, currentColor));
+		}
+	}
 }

@@ -119,6 +119,35 @@
 			"type": "string",
 			"default": ""
 		},
+		"iconSize": {
+			"type": "number",
+			"default": 18
+		},
+		"iconStyleTabs": {
+			"type": "string",
+			"default": "normal"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#FFF"
+		},
+		"iconGap": {
+			"type": "number",
+			"default": 14
+		},
+		"iconPosition": {
+			"type": "string",
+			"default": "right"
+		},
+		"customIcon": {
+			"type": "object",
+			"default": {
+				"id": 0,
+				"url": "",
+				"alt": "",
+				"mime": ""
+			}
+		},
 		"hoverStyles": {
 			"type": "object",
 			"default": {
@@ -145,7 +174,8 @@
 					"blur": 15,
 					"spread": 2,
 					"color": "rgba(0,0,0,0.45)"
-				}
+				},
+				"iconColor": "#000"
 			},
 			"properties": {
 				"bgColor": {
@@ -204,6 +234,9 @@
 					"blur": { "type": "number" },
 					"spread": { "type": "number" },
 					"color": { "type": "string" }
+				},
+				"iconColor": {
+					"type": "string"
 				}
 			}
 		},
@@ -211,7 +244,7 @@
 		"typography": {
 			"type": "object",
 			"default": {
-				"fontSize": 12,
+				"fontSize": 14,
 				"lineHeight": "1",
 				"letterSpacing": "",
 				"fontFamily": ""

@@ -1,8 +1,6 @@
 import { LineHeightControl } from "@wordpress/block-editor";
 import { FontSizePicker } from "@wordpress/components";
 
-
-
 const TypographyPanel = ({ value, onChange }) => {
 	const fontSizes = [
 		{
@@ -13,12 +11,22 @@ const TypographyPanel = ({ value, onChange }) => {
 		{
 			name: "Medium",
 			slug: "medium",
+			size: 14,
+		},
+		{
+			name: "Large",
+			slug: "large",
 			size: 18,
 		},
 		{
-			name: "Big",
-			slug: "big",
+			name: "Extra Large",
+			slug: "xl",
 			size: 26,
+		},
+		{
+			name: "2XL",
+			slug: "xxl",
+			size: 32,
 		},
 	];
 	return (
@@ -27,9 +35,9 @@ const TypographyPanel = ({ value, onChange }) => {
 				value={value.fontSize}
 				fontSizes={fontSizes}
 				onChange={(size) => onChange({ ...value, fontSize: size })}
-                fallbackFontSize={12}
-                withReset
-                withSlider
+				fallbackFontSize={12}
+				withReset
+				withSlider
 			/>
 
 			<LineHeightControl

@@ -57,8 +57,6 @@
 	font-weight: 500;
 }
 
-
-
 // inspector styles main block end
 
 .wp-block-sp-smart-buttons {
@@ -88,8 +86,15 @@
 	}
 	.block-editor-block-list__layout {
 		display: flex;
+		align-items: center;
 		flex-wrap: wrap;
 		width: 100%;
+	}
+	.block-list-appender {
+		position: unset !important;
+		padding: 12px 16px;
+		background-color: #ababab25;
+		border: 1px dotted ababab66;
 	}
 
 	&.has-full-width-buttons {
@@ -99,12 +104,12 @@
 				gap: var(--sp-button-gap);
 				& > .block-editor-block-list__block.wp-block {
 					flex: 1 1
-					calc(
-						(100% - (var(--sp-btn-count) - 1) * var(--sp-button-gap)) /
-							var(--sp-btn-count)
-					);
-				// min-width: 220px;
-				min-width: max-content;
+						calc(
+							(100% - (var(--sp-btn-count) - 1) * var(--sp-button-gap)) /
+								var(--sp-btn-count)
+						);
+					// min-width: 220px;
+					min-width: max-content;
 				}
 			}
 		}
@@ -234,4 +239,21 @@
 	align-items: unset !important;
 }
 
+.sp-control {
+	margin-top: 15px;
+
+	.components-range-control__wrapper {
+		.components-range-control__track {
+			background-color: #884ae3 !important;
+		}
+		.components-range-control__thumb-wrapper {
+			span {
+				background-color: #884ae3;
+				&::before {
+					background-color: #884ae3;
+				}
+			}
+		}
+	}
+}
 // testing classes

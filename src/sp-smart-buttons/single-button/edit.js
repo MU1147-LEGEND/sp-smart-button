@@ -3,10 +3,11 @@ import {
 	GradientPicker,
 	Panel,
 	PanelBody,
-	Popover,
+	RangeControl,
 	TextControl,
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
+import BoxShadowControl from "../components/boxShadowControl";
 import TabToggle from "../components/tabToggle";
 import SpToggleControl from "../components/toggleControl";
 import ToolbarHeader from "../components/toolbarHeader";
@@ -15,15 +16,17 @@ import BorderRadiusControl from "./components/borderRadiusControl";
 import Button from "./components/Button";
 import ButtonContainer from "./components/ButtonContainer";
 import ColorControl from "./components/colorControlButton";
+import IconLibraryPopup from "./components/iconLibraryPopup";
 import PaddingControl from "./components/paddingControl";
 import RangeControlMarks from "./components/rangeControlMarks";
 import TypographyPopover from "./components/TypographyPopover";
 import "./single-button-editor.scss";
-import BoxShadowControl from "../components/boxShadowControl";
-import IconPicker from "./components/iconPicker";
-import IconLibraryPopup from "./components/iconLibraryPopup";
+import { useEffect } from "@wordpress/element";
+import SpSelectControl from "../components/spSelectControl";
+import CustomIconPicker from "./components/customIconPicker";
 
-export default function Edit({ attributes, setAttributes, clientId }) {
+export default function Edit({ attributes, setAttributes }) {
+	
 	const {
 		text,
 		btnUrl,
@@ -51,16 +54,36 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		isIconEnabled,
 		iconSrcTab,
 		iconName,
+		iconSize,
+		iconStyleTabs,
+		iconColor,
+		iconGap,
+		iconPosition,
+		customIcon,
 	} = attributes;
 
 	const handleButtonClick = (btnVariant) => {
 		setAttributes({ variant: btnVariant });
 	};
 
+	// change icon color for ghost buttons (only first time)
+	useEffect(() => {
+		if (variant === "ghost" && iconColor === "#FFF") {
+			setAttributes({ iconColor: "#000" });
+		}
+	}, [variant]);
+
 	// tab options
 	const options = ["normal", "hover"];
 	const btnLblTabOptions = ["normal", "hover"];
 	const iconSrcOptions = ["library", "custom"];
+	const iconStyleTabOptions = ["normal", "hover"];
+	const iconPositionOptions = [
+		{ label: "Left", value: "left" },
+		{ label: "Right", value: "right" },
+		{ label: "Top", value: "top" },
+		{ label: "Bottom", value: "bottom" },
+	];
 
 	const variants = ["default", "ghost", "gradient"];
 	const hoverEffects = [
@@ -141,6 +164,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				style: {
 					"--primary-background": `${bgColor}`,
 					"--primary-text-color": `${textColor}`,
+					"--primary-font-size": `${typography.fontSize}px`,
 					"--ghost-text-color": `${ghostTextColor}`,
 					"--ghost-background": `${ghostBgColor}`,
 					"--sp-gradient-bg": gradColor,
@@ -160,6 +184,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					// box shadow style
 					"--sp-box-shadow": `${shadowString}`,
 					"--sp-box-shadow-hover": `${shadowStringHover}`,
+					// icon gap style
+					"--sp-icon-gap": `${iconGap}px`,
 
 					// hover styles
 					// button hover background color
@@ -209,7 +235,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 										<span
 											className="btn-container"
 											style={{
-												"--primary-background": `${bgColor}`,
+												// "--primary-background": `${bgColor}`,
 												"--primary-text-color": `${textColor}`,
 											}}
 										>
@@ -614,14 +640,15 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						{/* typography controls */}
 						<TypographyPopover
 							typography={typography}
-							onChange={(newTypography) =>
+							onChange={(newTypography) => {
 								setAttributes({
 									typography: {
 										...typography,
 										...newTypography,
 									},
-								})
-							}
+								});
+								console.log(typography);
+							}}
 						/>
 
 						{/* normal/hover tabs */}
@@ -736,7 +763,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					</PanelBody>
 
 					{/* button icon */}
-					<PanelBody title={__("Icon", "sp-smart-button")} initialOpen={true}>
+					<PanelBody title={__("Icon", "sp-smart-button")}>
 						<SpToggleControl
 							label={__("Icon", "sp-smart-button")}
 							isToggle={isIconEnabled}
@@ -761,7 +788,93 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 										}
 									/>
 								)}
-								{iconSrcTab === "custom" && <h1> Coming Soon...</h1>}
+								{iconSrcTab === "custom" && (
+									<CustomIconPicker
+										value={customIcon}
+										onChange={(val) => setAttributes({ customIcon: val })}
+									/>
+								)}
+
+								{/* icon size */}
+								<div className="sp-control">
+									<ToolbarHeader
+										label={__("Icon Size")}
+										handleReset={() => setAttributes({ iconSize: 18 })}
+										hasUnit={false}
+									/>
+									<RangeControl
+										value={iconSize}
+										onChange={(newSize) => setAttributes({ iconSize: newSize })}
+										min={8}
+										max={50}
+									/>
+								</div>
+
+								{/* normal/hover toggler */}
+								<TabToggle
+									value={iconStyleTabs}
+									tabOptions={iconStyleTabOptions}
+									onChange={(newOption) =>
+										setAttributes({ iconStyleTabs: newOption })
+									}
+								/>
+								{/* icon normal state styles */}
+								{iconStyleTabs === "normal" && (
+									<>
+										<ColorControl
+											label={__("Color", "sp-smart-button")}
+											value={iconColor}
+											onChange={(newColor) =>
+												setAttributes({ iconColor: newColor })
+											}
+											onReset={() => setAttributes({ iconColor: "#FFF" })}
+										/>
+									</>
+								)}
+								{/* icon hover state styles */}
+								{iconStyleTabs === "hover" && (
+									<ColorControl
+										label={__("Color", "sp-smart-button")}
+										value={hoverStyles.iconColor}
+										onChange={(newColor) =>
+											setAttributes({
+												hoverStyles: {
+													...hoverStyles,
+													iconColor: newColor,
+												},
+											})
+										}
+										onReset={() =>
+											setAttributes({
+												hoverStyles: {
+													...hoverStyles,
+													iconColor: "#000",
+												},
+											})
+										}
+									/>
+								)}
+
+								<div className="sp-control">
+									<ToolbarHeader
+										label={__("Icon Gap")}
+										handleReset={() => setAttributes({ iconGap: 12 })}
+										hasUnit={false}
+									/>
+									<RangeControl
+										value={iconGap}
+										onChange={(newGap) => setAttributes({ iconGap: newGap })}
+										min={0}
+										max={100}
+									/>
+								</div>
+
+								<SpSelectControl
+									label="Icon Position"
+									value={iconPosition}
+									options={iconPositionOptions}
+									onChange={(val) => setAttributes({ iconPosition: val })}
+								/>
 							</>
 						)}
 					</PanelBody>
@@ -776,6 +889,12 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				openNewTab={openNewTab}
 				isIconEnabled={isIconEnabled}
 				iconName={iconName}
+				customIcon={customIcon}
+				iconSize={iconSize}
+				iconColor={iconColor}
+				iconColorHover={hoverStyles.iconColor}
+				iconPosition={iconPosition}
+				iconSrcTab={iconSrcTab}
 			>
 				{text}
 			</Button>

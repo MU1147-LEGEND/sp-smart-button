@@ -44,7 +44,7 @@ const BoxShadowControl = ({ label, value = DEFAULT_SHADOW, onChange }) => {
 			/>
 
 			{/* Sliders */}
-			<div className="sp-box-shadow-sliders">
+			<div className="sp-box-shadow-sliders sp-control">
 				<RangeControl
 					label="X"
 					value={shadow.x}

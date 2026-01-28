@@ -1,0 +1,24 @@
+.sp-smart-button-select-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin: 12px 0;
+}
+
+.sp-smart-button-select-label {
+	font-size: 13px;
+	font-weight: 500;
+	color: #1e1e1e;
+}
+
+.sp-smart-button-select-field {
+	.components-base-control {
+		margin-bottom: 0;
+	}
+
+	select.components-select-control__input {
+		min-height: 40px;
+		border-radius: 6px;
+	}
+}

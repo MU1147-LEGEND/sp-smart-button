@@ -19,7 +19,7 @@ const RangeControlMarks = ({
 	marks,
 }) => {
 	return (
-		<div>
+		<div className="sp-control">
 			<RangeControl
 				value={value}
 				step={step}
