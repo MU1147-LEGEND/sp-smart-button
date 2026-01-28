@@ -64,7 +64,9 @@ span.btn-container,
 			var(--sp-padding-bottom) var(--sp-padding-left);
 		border: var(--sp-border-w) solid var(--sp-border-color);
 		box-shadow: var(--sp-box-shadow);
-		transition: box-shadow 0.3s ease-in;
+		transition:
+			box-shadow 0.3s ease-in,
+			background 0.3s ease-in;
 		&:hover {
 			border: var(--sp-border-w-hover) solid var(--sp-border-color-hover);
 			box-shadow: var(--sp-box-shadow-hover);
@@ -74,7 +76,6 @@ span.btn-container,
 	.sp-smart-button.is-default {
 		background: var(--primary-background);
 		color: var(--primary-text-color);
-		transition: background 0.3s ease-in;
 
 		&:hover {
 			background-color: var(--sp-hover-bg-color);
