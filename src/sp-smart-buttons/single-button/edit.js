@@ -21,12 +21,13 @@ import PaddingControl from "./components/paddingControl";
 import RangeControlMarks from "./components/rangeControlMarks";
 import TypographyPopover from "./components/TypographyPopover";
 import "./single-button-editor.scss";
-import { useEffect } from "@wordpress/element";
+import { useEffect, useState } from "@wordpress/element";
 import SpSelectControl from "../components/spSelectControl";
 import CustomIconPicker from "./components/customIconPicker";
+import PanelBanner from "../components/bannerShowPanel";
 
 export default function Edit({ attributes, setAttributes }) {
-	
+	const [openPanel, setOpenPanel] = useState("general");
 	const {
 		text,
 		btnUrl,
@@ -64,6 +65,9 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const handleButtonClick = (btnVariant) => {
 		setAttributes({ variant: btnVariant });
+	};
+	const handlePanelToggle = (panelName) => {
+		setOpenPanel((prev) => (prev === panelName ? "" : panelName));
 	};
 
 	// change icon color for ghost buttons (only first time)
@@ -206,11 +210,13 @@ export default function Edit({ attributes, setAttributes }) {
 			})}
 		>
 			<InspectorControls>
+				<PanelBanner label="Smart Button" />
 				<Panel>
 					{/* button style */}
 					<PanelBody
 						title={__("General", "sp-smart-button")}
-						initialOpen={true}
+						opened={openPanel === "general"}
+						onToggle={() => handlePanelToggle("general")}
 					>
 						<>
 							<h3>Buttons Style</h3>
@@ -626,7 +632,8 @@ export default function Edit({ attributes, setAttributes }) {
 					{/* button Label */}
 					<PanelBody
 						title={__("Button Label", "sp-smart-button")}
-						initialOpen={false}
+						opened={openPanel === "btnLabel"}
+						onToggle={() => handlePanelToggle("btnLabel")}
 					>
 						<h3>Button Label</h3>
 						<TextControl
@@ -647,7 +654,6 @@ export default function Edit({ attributes, setAttributes }) {
 										...newTypography,
 									},
 								});
-								console.log(typography);
 							}}
 						/>
 
@@ -763,7 +769,11 @@ export default function Edit({ attributes, setAttributes }) {
 					</PanelBody>
 
 					{/* button icon */}
-					<PanelBody title={__("Icon", "sp-smart-button")}>
+					<PanelBody
+						title={__("Icon", "sp-smart-button")}
+						opened={openPanel === "icon"}
+						onToggle={() => handlePanelToggle("icon")}
+					>
 						<SpToggleControl
 							label={__("Icon", "sp-smart-button")}
 							isToggle={isIconEnabled}

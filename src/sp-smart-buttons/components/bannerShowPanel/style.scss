@@ -1,0 +1,20 @@
+.sp-panel-banner {
+	background: linear-gradient(90deg, #b53361 0%, #e2572c 65.02%);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 14px 16px;
+}
+.sp-panel-banner-left {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	p {
+        color: #FFF;
+        font-size: 14px;
+		margin: auto !important;
+		margin-left: 12px !important;
+	}
+}
+.sp-panel-banner-right {
+}

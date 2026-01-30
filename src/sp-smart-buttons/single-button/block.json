@@ -6,6 +6,17 @@
 	"category": "shapedplugin",
 	"version": "0.1.0",
 	"title": "Single Button",
+	"description": "A child block of Smart Button",
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"name": "sp/single-button",
+		"attributes": {
+			"text": "Get Offer",
+			"variant": "gradient"
+		}
+	},
 	"attributes": {
 		"text": {
 			"type": "string",

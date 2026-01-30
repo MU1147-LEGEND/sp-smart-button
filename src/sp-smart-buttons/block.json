@@ -3,11 +3,86 @@
 	"apiVersion": 3,
 	"name": "sp/smart-buttons",
 	"version": "0.1.1",
-	"title": "Sp Smart Button",
+	"title": "SP Smart Button",
 	"category": "shapedplugin",
 	"icon": "smiley",
 	"description": "A smart button block.",
-	"example": {},
+	"example": {
+		"attributes": {
+			"direction": "horizontal",
+			"align": "center",
+			"buttonGap": 12,
+			"buttonGapUnit": "px",
+			"isFullWidthButtons": false
+		},
+		"innerBlocks": [
+			{
+				"name": "sp/single-button",
+				"attributes": {
+					"text": "Get Started",
+					"variant": "default"
+				}
+			},
+			{
+				"name": "sp/single-button",
+				"attributes": {
+					"text": "Learn More",
+					"variant": "default"
+				}
+			},
+			{
+				"name": "sp/single-button",
+				"attributes": {
+					"text": "Explore",
+					"variant": "default"
+				}
+			},
+
+			{
+				"name": "sp/single-button",
+				"attributes": {
+					"text": "Show Pricing",
+					"variant": "ghost"
+				}
+			},
+			{
+				"name": "sp/single-button",
+				"attributes": {
+					"text": "Join Now",
+					"variant": "ghost"
+				}
+			},
+			{
+				"name": "sp/single-button",
+				"attributes": {
+					"text": "Hover Effect",
+					"variant": "ghost"
+				}
+			},
+
+			{
+				"name": "sp/single-button",
+				"attributes": {
+					"text": "Contact Us",
+					"variant": "gradient"
+				}
+			},
+			{
+				"name": "sp/single-button",
+				"attributes": {
+					"text": "Sign Up",
+					"variant": "gradient"
+				}
+			},
+			{
+				"name": "sp/single-button",
+				"attributes": {
+					"text": "Get Offer",
+					"variant": "gradient"
+				}
+			}
+		]
+	},
 	"supports": {
 		"html": false,
 		"align": ["wide", "full"]

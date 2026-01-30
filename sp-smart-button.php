@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name:       Sp Smart Button
+ * Plugin Name:       SP Smart Button
  * Description:       A smart button block.
  * Version:           0.1.0
  * Requires at least: 6.7

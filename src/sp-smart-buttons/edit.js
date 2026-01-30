@@ -13,6 +13,7 @@ import VerticalAlignmentControl from "./components/VerticalAlignment/VerticalAli
 import "./editor.scss";
 import { useSelect } from "@wordpress/data";
 import SpToggleControl from "./components/toggleControl";
+import PanelBanner from "./components/bannerShowPanel";
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
@@ -65,6 +66,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			})}
 		>
 			<InspectorControls>
+				<PanelBanner label="SP Smart Buttons" />
 				<PanelBody title={__("General", "sp-smart-button")}>
 					<h3>Button Alignment</h3>
 					<TabToggle
@@ -127,6 +129,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 			<InnerBlocks
 				allowedBlocks={["sp/single-button"]}
+				template={[["sp/single-button", { btnText: "Button 1" }]]}
 				orientation={direction}
 			/>
 		</div>
