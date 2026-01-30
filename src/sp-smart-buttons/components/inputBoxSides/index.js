@@ -1,7 +1,6 @@
 import { Button } from "@wordpress/components";
 import { useState } from "@wordpress/element";
 import { link, linkOff } from "@wordpress/icons";
-import "./style.scss";
 
 const InputBoxSides = ({ value, onChange }) => {
 	const [linked, setLinked] = useState(false);

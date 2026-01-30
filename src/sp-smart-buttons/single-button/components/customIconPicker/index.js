@@ -1,7 +1,6 @@
 import { Button } from "@wordpress/components";
 import { MediaUpload, MediaUploadCheck } from "@wordpress/block-editor";
 import { useMemo } from "@wordpress/element";
-import "./style.scss";
 
 const ALLOWED_TYPES = [
 	"image/svg+xml",

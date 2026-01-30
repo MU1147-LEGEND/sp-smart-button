@@ -1,7 +1,6 @@
 import { RangeControl } from "@wordpress/components";
 import { useState } from "@wordpress/element";
 import ToolbarHeader from "../toolbarHeader/index.js";
-import "./style.scss";
 
 const ButtonGap = ({
 	label = "Button Gap",

@@ -2,7 +2,6 @@ import { Button, TextControl } from "@wordpress/components";
 import { useMemo, useState } from "@wordpress/element";
 import * as FaIcons from "react-icons/fa";
 import useDebounce from "../../hooks/useDebounce";
-import "./style.scss";
 
 const IconPicker = ({
 	value = "",

@@ -1,7 +1,6 @@
 import { useState } from "@wordpress/element";
 import DesktopIcon from "../icons/DesktopIcon";
 import PhoneIcon from "../icons/PhoneIcon";
-import "./style.scss";
 
 const DEVICES = [
 	{

@@ -1,5 +1,4 @@
 import { ToggleControl as WPToggleControl } from "@wordpress/components";
-import "./style.scss";
 
 const SpToggleControl = ({ isToggle = false, label = "", onChange }) => {
 	return (

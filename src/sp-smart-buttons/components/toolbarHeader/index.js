@@ -1,9 +1,8 @@
+import { Button } from "@wordpress/components";
 import { useState } from "@wordpress/element";
 import UnitDropdown from "../buttonGap/UnitDropdown";
-import DeviceDropDown from "../responsiveViewDropDown";
-import { Button } from "@wordpress/components";
-import "./style.scss";
 import ResetIcon from "../icons/resetIcon";
+import DeviceDropDown from "../responsiveViewDropDown";
 
 const ToolbarHeader = ({
 	label,

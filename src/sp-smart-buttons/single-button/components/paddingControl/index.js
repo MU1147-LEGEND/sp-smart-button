@@ -1,6 +1,5 @@
 import InputBoxSides from "../../../components/inputBoxSides";
 import ToolbarHeader from "../../../components/toolbarHeader";
-import "./style.scss";
 
 const DEFAULT_VALUES = {
 	top: 9,

@@ -1,3 +1,26 @@
+// import nested styles
+/* main style first */
+@use "./components/responsiveViewDropDown/style.scss" as *;
+@use "./components/bannerShowPanel/style.scss" as *;
+@use "./components/boxShadowControl/style.scss" as *;
+@use "./components/buttonGap/style.scss" as *;
+@use "./components/buttonGap/unitdropdown.scss" as *;
+@use "./components/inputBoxCorners/style.scss" as *;
+@use "./components/marginControl/style.scss" as *;
+@use "./components/responsiveViewDropDown/style.scss" as *;
+@use "./components/spSelectControl/style.scss" as *;
+@use "./components/toggleControl/style.scss" as *;
+@use "./components/toolbarHeader/style.scss" as *;
+
+/* single button component styles */
+@use "./single-button/components/colorControlButton/style.scss" as *;
+@use "./single-button/components/paddingControl/style.scss" as *;
+@use "./single-button/components/customIconPicker/style.scss" as *;
+@use "./single-button/components/iconPicker/style.scss" as *;
+@use "./single-button/components/TypographyPopover/style.scss" as *;
+@use "./single-button/components/iconLibraryPopup/style.scss" as *;
+// import nested styles
+
 a.sp-smart-button {
 	padding: 0.6em 1.2em;
 	border-radius: 6px;

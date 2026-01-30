@@ -3,7 +3,6 @@ import { useEffect, useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 import ColorControl from "../../single-button/components/colorControlButton";
 import ToolbarHeader from "../toolbarHeader";
-import "./style.scss";
 
 const DEFAULT_SHADOW = {
 	x: 0,

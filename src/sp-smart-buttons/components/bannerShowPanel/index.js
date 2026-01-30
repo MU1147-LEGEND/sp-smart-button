@@ -1,7 +1,5 @@
-import React from "react";
-import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { ReactComponent as Capa } from "../../assets/Capa_1.svg";
-import "./style.scss";
+import { ReactComponent as Logo } from "../../assets/Logo.svg";
 
 const PanelBanner = ({ label }) => {
 	return (

@@ -1,6 +1,4 @@
 import { SelectControl } from "@wordpress/components";
-import "./style.scss";
-
 /**
  * @param {string} label
  * @param {string} value

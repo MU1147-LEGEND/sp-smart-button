@@ -2,7 +2,6 @@ import { Button, ColorPicker, Popover } from "@wordpress/components";
 import { useState } from "@wordpress/element";
 
 import ResetIcon from "../../../components/icons/resetIcon";
-import "./style.scss";
 
 const ColorControl = ({
 	label = "Background Color",

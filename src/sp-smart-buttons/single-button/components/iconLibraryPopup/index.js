@@ -2,7 +2,6 @@ import { Button, Popover } from "@wordpress/components";
 import { useState } from "@wordpress/element";
 import * as FaIcons from "react-icons/fa";
 import IconPicker from "../iconPicker";
-import "./style.scss";
 
 const IconLibraryPopup = ({ value = "", onChange }) => {
 	const [open, setOpen] = useState(false);

@@ -1,5 +1,4 @@
 import { useState } from "@wordpress/element";
-import "./unitdropdown.scss";
 
 const UnitDropdown = ({ value = "px", onChange }) => {
 	const [open, setOpen] = useState(false);

@@ -1,6 +1,5 @@
 import { Button, Popover } from "@wordpress/components";
 import { useState } from "@wordpress/element";
-import "./style.scss";
 import TypographyPanel from "./TypographyPanel";
 
 const TypographyPopover = ({ typography, onChange }) => {
